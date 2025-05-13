@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["Medidas","Consulta1"]
+annotation PBI_QueryOrder = ["Medidas","fatf_item_nota"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -19,8 +19,9 @@ ref table dCalendario
 ref table LocalDateTable_ffb9adea-9e50-446f-afac-b66c832dc0ea
 ref table Medidas
 ref table 'Parâmetro Produtos'
-ref table Consulta1
-ref table LocalDateTable_b4590983-93af-4a75-8193-5016f0076f7b
+ref table fatf_item_nota
+ref table LocalDateTable_5946dae1-4643-42a0-bee2-2c1d910951b0
+ref table LocalDateTable_8739a78f-130d-4083-b13e-a0ba0427b26a
 
 ref cultureInfo pt-BR
 

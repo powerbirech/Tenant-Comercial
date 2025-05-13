@@ -3,8 +3,13 @@ relationship 73be133d-fd7b-41d8-a144-f9812bb8fc94
 	fromColumn: dCalendario.Date
 	toColumn: LocalDateTable_ffb9adea-9e50-446f-afac-b66c832dc0ea.Date
 
-relationship 374750e4-313b-4ed5-8ef8-64d1dd06b874
+relationship 9f9da13d-6908-47b8-98d7-b66c0cb124f4
 	joinOnDateBehavior: datePartOnly
-	fromColumn: Consulta1.Faturamento_Data
-	toColumn: LocalDateTable_b4590983-93af-4a75-8193-5016f0076f7b.Date
+	fromColumn: fatf_item_nota.inf_data_registro
+	toColumn: LocalDateTable_5946dae1-4643-42a0-bee2-2c1d910951b0.Date
+
+relationship 79a6b42c-9b33-4ace-a23d-6c7cfa804328
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fatf_item_nota.inf_data_devolvida
+	toColumn: LocalDateTable_8739a78f-130d-4083-b13e-a0ba0427b26a.Date
 
