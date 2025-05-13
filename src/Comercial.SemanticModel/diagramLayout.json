@@ -1,0 +1,86 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 2333.2107466306006,
+            "y": 1476.9378562678771
+          },
+          "nodeIndex": "dCalendario",
+          "nodeLineageTag": "aa30412e-cf5b-4e93-808c-ba5ee449edc2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 8283.72327883072,
+            "y": 1363.383780395945
+          },
+          "nodeIndex": "Medidas",
+          "nodeLineageTag": "ddaa06e9-5d3e-46a3-b368-bb61d2b74519",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 8567.72327883072,
+            "y": 1112.5358183319108
+          },
+          "nodeIndex": "Parâmetro Produtos",
+          "nodeLineageTag": "c4aae943-a1d7-4b56-858a-1d282657047f",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8801.72327883072,
+            "y": 760.89053987993645
+          },
+          "nodeIndex": "proc_fat_analise_comercial",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9035.72327883072,
+            "y": 611.6538381539491
+          },
+          "nodeIndex": "proc_fat_produto",
+          "nodeLineageTag": "f152d5ae-9d35-43f9-acd1-4b17a6332ec6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 10,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

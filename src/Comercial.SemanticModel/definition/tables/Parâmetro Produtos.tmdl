@@ -1,0 +1,50 @@
+table 'Parâmetro Produtos'
+	lineageTag: c4aae943-a1d7-4b56-858a-1d282657047f
+
+	column 'Parâmetro Produtos'
+		lineageTag: b0d7cea9-1bc7-4442-b173-6e067989d6d8
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Produtos Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Produtos Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Produtos Campos'
+		isHidden
+		lineageTag: dbada1fb-1263-4772-8e3a-121eb40bc057
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Produtos Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Produtos Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 09074ec6-1186-4f6b-829d-4054813bf9b6
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Produtos' = calculated
+		mode: import
+		source =
+				{
+				    ("Valor Faturado", NAMEOF('Medidas'[Valor Faturado]), 0),
+				    ("Valor Devolvido", NAMEOF('Medidas'[Valor Devolvido]), 1),
+				    ("Positivação", NAMEOF('Medidas'[Positivação]), 2),
+				    ("Capilaridade", NAMEOF('Medidas'[Capilaridade]), 3)
+				}
+
+	annotation PBI_Id = cb1dcbd98dd845c28ac0342f573878e5
+

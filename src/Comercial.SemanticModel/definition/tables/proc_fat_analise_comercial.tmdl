@@ -1,0 +1,119 @@
+table proc_fat_analise_comercial
+	lineageTag: 41cce712-5eab-465d-88c0-668b75ff823c
+
+	column Faturamento_Valor
+		dataType: double
+		lineageTag: 07f55474-f005-41ab-a5ac-2f6c0b33ee22
+		summarizeBy: sum
+		sourceColumn: Faturamento_Valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Faturamento_Sigla
+		dataType: string
+		lineageTag: db4f4fd7-db30-4c1e-8c1f-d2d1e90a5e53
+		summarizeBy: none
+		sourceColumn: Faturamento_Sigla
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cliente_Codigo
+		dataType: int64
+		formatString: 0
+		lineageTag: 57944b0e-a2fc-4e6a-9195-ee94d7d6be94
+		summarizeBy: sum
+		sourceColumn: Cliente_Codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cliente_Nome
+		dataType: string
+		lineageTag: 187b49e4-7024-4fd3-bd19-0954d89d5976
+		summarizeBy: none
+		sourceColumn: Cliente_Nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cliente_Cidade
+		dataType: string
+		lineageTag: d8d8d60f-dec1-41ea-bb13-c70aac92ca2b
+		summarizeBy: none
+		sourceColumn: Cliente_Cidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cliente_UF
+		dataType: string
+		lineageTag: fd43d78e-c9f6-45a9-be9b-af2fee497539
+		summarizeBy: none
+		sourceColumn: Cliente_UF
+
+		annotation SummarizationSetBy = Automatic
+
+	column Representante_Nome
+		dataType: string
+		lineageTag: 4477def4-2825-47e9-9282-1a8555208361
+		summarizeBy: none
+		sourceColumn: Representante_Nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column Faturamento_Data
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 337a4ea0-f070-4a37-a356-10a23ac08c6d
+		summarizeBy: none
+		sourceColumn: Faturamento_Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column Holding_Nome
+		dataType: string
+		lineageTag: 8b8f4bd7-6bff-4933-aa9a-155b4d857d1a
+		summarizeBy: none
+		sourceColumn: Holding_Nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column GrupoCadastro_Nome
+		dataType: string
+		lineageTag: 21d28b8e-1afe-4523-9fde-71501d96bedc
+		summarizeBy: none
+		sourceColumn: GrupoCadastro_Nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column Meta_Mensal
+		dataType: double
+		lineageTag: b017bbb4-69ea-4989-86ff-0f63ab251beb
+		summarizeBy: sum
+		sourceColumn: Meta_Mensal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Meta_Diaria
+		dataType: double
+		lineageTag: 3973cb30-8349-46ed-a9d7-2e5d5d90d948
+		summarizeBy: sum
+		sourceColumn: Meta_Diaria
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition proc_fat_analise_comercial = m
+		mode: import
+		source =
+				let
+				    Fonte = MySQL.Database("192.168.255.133:3306", "nri_dm_hml_filtrobom", [ReturnSingleDatabase=true, Query="call proc_fat_analise_comercial"])
+				in
+				    Fonte
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

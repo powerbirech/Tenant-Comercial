@@ -1,0 +1,14 @@
+relationship 73be133d-fd7b-41d8-a144-f9812bb8fc94
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dCalendario.Date
+	toColumn: LocalDateTable_ffb9adea-9e50-446f-afac-b66c832dc0ea.Date
+
+relationship 7f9e5483-9225-c33c-261d-6e4e00d59e09
+	fromColumn: proc_fat_analise_comercial.Faturamento_Data
+	toColumn: dCalendario.Date
+
+relationship ef1f7dff-2229-4af1-95a8-0c1831128441
+	joinOnDateBehavior: datePartOnly
+	fromColumn: proc_fat_produto.ultima_venda
+	toColumn: LocalDateTable_ad9a9c26-9e1c-40c5-b115-d079d7887ed1.Date
+

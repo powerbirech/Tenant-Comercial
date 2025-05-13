@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Fabric_filtrobom"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "145e6bc7-60a6-4121-84b4-0cf5247270b6"
+  }
+}
