@@ -2,31 +2,31 @@
     "dev": {
         "spnSecret": "DEV",
         "capacity": "none",
-        "workspace": "AdventureWorks_DEV",
-        "adminUPNs": "9322eb4a-4132-4bd1-8df1-5cd3d1d2400b",
+        "workspace": "DESENVOLVIMENTO",
+        "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlServerInstance": "BOOK-PROIJR07F2",
-            "SqlServerDatabase": "AdventureWorksDW-DEV"
+            "SqlServerInstance": "192.168.255.133:3306",
+            "SqlServerDatabase": "nri_dm_hml_filtrobom"
         }
     },
     "staging": {
         "spnSecret": "STG",
         "capacity": "none",
-        "workspace": "AdventureWorks_STG",
-        "adminUPNs": "9322eb4a-4132-4bd1-8df1-5cd3d1d2400b",
+        "workspace": "HOMOLOGACAO",
+        "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlServerInstance": "BOOK-PROIJR07F2",
-            "SqlServerDatabase": "AdventureWorksDW-PRD"
+            "SqlServerInstance": "192.168.255.133:3306",
+            "SqlServerDatabase": "nri_dm_hml_filtrobom"
         }
     },
     "main": {
         "spnSecret": "PRD",
         "capacity": "none",
-        "workspace": "AdventureWorks_PRD",
-        "adminUPNs": "9322eb4a-4132-4bd1-8df1-5cd3d1d2400b",
+        "workspace": "PRODUCAO",
+        "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlServerInstance": "BOOK-PROIJR07F2",
-            "SqlServerDatabase": "AdventureWorksDW-PRD"
+            "SqlServerInstance": "192.168.255.133:3306",
+            "SqlServerDatabase": "nri_dm_hml_filtrobom"
         }
     }
 }
