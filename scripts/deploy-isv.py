@@ -16,9 +16,9 @@ src_folder = os.path.join(current_folder, "..", "src")
 
 config = read_pbip_jsonfile(args.config_file)
 
-semanticmodel_src = f"{src_folder}/semanticmodels/AdventureWorks"
+semanticmodel_src = f"{src_folder}/semanticmodels/Comercial"
 
-reports_src = [ f"{src_folder}/reports/AdventureWorks", f"{src_folder}/reports/Stocks"]
+reports_src = [ f"{src_folder}/reports/Comercial"]
 
 config_environments = config.items()
 
@@ -65,7 +65,7 @@ for key, value in config_environments:
     # Deploy semantic model
 
     semanticmodel_id = deploy_item(
-        "src/AdventureWorks.SemanticModel",
+        "src/Comercial.SemanticModel",
         workspace_name=workspace_name,
         find_and_replace={
             (
