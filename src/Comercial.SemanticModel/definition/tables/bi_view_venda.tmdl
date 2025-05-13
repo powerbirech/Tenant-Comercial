@@ -1,0 +1,117 @@
+table bi_view_venda
+	lineageTag: 6484b14e-1478-4af3-9928-76e8d30fb65a
+
+	column Pedido
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4305e409-05d2-41fd-a395-68fb9eba3a25
+		summarizeBy: sum
+		sourceColumn: Pedido
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item_Pedido
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5141e8bb-dee8-440e-8759-56323a64b972
+		summarizeBy: sum
+		sourceColumn: Item_Pedido
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sigla
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(3)
+		lineageTag: 9028ef2e-618b-4596-b3c7-a77db5f66e35
+		summarizeBy: none
+		sourceColumn: Sigla
+
+		annotation SummarizationSetBy = Automatic
+
+	column Codigo_Cliente
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3eba10ef-b33e-42ed-97c6-3ce65e28a7c7
+		summarizeBy: sum
+		sourceColumn: Codigo_Cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column Codigo_Produto
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 96b50c43-5096-4f54-9ea0-759a80efb769
+		summarizeBy: sum
+		sourceColumn: Codigo_Produto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Codigo_Representante
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 69a714fd-e0b2-4fd6-89ef-c3854a04838a
+		summarizeBy: sum
+		sourceColumn: Codigo_Representante
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantidade
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(12, 3)
+		lineageTag: eeee89a8-6628-49c7-b773-0a00fb3c2487
+		summarizeBy: sum
+		sourceColumn: Quantidade
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Valor
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(12, 2)
+		lineageTag: 8f8530dc-c61a-4a47-9e29-3be6ce7d427f
+		summarizeBy: sum
+		sourceColumn: Valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Data_Registro
+		dataType: dateTime
+		isNullable: false
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 88c1c67c-798d-4354-af46-dc6ac54eefc8
+		summarizeBy: none
+		sourceColumn: Data_Registro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition bi_view_venda = m
+		mode: directQuery
+		source =
+				let
+				    Fonte = MariaDB.Contents("192.168.255.133:3306", "nri_dm_hml_filtrobom", null),
+				    bi_view_venda_View = Fonte{[Name="bi_view_venda",Kind="View"]}[Data]
+				in
+				    bi_view_venda_View
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
