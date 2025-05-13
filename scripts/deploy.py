@@ -15,7 +15,7 @@ args = parser.parse_args()
 
 current_file = __file__
 current_folder = os.path.dirname(current_file)
-src_folder = os.path.join(current_folder, "..", "src", "adventureworks")
+src_folder = os.path.join(current_folder, "..", "src", "comercial")
 
 # Deployment parameters:
 spn_auth = args.spn_auth
@@ -45,7 +45,7 @@ workspace_id = create_workspace(workspace_name=workspace_name, capacity_name=cap
 
 # Deploy semantic model
 semanticmodel_id = deploy_item(
-    "src/AdventureWorks.SemanticModel",
+    "src/Comercial.SemanticModel",
     workspace_name=workspace_name,
     find_and_replace={
         (
