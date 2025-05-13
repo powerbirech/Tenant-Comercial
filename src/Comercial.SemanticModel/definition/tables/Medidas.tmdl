@@ -1,7 +1,7 @@
 table Medidas
 	lineageTag: ddaa06e9-5d3e-46a3-b368-bb61d2b74519
 
-	measure 'Valor Faturado' = SUM(proc_fat_analise_comercial[Faturamento_Valor]) +0
+	measure 'Valor Faturado' = SUM(Consulta1[Faturamento_Valor]) +0
 		lineageTag: 5d0bd0bb-2229-4979-bc9a-6689f99517a0
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}

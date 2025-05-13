@@ -20,16 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "proc_fat_analise_comercial"
+                      "Entity": "bi_view_venda"
                     }
                   },
-                  "Property": "Faturamento_Sigla"
+                  "Property": "Sigla"
                 }
               },
-              "queryRef": "proc_fat_analise_comercial.Faturamento_Sigla",
-              "nativeQueryRef": "Empresa",
-              "active": true,
-              "displayName": "Empresa"
+              "queryRef": "bi_view_venda.Sigla",
+              "nativeQueryRef": "Sigla",
+              "active": true
             }
           ]
         }

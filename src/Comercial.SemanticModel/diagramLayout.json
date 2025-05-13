@@ -11,7 +11,7 @@
         {
           "location": {
             "x": 2333.2107466306006,
-            "y": 1476.9378562678771
+            "y": 2403.4402295008017
           },
           "nodeIndex": "dCalendario",
           "nodeLineageTag": "aa30412e-cf5b-4e93-808c-ba5ee449edc2",
@@ -24,7 +24,7 @@
         {
           "location": {
             "x": 8283.72327883072,
-            "y": 1363.383780395945
+            "y": 2289.8861536288696
           },
           "nodeIndex": "Medidas",
           "nodeLineageTag": "ddaa06e9-5d3e-46a3-b368-bb61d2b74519",
@@ -37,7 +37,7 @@
         {
           "location": {
             "x": 8567.72327883072,
-            "y": 1112.5358183319108
+            "y": 2039.0381915648354
           },
           "nodeIndex": "Parâmetro Produtos",
           "nodeLineageTag": "c4aae943-a1d7-4b56-858a-1d282657047f",
@@ -49,23 +49,11 @@
         },
         {
           "location": {
-            "x": 8801.72327883072,
-            "y": 760.89053987993645
+            "x": 6518.5125322001186,
+            "y": 1016.6028827169162
           },
-          "nodeIndex": "proc_fat_analise_comercial",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 9035.72327883072,
-            "y": 611.6538381539491
-          },
-          "nodeIndex": "proc_fat_produto",
-          "nodeLineageTag": "f152d5ae-9d35-43f9-acd1-4b17a6332ec6",
+          "nodeIndex": "Consulta1",
+          "nodeLineageTag": "80e922a7-b35c-40b0-bb11-44c8fe1d4e58",
           "size": {
             "height": 300,
             "width": 234
