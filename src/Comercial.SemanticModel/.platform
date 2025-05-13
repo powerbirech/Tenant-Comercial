@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "SemanticModel",
-    "displayName": "Fabric_filtrobom"
+    "displayName": "Comercial"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "29d2bf6b-c701-4299-b8cd-830f0608eb83"
+    "logicalId": "2fbfae71-b34f-48a3-9dae-f5fc1a580446"
   }
 }
