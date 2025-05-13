@@ -2,31 +2,31 @@
     "TENANT_A": {
         "spnSecret": "ISV_TENANT_A",
         "capacity": "none",
-        "workspace": "AdventureWorks_NorthAmerica",
-        "adminUPNs": "9322eb4a-4132-4bd1-8df1-5cd3d1d2400b",
+        "workspace": "Filtrobom",
+        "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlServerInstance": "BOOK-PROIJR07F2",
-            "SqlServerDatabase": "AdventureWorksDW-NorthAmerica"
+            "SqlServerInstance": "192.168.255.133:3306",
+            "SqlServerDatabase": "nri_dm_hml_filtrobom"
         }
     },
     "TENANT_B": {
         "spnSecret": "ISV_TENANT_B",
         "capacity": "none",
-        "workspace": "AdventureWorks_Europe",
-        "adminUPNs": "9322eb4a-4132-4bd1-8df1-5cd3d1d2400b",
+        "workspace": "Guimaraes",
+        "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlServerInstance": "BOOK-PROIJR07F2",
-            "SqlServerDatabase": "AdventureWorksDW-Europe"
+            "SqlServerInstance": "192.168.255.133:3306",
+            "SqlServerDatabase": "datamart_03405"
         }
     },
     "TENANT_C": {
         "spnSecret": "ISV_TENANT_C",
         "capacity": "none",
-        "workspace": "AdventureWorks_Oceania",
-        "adminUPNs": "9322eb4a-4132-4bd1-8df1-5cd3d1d2400b",
+        "workspace": "Pedreira",
+        "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlServerInstance": "BOOK-PROIJR07F2",
-            "SqlServerDatabase": "AdventureWorksDW-Pacific"
+            "SqlServerInstance": "192.168.255.133:3306",
+            "SqlServerDatabase": "datamart_03228"
         }
     }
 }
