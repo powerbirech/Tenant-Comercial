@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.7.0/schema.json",
+  "name": "98dab652b04d195666e7",
+  "position": {
+    "x": 908.86699507389164,
+    "y": 115.27093596059113,
+    "z": 8002,
+    "height": 277.53694581280786,
+    "width": 349.35960591133005,
+    "tabOrder": 8002
+  },
+  "visual": {
+    "visualType": "treemap",
+    "query": {
+      "queryState": {
+        "Group": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "bi_view_venda"
+                    }
+                  },
+                  "Property": "Codigo_Representante"
+                }
+              },
+              "queryRef": "bi_view_venda.Codigo_Representante",
+              "nativeQueryRef": "Codigo_Representante",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_venda"
+                        }
+                      },
+                      "Property": "Valor"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(bi_view_venda.Valor)",
+              "nativeQueryRef": "Soma de Valor"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
