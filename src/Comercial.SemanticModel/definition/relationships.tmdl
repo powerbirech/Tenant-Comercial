@@ -3,3 +3,8 @@ relationship 73be133d-fd7b-41d8-a144-f9812bb8fc94
 	fromColumn: dCalendario.Date
 	toColumn: LocalDateTable_ffb9adea-9e50-446f-afac-b66c832dc0ea.Date
 
+relationship 645157fd-180c-4e2c-b075-2d5f00583ef6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: bi_view_venda.Data_Registro
+	toColumn: LocalDateTable_132cf685-8602-4d4a-aa0e-966cf2677bd7.Date
+

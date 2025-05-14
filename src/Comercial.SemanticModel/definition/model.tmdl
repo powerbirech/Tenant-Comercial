@@ -19,6 +19,7 @@ ref table dCalendario
 ref table LocalDateTable_ffb9adea-9e50-446f-afac-b66c832dc0ea
 ref table Medidas
 ref table bi_view_venda
+ref table LocalDateTable_132cf685-8602-4d4a-aa0e-966cf2677bd7
 
 ref cultureInfo pt-BR
 
