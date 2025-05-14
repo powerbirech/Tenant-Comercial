@@ -1,0 +1,60 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 2333.2107466306006,
+            "y": 2403.4402295008017
+          },
+          "nodeIndex": "dCalendario",
+          "nodeLineageTag": "aa30412e-cf5b-4e93-808c-ba5ee449edc2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 8283.72327883072,
+            "y": 2289.8861536288696
+          },
+          "nodeIndex": "Medidas",
+          "nodeLineageTag": "ddaa06e9-5d3e-46a3-b368-bb61d2b74519",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 6234.5125322001186,
+            "y": 1018.6028827169162
+          },
+          "nodeIndex": "bi_view_venda",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 10,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

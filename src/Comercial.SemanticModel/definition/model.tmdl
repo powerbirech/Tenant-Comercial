@@ -1,0 +1,25 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Medidas","bi_view_venda"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.142.1277.0 (25.04)+014fde450f93691fc9537f0758d73d1c5df153ef
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_cdc99bcd-491f-4f10-8b82-3fcc13e15886
+ref table dCalendario
+ref table LocalDateTable_ffb9adea-9e50-446f-afac-b66c832dc0ea
+ref table Medidas
+ref table bi_view_venda
+ref table LocalDateTable_132cf685-8602-4d4a-aa0e-966cf2677bd7
+
+ref cultureInfo pt-BR
+

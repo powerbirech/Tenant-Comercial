@@ -1,0 +1,158 @@
+table dCalendario
+	lineageTag: aa30412e-cf5b-4e93-808c-ba5ee449edc2
+
+	column Date
+		formatString: Short Date
+		lineageTag: a409c5f2-0dc7-4355-b9a0-ed5a4cfaa3ab
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 73be133d-fd7b-41d8-a144-f9812bb8fc94
+			defaultHierarchy: LocalDateTable_ffb9adea-9e50-446f-afac-b66c832dc0ea.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		formatString: 0
+		lineageTag: 17fe9d26-88bc-45d7-b06b-cc0ad198782a
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Ano]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mês
+		formatString: 0
+		lineageTag: 1dd7fa7d-f06b-4d9e-bfea-2cb4b7d0706d
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Mês]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dia
+		formatString: 0
+		lineageTag: 755766fe-5307-4f4a-9c57-b96b4d29137b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Dia]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome do Mês'
+		lineageTag: 621e0fae-1f8e-4461-8700-5b42ec17ac30
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nome do Mês]
+		sortByColumn: Mês
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome do Mês Abrev'
+		lineageTag: 8175d2ec-88b6-4b22-a22b-2826a963222c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nome do Mês Abrev]
+		sortByColumn: Mês
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		lineageTag: 2937c3b4-0860-4a2e-814e-ea670bb34ca9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Trimestre]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano-Mês
+		lineageTag: 5e7c389f-b48b-452c-9929-a08b9789c3ff
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ano-Mês]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana do Ano'
+		formatString: 0
+		lineageTag: 0fc0b8af-dc79-4098-add8-50f282f34291
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Semana do Ano]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia da Semana'
+		formatString: 0
+		lineageTag: a2541bb7-c46d-49e7-b2fe-0cf9349c2387
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Dia da Semana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome do Dia da Semana'
+		lineageTag: fde3d21a-76a1-4954-8c9b-47a0f2fc25cb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nome do Dia da Semana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'É Final de Semana?'
+		lineageTag: 4fb9af7b-d792-41b5-a537-a9d1bdb85978
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [É Final de Semana?]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ano Fiscal'
+		formatString: 0
+		lineageTag: bc8b2e57-4380-410f-89e0-a0f5f2179ed8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Ano Fiscal]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês Fiscal'
+		formatString: 0
+		lineageTag: aeac5e4c-c1b6-4a9a-95e4-e7c42cd8c002
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Mês Fiscal]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCalendario = calculated
+		mode: import
+		source = ```
+				
+				VAR MinData = DATE(2015, 1, 1)  -- Data mínima
+				VAR MaxData = DATE(2030, 12, 31) -- Data máxima
+				RETURN
+				ADDCOLUMNS(
+				    CALENDAR(MinData, MaxData),
+				    "Ano", YEAR([Date]),
+				    "Mês", MONTH([Date]),
+				    "Dia", DAY([Date]),
+				    "Nome do Mês", FORMAT([Date], "mmmm"),
+				    "Nome do Mês Abrev", FORMAT([Date], "mmm"),
+				    "Trimestre", "T" & FORMAT([Date], "Q"),
+				    "Ano-Mês", FORMAT([Date], "YYYY-MM"),
+				    "Semana do Ano", WEEKNUM([Date], 2),
+				    "Dia da Semana", WEEKDAY([Date], 2), -- 1 = Segunda, 7 = Domingo
+				    "Nome do Dia da Semana", FORMAT([Date], "dddd"),
+				    "É Final de Semana?", IF(WEEKDAY([Date], 2) >= 6, "Sim", "Não"),
+				    "Ano Fiscal", IF(MONTH([Date]) >= 7, YEAR([Date]) + 1, YEAR([Date])), -- Ajuste conforme o seu calendário fiscal
+				    "Mês Fiscal", IF(MONTH([Date]) >= 7, MONTH([Date]) - 6, MONTH([Date]) + 6)
+				)
+				
+				```
+
+	annotation PBI_Id = 2888dff59f834fc9b0eeeaf4bd91076b
+
