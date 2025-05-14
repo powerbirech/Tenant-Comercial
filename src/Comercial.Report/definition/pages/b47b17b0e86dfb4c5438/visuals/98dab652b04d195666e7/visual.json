@@ -10,10 +10,10 @@
     "tabOrder": 8002
   },
   "visual": {
-    "visualType": "treemap",
+    "visualType": "scatterChart",
     "query": {
       "queryState": {
-        "Group": {
+        "Category": {
           "projections": [
             {
               "field": {
@@ -32,7 +32,7 @@
             }
           ]
         },
-        "Values": {
+        "X": {
           "projections": [
             {
               "field": {
@@ -51,7 +51,8 @@
                 }
               },
               "queryRef": "Sum(bi_view_venda.Valor)",
-              "nativeQueryRef": "Soma de Valor"
+              "nativeQueryRef": "Soma de Valor",
+              "active": true
             }
           ]
         }
