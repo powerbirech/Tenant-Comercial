@@ -2,27 +2,10 @@ table Medidas
 	lineageTag: ddaa06e9-5d3e-46a3-b368-bb61d2b74519
 
 	measure 'Valor Faturado' = SUM(bi_view_venda[Valor]) +0
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		lineageTag: 5d0bd0bb-2229-4979-bc9a-6689f99517a0
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Valor Devolvido' = SUM(proc_fat_devolucao[Devolucao_Valor_Devolvido]) +0
-		lineageTag: 05dff795-b82c-4ff0-8983-a34576e9d5b8
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Valor de Meta' = SUM(proc_fat_analise_comercial[Meta_Diaria]) +0
-		lineageTag: 119d5e7f-df12-4718-92d4-b75fb8b720ef
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure Positivação = DISTINCTCOUNT(proc_fat_analise_comercial[Cliente_Codigo])+0
-		formatString: 0
-		lineageTag: 6144eb53-d722-44b1-a825-70df60ef715d
-
-	measure Capilaridade = DISTINCTCOUNT(proc_fat_analise_comercial[Cliente_Cidade])+0
-		formatString: 0
-		lineageTag: 1e2748b1-696a-4056-99da-3b62d1b1ae37
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	partition Medidas = m
 		mode: import

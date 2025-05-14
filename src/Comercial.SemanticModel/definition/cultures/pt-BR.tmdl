@@ -586,22 +586,6 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
-			    },
-			    "medida.valor_devolvido": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas",
-			          "ConceptualProperty": "Valor Devolvido"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "valor devolvido": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
 			    }
 			  },
 			  "Relationships": {
