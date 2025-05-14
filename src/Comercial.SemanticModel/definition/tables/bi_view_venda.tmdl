@@ -68,7 +68,6 @@ table bi_view_venda
 	column Quantidade
 		dataType: double
 		isNullable: false
-		formatString: 0
 		sourceProviderType: decimal(12, 3)
 		lineageTag: eeee89a8-6628-49c7-b773-0a00fb3c2487
 		summarizeBy: sum
@@ -76,10 +75,11 @@ table bi_view_venda
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Valor
 		dataType: double
 		isNullable: false
-		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		sourceProviderType: decimal(12, 2)
 		lineageTag: 8f8530dc-c61a-4a47-9e29-3be6ce7d427f
 		summarizeBy: sum
@@ -87,12 +87,12 @@ table bi_view_venda
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Data_Registro
 		dataType: dateTime
 		isNullable: false
-		formatString: Short Date
+		formatString: Long Date
 		sourceProviderType: date
 		lineageTag: 88c1c67c-798d-4354-af46-dc6ac54eefc8
 		summarizeBy: none
