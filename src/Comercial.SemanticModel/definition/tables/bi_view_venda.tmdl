@@ -2,20 +2,22 @@ table bi_view_venda
 	lineageTag: 29ab789c-a23d-4dfc-aa94-947e9a9f4c3a
 
 	column Pedido
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: f56f213e-7db9-4b1b-bc8e-bc11c6a18b73
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Pedido
+
+		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
 
 	column Item_Pedido
-		dataType: int64
-		formatString: 0
+		dataType: string
 		lineageTag: 96e22529-eac4-4866-95c4-04e5b51d56b4
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Item_Pedido
+
+		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
 
