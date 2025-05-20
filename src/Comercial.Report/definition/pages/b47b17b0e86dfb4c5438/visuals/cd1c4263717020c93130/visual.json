@@ -1,0 +1,83 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "cd1c4263717020c93130",
+  "position": {
+    "x": 639.31034482758616,
+    "y": 250.04926108374386,
+    "z": 10002,
+    "height": 430.04926108374383,
+    "width": 618.91625615763553,
+    "tabOrder": 10002
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "bi_view_venda"
+                    }
+                  },
+                  "Property": "Item_Pedido"
+                }
+              },
+              "queryRef": "bi_view_venda.Item_Pedido",
+              "nativeQueryRef": "Item_Pedido"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "bi_view_venda"
+                    }
+                  },
+                  "Property": "Sigla"
+                }
+              },
+              "queryRef": "bi_view_venda.Sigla",
+              "nativeQueryRef": "Sigla"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "bi_view_venda"
+                    }
+                  },
+                  "Property": "Pedido"
+                }
+              },
+              "queryRef": "bi_view_venda.Pedido",
+              "nativeQueryRef": "Pedido"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "bi_view_venda"
+                  }
+                },
+                "Property": "Item_Pedido"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
