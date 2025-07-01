@@ -28,5 +28,15 @@
             "SqlServerInstance": "192.168.255.133:3306",
             "SqlServerDatabase": "datamart_03228"
         }
+    },
+    "TENANT_D": {
+        "spnSecret": "ISV_TENANT_D",
+        "capacity": "none",
+        "workspace": "TESTE",
+        "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
+        "semanticModelsParameters": {
+            "SqlServerInstance": "192.168.255.133:3306",
+            "SqlServerDatabase": "datamart_03228"
+        }
     }
 }
