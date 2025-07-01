@@ -30,7 +30,7 @@
         }
     },
     "TENANT_D": {
-        "spnSecret": "ISV_TENANT_C",
+        "spnSecret": "ISV_TENANT_D",
         "capacity": "none",
         "workspace": "TESTE",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
