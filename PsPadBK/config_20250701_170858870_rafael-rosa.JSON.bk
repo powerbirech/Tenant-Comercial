@@ -1,0 +1,32 @@
+{
+    "dev": {
+        "spnSecret": "DEV",
+        "capacity": "none",
+        "workspace": "DESENVOLVIMENTO",
+        "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
+        "semanticModelsParameters": {
+            "SqlServerInstance": "192.168.255.133:3306",
+            "SqlServerDatabase": "nri_dm_hml_filtrobom"
+        }
+    },
+    "staging": {
+        "spnSecret": "STG",
+        "capacity": "none",
+        "workspace": "HOMOLOGACAO",
+        "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
+        "semanticModelsParameters": {
+            "SqlServerInstance": "192.168.255.133:3306",
+            "SqlServerDatabase": "nri_dm_hml_filtrobom"
+        }
+    },
+    "main": {
+        "spnSecret": "PRD",
+        "capacity": "none",
+        "workspace": "PRODUCAO",
+        "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
+        "semanticModelsParameters": {
+            "SqlServerInstance": "192.168.255.133:3306",
+            "SqlServerDatabase": "nri_dm_hml_filtrobom"
+        }
+    }
+}
