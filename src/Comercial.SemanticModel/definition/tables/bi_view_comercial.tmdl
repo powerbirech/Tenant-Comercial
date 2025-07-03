@@ -354,9 +354,9 @@ table bi_view_comercial
 		mode: import
 		source =
 				let
-				    Fonte = Odbc.DataSource("dsn=homologacao", [HierarchicalNavigation=true]),
-				    datamart_03228_Database = Fonte{[Name="datamart_03405",Kind="Database"]}[Data],
-				    bi_view_comercial_View = datamart_03228_Database{[Name="bi_view_comercial",Kind="View"]}[Data]
+				    Fonte = MariaDB.Contents("172.20.8.3:3306", null, null),
+				    datamart_01876_Database = Fonte{[Name="datamart_01876",Kind="Database"]}[Data],
+				    bi_view_comercial_View = datamart_01876_Database{[Name="bi_view_comercial",Kind="View"]}[Data]
 				in
 				    bi_view_comercial_View
 
