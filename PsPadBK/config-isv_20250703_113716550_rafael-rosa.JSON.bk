@@ -65,8 +65,6 @@
         "workspace": "Empresa_6",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -77,8 +75,6 @@
         "workspace": "Empresa_7",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -89,8 +85,6 @@
         "workspace": "Empresa_8",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -101,8 +95,6 @@
         "workspace": "Empresa_9",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -113,8 +105,6 @@
         "workspace": "Empresa_10",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -125,8 +115,6 @@
         "workspace": "Empresa_11",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -137,8 +125,6 @@
         "workspace": "Empresa_12",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -149,8 +135,6 @@
         "workspace": "Empresa_13",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -161,8 +145,6 @@
         "workspace": "Empresa_14",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -173,8 +155,6 @@
         "workspace": "Empresa_15",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -185,8 +165,6 @@
         "workspace": "Empresa_16",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -197,8 +175,6 @@
         "workspace": "Empresa_17",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -209,8 +185,6 @@
         "workspace": "Empresa_18",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -221,8 +195,6 @@
         "workspace": "Empresa_19",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -233,8 +205,6 @@
         "workspace": "Empresa_20",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -245,8 +215,6 @@
         "workspace": "Empresa_21",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -257,8 +225,6 @@
         "workspace": "Empresa_22",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -269,8 +235,6 @@
         "workspace": "Empresa_23",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -281,8 +245,6 @@
         "workspace": "Empresa_24",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -293,8 +255,6 @@
         "workspace": "Empresa_25",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -305,8 +265,6 @@
         "workspace": "Empresa_26",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -317,8 +275,6 @@
         "workspace": "Empresa_27",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -329,8 +285,6 @@
         "workspace": "Empresa_28",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -341,8 +295,6 @@
         "workspace": "Empresa_29",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -353,8 +305,6 @@
         "workspace": "Empresa_30",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_01876"
         }
@@ -365,8 +315,6 @@
         "workspace": "Empresa_31",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -377,8 +325,6 @@
         "workspace": "Empresa_32",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -389,8 +335,6 @@
         "workspace": "Empresa_33",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -401,8 +345,6 @@
         "workspace": "Empresa_34",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -413,8 +355,6 @@
         "workspace": "Empresa_35",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -425,8 +365,6 @@
         "workspace": "Empresa_36",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -437,8 +375,6 @@
         "workspace": "Empresa_37",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -449,8 +385,6 @@
         "workspace": "Empresa_38",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -461,8 +395,6 @@
         "workspace": "Empresa_39",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -473,8 +405,6 @@
         "workspace": "Empresa_40",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -485,8 +415,6 @@
         "workspace": "Empresa_41",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -497,8 +425,6 @@
         "workspace": "Empresa_42",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -509,8 +435,6 @@
         "workspace": "Empresa_43",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -521,8 +445,6 @@
         "workspace": "Empresa_44",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -533,8 +455,6 @@
         "workspace": "Empresa_45",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -545,8 +465,6 @@
         "workspace": "Empresa_46",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -557,8 +475,6 @@
         "workspace": "Empresa_47",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -569,8 +485,6 @@
         "workspace": "Empresa_48",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -581,8 +495,6 @@
         "workspace": "Empresa_49",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -593,8 +505,6 @@
         "workspace": "Empresa_50",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -605,8 +515,6 @@
         "workspace": "Empresa_51",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -617,8 +525,6 @@
         "workspace": "Empresa_52",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -629,8 +535,6 @@
         "workspace": "Empresa_53",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -641,8 +545,6 @@
         "workspace": "Empresa_54",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -653,8 +555,6 @@
         "workspace": "Empresa_55",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -665,8 +565,6 @@
         "workspace": "Empresa_56",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -677,8 +575,6 @@
         "workspace": "Empresa_57",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -689,8 +585,6 @@
         "workspace": "Empresa_58",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -701,8 +595,6 @@
         "workspace": "Empresa_59",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -713,8 +605,6 @@
         "workspace": "Empresa_60",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02065"
         }
@@ -725,8 +615,6 @@
         "workspace": "Empresa_61",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -737,8 +625,6 @@
         "workspace": "Empresa_62",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -749,8 +635,6 @@
         "workspace": "Empresa_63",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -761,8 +645,6 @@
         "workspace": "Empresa_64",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -773,8 +655,6 @@
         "workspace": "Empresa_65",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -785,8 +665,6 @@
         "workspace": "Empresa_66",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -797,8 +675,6 @@
         "workspace": "Empresa_67",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -809,8 +685,6 @@
         "workspace": "Empresa_68",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -821,8 +695,6 @@
         "workspace": "Empresa_69",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -833,8 +705,6 @@
         "workspace": "Empresa_70",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -845,8 +715,6 @@
         "workspace": "Empresa_71",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -857,8 +725,6 @@
         "workspace": "Empresa_72",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -869,8 +735,6 @@
         "workspace": "Empresa_73",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -881,8 +745,6 @@
         "workspace": "Empresa_74",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -893,8 +755,6 @@
         "workspace": "Empresa_75",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -905,8 +765,6 @@
         "workspace": "Empresa_76",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -917,8 +775,6 @@
         "workspace": "Empresa_77",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -929,8 +785,6 @@
         "workspace": "Empresa_78",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -941,8 +795,6 @@
         "workspace": "Empresa_79",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -953,8 +805,6 @@
         "workspace": "Empresa_80",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -965,8 +815,6 @@
         "workspace": "Empresa_81",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -977,8 +825,6 @@
         "workspace": "Empresa_82",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -989,8 +835,6 @@
         "workspace": "Empresa_83",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -1001,8 +845,6 @@
         "workspace": "Empresa_84",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -1013,8 +855,6 @@
         "workspace": "Empresa_85",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -1025,8 +865,6 @@
         "workspace": "Empresa_86",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -1037,8 +875,6 @@
         "workspace": "Empresa_87",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -1049,8 +885,6 @@
         "workspace": "Empresa_88",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -1061,8 +895,6 @@
         "workspace": "Empresa_89",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -1073,8 +905,6 @@
         "workspace": "Empresa_90",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02254"
         }
@@ -1085,8 +915,6 @@
         "workspace": "Empresa_91",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1097,8 +925,6 @@
         "workspace": "Empresa_92",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1109,8 +935,6 @@
         "workspace": "Empresa_93",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1121,8 +945,6 @@
         "workspace": "Empresa_94",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1133,8 +955,6 @@
         "workspace": "Empresa_95",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1145,8 +965,6 @@
         "workspace": "Empresa_96",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1157,8 +975,6 @@
         "workspace": "Empresa_97",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1169,8 +985,6 @@
         "workspace": "Empresa_98",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1181,8 +995,6 @@
         "workspace": "Empresa_99",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1193,8 +1005,6 @@
         "workspace": "Empresa_100",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1205,8 +1015,6 @@
         "workspace": "Empresa_101",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1217,8 +1025,6 @@
         "workspace": "Empresa_102",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1229,8 +1035,6 @@
         "workspace": "Empresa_103",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1241,8 +1045,6 @@
         "workspace": "Empresa_104",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1253,8 +1055,6 @@
         "workspace": "Empresa_105",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1265,8 +1065,6 @@
         "workspace": "Empresa_106",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1277,8 +1075,6 @@
         "workspace": "Empresa_107",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1289,8 +1085,6 @@
         "workspace": "Empresa_108",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1301,8 +1095,6 @@
         "workspace": "Empresa_109",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1313,8 +1105,6 @@
         "workspace": "Empresa_110",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1325,8 +1115,6 @@
         "workspace": "Empresa_111",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1337,8 +1125,6 @@
         "workspace": "Empresa_112",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1349,8 +1135,6 @@
         "workspace": "Empresa_113",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1361,8 +1145,6 @@
         "workspace": "Empresa_114",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1373,8 +1155,6 @@
         "workspace": "Empresa_115",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1385,8 +1165,6 @@
         "workspace": "Empresa_116",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1397,8 +1175,6 @@
         "workspace": "Empresa_117",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1409,8 +1185,6 @@
         "workspace": "Empresa_118",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1421,8 +1195,6 @@
         "workspace": "Empresa_119",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1433,8 +1205,6 @@
         "workspace": "Empresa_120",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02443"
         }
@@ -1445,8 +1215,6 @@
         "workspace": "Empresa_121",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1457,8 +1225,6 @@
         "workspace": "Empresa_122",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1469,8 +1235,6 @@
         "workspace": "Empresa_123",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1481,8 +1245,6 @@
         "workspace": "Empresa_124",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1493,8 +1255,6 @@
         "workspace": "Empresa_125",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1505,8 +1265,6 @@
         "workspace": "Empresa_126",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1517,8 +1275,6 @@
         "workspace": "Empresa_127",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1529,8 +1285,6 @@
         "workspace": "Empresa_128",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1541,8 +1295,6 @@
         "workspace": "Empresa_129",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1553,8 +1305,6 @@
         "workspace": "Empresa_130",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1565,8 +1315,6 @@
         "workspace": "Empresa_131",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1577,8 +1325,6 @@
         "workspace": "Empresa_132",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1589,8 +1335,6 @@
         "workspace": "Empresa_133",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1601,8 +1345,6 @@
         "workspace": "Empresa_134",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1613,8 +1355,6 @@
         "workspace": "Empresa_135",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1625,8 +1365,6 @@
         "workspace": "Empresa_136",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1637,8 +1375,6 @@
         "workspace": "Empresa_137",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1649,8 +1385,6 @@
         "workspace": "Empresa_138",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1661,8 +1395,6 @@
         "workspace": "Empresa_139",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1673,8 +1405,6 @@
         "workspace": "Empresa_140",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1685,8 +1415,6 @@
         "workspace": "Empresa_141",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1697,8 +1425,6 @@
         "workspace": "Empresa_142",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1709,8 +1435,6 @@
         "workspace": "Empresa_143",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1721,8 +1445,6 @@
         "workspace": "Empresa_144",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1733,8 +1455,6 @@
         "workspace": "Empresa_145",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1745,8 +1465,6 @@
         "workspace": "Empresa_146",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1757,8 +1475,6 @@
         "workspace": "Empresa_147",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1769,8 +1485,6 @@
         "workspace": "Empresa_148",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1781,8 +1495,6 @@
         "workspace": "Empresa_149",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
@@ -1793,8 +1505,6 @@
         "workspace": "Empresa_150",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
         "semanticModelsParameters": {
-            "SqlUsername": "CONSULTA",
-            "SqlPassword": "RECHCONSULTA",
             "SqlServerInstance": "172.20.8.3:3306",
             "SqlServerDatabase": "datamart_02632"
         }
