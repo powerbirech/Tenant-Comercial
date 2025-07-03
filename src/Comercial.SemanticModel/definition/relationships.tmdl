@@ -37,15 +37,3 @@ relationship 57e63cd6-2cb9-5c2b-8b85-b1daef77ef91
 	fromColumn: bi_view_comercial.faturamento_data
 	toColumn: 'Periodo A'.Date
 
-relationship AutoDetected_45b64db3-1837-4c5f-85e4-1f4108e107c5
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: 'Filtro Generico 1'.'GENERICA 1'
-	toColumn: tabAuxiliar.'GENERICA 1'
-
-relationship AutoDetected_33481f97-7229-4ddb-9742-13e57fc2602f
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: 'Filtro Generico 2'.'GENERICA 2'
-	toColumn: tabAuxiliar.'GENERICA 2'
-

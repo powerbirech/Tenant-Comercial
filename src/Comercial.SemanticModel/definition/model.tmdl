@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["bi_view_comercial","Medidas","tabAuxiliar","Filtro Generico 1","Filtro Generico 2","tabConfiguracao"]
+annotation PBI_QueryOrder = ["bi_view_comercial","Medidas"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -31,10 +31,6 @@ ref table 'Parâmetro Cadastro Geral'
 ref table LocalDateTable_8d4c4b56-5ae5-4090-9e5f-1aa635382cfa
 ref table 'Parâmetro Simplificado'
 ref table 'Status Cadastro Produtos'
-ref table tabAuxiliar
-ref table 'Filtro Generico 1'
-ref table 'Filtro Generico 2'
-ref table tabConfiguracao
 ref table DiasReativacao
 ref table 'Parâmetro Cadastros Representante'
 ref table 'Parâmetro Sem Venda'
