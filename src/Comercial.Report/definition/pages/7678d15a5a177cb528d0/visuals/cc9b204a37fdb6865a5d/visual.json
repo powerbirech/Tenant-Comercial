@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "cc9b204a37fdb6865a5d",
+  "position": {
+    "x": 0,
+    "y": 320.95522388059703,
+    "z": 2000,
+    "height": 346.74626865671644,
+    "width": 585.55223880597021,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "bi_view_comercial"
+                    }
+                  },
+                  "Property": "produto_codigo_nome"
+                }
+              },
+              "queryRef": "bi_view_comercial.produto_codigo_nome",
+              "nativeQueryRef": "produto_codigo_nome"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Faturamento Bruto"
+                }
+              },
+              "queryRef": "Medidas.Faturamento Bruto",
+              "nativeQueryRef": "Faturamento Bruto"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

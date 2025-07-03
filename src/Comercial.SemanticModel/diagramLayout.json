@@ -4,51 +4,239 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
+        "x": 284.41820673937912,
         "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 2333.2107466306006,
-            "y": 2403.4402295008017
+            "x": 0,
+            "y": 69.90021390362
           },
-          "nodeIndex": "dCalendario",
-          "nodeLineageTag": "aa30412e-cf5b-4e93-808c-ba5ee449edc2",
+          "nodeIndex": "bi_view_comercial",
+          "nodeLineageTag": "395e0920-56b0-45db-8e36-87a6d3a9e4b2",
           "size": {
-            "height": 300,
+            "height": 296,
             "width": 234
           },
-          "zIndex": 8
+          "zIndex": 0
         },
         {
           "location": {
-            "x": 8283.72327883072,
-            "y": 2289.8861536288696
+            "x": 284,
+            "y": 165.90021390362
           },
           "nodeIndex": "Medidas",
-          "nodeLineageTag": "ddaa06e9-5d3e-46a3-b368-bb61d2b74519",
+          "nodeLineageTag": "0a5431e8-2606-4e00-94ba-b42baa85ea1d",
           "size": {
             "height": 104,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 0
         },
         {
           "location": {
-            "x": 6234.5125322001186,
-            "y": 1018.6028827169162
+            "x": 46,
+            "y": 589.90021390361994
           },
-          "nodeIndex": "bi_view_venda",
+          "nodeIndex": "dCalendario",
+          "nodeLineageTag": "71f52aa5-5d51-4dfe-82bc-deeadc05fdd1",
           "size": {
-            "height": 296,
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 329.90021390362
+          },
+          "nodeIndex": "Periodo A",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1136,
+            "y": 329.90021390362
+          },
+          "nodeIndex": "Periodo B",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1704,
+            "y": 353.90021390362
+          },
+          "nodeIndex": "Parâmetro",
+          "nodeLineageTag": "3c26db1b-5a8a-421d-baf7-950b2594cfb1",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1988,
+            "y": 353.90021390362
+          },
+          "nodeIndex": "Parâmetro Cadastros Produtos",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2556,
+            "y": 353.90021390362
+          },
+          "nodeIndex": "Parâmetro Cadastro Geral",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2840,
+            "y": 353.90021390362
+          },
+          "nodeIndex": "Parâmetro Simplificado",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3124,
+            "y": 329.90021390362
+          },
+          "nodeIndex": "Status Cadastro Produtos",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4026.3830500146937,
+            "y": 291.26669043373556
+          },
+          "nodeIndex": "Filtro Generico 1",
+          "nodeLineageTag": "b588531b-ac7b-4cb6-8279-efdfdc194968",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3458,
+            "y": 321.25180121333642
+          },
+          "nodeIndex": "Filtro Generico 2",
+          "nodeLineageTag": "46545a61-6503-4965-b57a-aba7039dce3f",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3742.2015611931852,
+            "y": 300.11138839358148
+          },
+          "nodeIndex": "tabAuxiliar",
+          "nodeLineageTag": "b74e553f-0878-4a82-9b54-1688874a2efc",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4260.3830500146942,
+            "y": 357.68903941365852
+          },
+          "nodeIndex": "tabConfiguracao",
+          "nodeLineageTag": "a464b768-9672-42db-ab77-3315d1236453",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4544.3830500146942,
+            "y": 297.18903941365852
+          },
+          "nodeIndex": "DiasReativacao",
+          "nodeLineageTag": "fdc46358-e6c5-483e-8c4f-536add586078",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2272,
+            "y": 353.90021390362
+          },
+          "nodeIndex": "Parâmetro Cadastros Clientes",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4828.3830500146942,
+            "y": 322.83345216867781
+          },
+          "nodeIndex": "Parâmetro Cadastros Representante",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5112.3830500146942,
+            "y": 307.30007130120669
+          },
+          "nodeIndex": "Parâmetro Sem Venda",
+          "nodeLineageTag": "df24de37-0ddf-4d98-af66-4ed3d79889a9",
+          "size": {
+            "height": 152,
             "width": 234
           },
           "zIndex": 0
         }
       ],
       "name": "Todas as tabelas",
-      "zoomValue": 10,
+      "zoomValue": 63.287087723234038,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

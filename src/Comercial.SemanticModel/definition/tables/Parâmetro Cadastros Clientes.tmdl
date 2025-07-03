@@ -1,0 +1,49 @@
+table 'Parâmetro Cadastros Clientes'
+	lineageTag: 3410b2cd-1622-4c3c-b2e8-0ce9ad5583a7
+
+	column 'Parâmetro Cadastros CLientes'
+		lineageTag: a948a337-d3a1-4d6d-81e2-beaf895cd49e
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Cadastros CLientes Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Cadastros CLientes Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Cadastros CLientes Campos'
+		isHidden
+		lineageTag: c720a386-ba77-4fc6-bc0c-776eae84f946
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Cadastros CLientes Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Cadastros CLientes Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: d87c0cc9-01a5-4c5d-84e6-1e507d597761
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Cadastros Clientes' = calculated
+		mode: import
+		source =
+				{
+				    ("Cliente", NAMEOF('bi_view_comercial'[cliente_codigo_nome]), 0),
+				    ("Zona", NAMEOF('bi_view_comercial'[cliente_zona_venda]), 1),
+				    ("UF", NAMEOF('bi_view_comercial'[cliente_estado]), 2)
+				}
+
+	annotation PBI_Id = 1093bb7ca54247799061e947f285cc92
+

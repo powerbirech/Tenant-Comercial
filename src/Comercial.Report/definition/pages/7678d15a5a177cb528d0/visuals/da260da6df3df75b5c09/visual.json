@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "da260da6df3df75b5c09",
+  "position": {
+    "x": 737.40326741186584,
+    "y": 321.3757523645744,
+    "z": 1000,
+    "height": 330.1805674978504,
+    "width": 442.44196044711953,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Faturamento Liquido Dinamico Generica 1"
+                }
+              },
+              "queryRef": "Medidas.Faturamento Liquido Dinamico Generica 1",
+              "nativeQueryRef": "Faturamento Liquido Dinamico Generica 1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "bi_view_comercial"
+                    }
+                  },
+                  "Property": "produto_codigo_nome"
+                }
+              },
+              "queryRef": "bi_view_comercial.produto_codigo_nome",
+              "nativeQueryRef": "produto_codigo_nome"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

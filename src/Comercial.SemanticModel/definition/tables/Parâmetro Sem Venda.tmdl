@@ -1,0 +1,49 @@
+table 'Parâmetro Sem Venda'
+	lineageTag: df24de37-0ddf-4d98-af66-4ed3d79889a9
+
+	column 'Parâmetro Sem Venda'
+		lineageTag: 35398353-5a1c-4656-96eb-ee9278abaa67
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Sem Venda Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Sem Venda Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Sem Venda Campos'
+		isHidden
+		lineageTag: e6955769-6e5f-459b-8434-9a2c727975c4
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Sem Venda Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Sem Venda Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 2186c374-cccb-4b35-8d99-4367dec1ef7f
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Sem Venda' = calculated
+		mode: import
+		source =
+				{
+				    ("Faturamento Liquido", NAMEOF('Medidas'[Faturamento Liquido]), 0),
+				    ("Faturamento Bruto", NAMEOF('Medidas'[Faturamento Bruto]), 1),
+				    ("Pedidos", NAMEOF('Medidas'[Pedidos]), 2)
+				}
+
+	annotation PBI_Id = 07497f5ab44d4fe7a88733bc9daf7c62
+

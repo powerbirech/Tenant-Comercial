@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "2f0551d279016713c318",
+  "position": {
+    "x": 362.2830336200156,
+    "y": 552.43158717748236,
+    "z": 8000,
+    "height": 149.1164972634871,
+    "width": 414.3236903831118,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "% Crescimento Documentos"
+                }
+              },
+              "queryRef": "Medidas.% Crescimento Documentos",
+              "nativeQueryRef": "% Crescimento Documentos"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

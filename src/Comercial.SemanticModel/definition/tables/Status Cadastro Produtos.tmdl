@@ -1,0 +1,36 @@
+table 'Status Cadastro Produtos'
+	lineageTag: ec002aeb-e9cf-4c9e-a10d-f24bdb666cf4
+
+	column ParamID
+		formatString: 0
+		lineageTag: a9c21ccc-0206-4190-809c-b48d84b2d16d
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [ParamID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		lineageTag: a7ce5a1c-577b-4f46-a559-d249588fd98f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Status]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Status Cadastro Produtos' = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "ParamID", INTEGER,
+				    "Status",   STRING,
+				    {
+				        { 0, "Inativo" },
+				        { 1, "Ativo"   },
+				        { 2, "Ativo"   }
+				    }
+				)
+
+	annotation PBI_Id = b5dbba0002834650a2151137fa738038
+

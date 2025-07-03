@@ -1,0 +1,32 @@
+table 'Periodo B'
+	lineageTag: f9e41d87-b43b-49f0-8efb-8f49b4bcb1c2
+
+	column Date
+		formatString: General Date
+		lineageTag: c2cd53dd-2829-43cb-a79d-09d843f25f75
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: ba0fa565-d5be-4f67-9643-97c6edfc341e
+			defaultHierarchy: LocalDateTable_36c53bb3-7506-4e6f-b7e6-cc5df6df0cb0.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Periodo B' = calculated
+		mode: import
+		source = ```
+				
+				VAR AnoAtual = YEAR(TODAY())
+				RETURN 
+				FILTER(
+				    CALENDARAUTO(),
+				    YEAR([Date]) >= AnoAtual - 4
+				)
+				
+				```
+
+	annotation PBI_Id = 8fc8db9099004bf19e2e4083b014b7d1
+

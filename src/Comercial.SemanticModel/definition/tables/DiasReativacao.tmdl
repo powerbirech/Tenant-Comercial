@@ -1,0 +1,26 @@
+table DiasReativacao
+	lineageTag: fdc46358-e6c5-483e-8c4f-536add586078
+
+	measure 'Valor DiasReativacao' = SELECTEDVALUE('DiasReativacao'[DiasReativacao], 180)
+		formatString: 0
+		lineageTag: f76379ee-92a9-41a2-a042-7d2f1afe7a8a
+
+	column DiasReativacao
+		formatString: 0
+		lineageTag: cc474b2d-d033-4cf4-a233-0692f64a9e7b
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition DiasReativacao = calculated
+		mode: import
+		source = GENERATESERIES(30, 360, 30)
+
+	annotation PBI_Id = ba7ef2c052bc495b86bca02ea2db33a5
+

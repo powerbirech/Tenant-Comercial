@@ -1,130 +1,160 @@
 table dCalendario
-	lineageTag: aa30412e-cf5b-4e93-808c-ba5ee449edc2
+	lineageTag: 71f52aa5-5d51-4dfe-82bc-deeadc05fdd1
 
 	column Date
 		formatString: Short Date
-		lineageTag: a409c5f2-0dc7-4355-b9a0-ed5a4cfaa3ab
+		lineageTag: 5c058070-600f-4055-9dcc-49eab97ffdd0
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Date]
 
 		variation Variation
 			isDefault
-			relationship: 73be133d-fd7b-41d8-a144-f9812bb8fc94
-			defaultHierarchy: LocalDateTable_ffb9adea-9e50-446f-afac-b66c832dc0ea.'Hierarquia de datas'
+			relationship: cda8172d-9db4-4f93-ae3a-f51481755e07
+			defaultHierarchy: LocalDateTable_faee4d68-521d-4649-a037-ffc2338c7837.'Hierarquia de datas'
 
 		annotation SummarizationSetBy = Automatic
 
 	column Ano
 		formatString: 0
-		lineageTag: 17fe9d26-88bc-45d7-b06b-cc0ad198782a
+		lineageTag: 99127697-3a34-4c33-bfdf-40868b8bdc55
 		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Ano]
 
 		annotation SummarizationSetBy = Automatic
 
-	column Mês
+	column Mes
 		formatString: 0
-		lineageTag: 1dd7fa7d-f06b-4d9e-bfea-2cb4b7d0706d
+		lineageTag: 5cc799b2-725c-4a69-b568-47572a397e72
 		summarizeBy: sum
 		isNameInferred
-		sourceColumn: [Mês]
+		sourceColumn: [Mes]
 
 		annotation SummarizationSetBy = Automatic
 
-	column Dia
-		formatString: 0
-		lineageTag: 755766fe-5307-4f4a-9c57-b96b4d29137b
-		summarizeBy: sum
-		isNameInferred
-		sourceColumn: [Dia]
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Nome do Mês'
-		lineageTag: 621e0fae-1f8e-4461-8700-5b42ec17ac30
+	column NomeMes
+		lineageTag: 0b6bf597-fb6c-43c1-a18b-0bb93619181b
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [Nome do Mês]
-		sortByColumn: Mês
+		sourceColumn: [NomeMes]
+		sortByColumn: Mes
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Nome do Mês Abrev'
-		lineageTag: 8175d2ec-88b6-4b22-a22b-2826a963222c
+	column NomeMesAno
+		lineageTag: f6415206-337a-4a73-baec-848254924ea4
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [Nome do Mês Abrev]
-		sortByColumn: Mês
+		sourceColumn: [NomeMesAno]
 
 		annotation SummarizationSetBy = Automatic
 
 	column Trimestre
-		lineageTag: 2937c3b4-0860-4a2e-814e-ea670bb34ca9
+		lineageTag: ae3abc5a-6577-4132-b319-ea3d91a96ea6
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Trimestre]
 
 		annotation SummarizationSetBy = Automatic
 
-	column Ano-Mês
-		lineageTag: 5e7c389f-b48b-452c-9929-a08b9789c3ff
+	column AnoMes
+		formatString: 0
+		lineageTag: d2303f85-6342-4cf4-ad8a-e14ddb75d929
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [AnoMes]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dia
+		formatString: 0
+		lineageTag: f77e9d75-485b-49e9-9553-69e610b45fef
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Dia]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DiaDaSemana
+		formatString: 0
+		lineageTag: 87c07a00-38e6-4f60-85cf-8443d841b75f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [DiaDaSemana]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomeDiaSemana
+		lineageTag: c46028b5-90a8-4944-81ed-2bd7b783c36c
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [Ano-Mês]
+		sourceColumn: [NomeDiaSemana]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Semana do Ano'
-		formatString: 0
-		lineageTag: 0fc0b8af-dc79-4098-add8-50f282f34291
-		summarizeBy: sum
-		isNameInferred
-		sourceColumn: [Semana do Ano]
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Dia da Semana'
-		formatString: 0
-		lineageTag: a2541bb7-c46d-49e7-b2fe-0cf9349c2387
-		summarizeBy: sum
-		isNameInferred
-		sourceColumn: [Dia da Semana]
-
-		annotation SummarizationSetBy = Automatic
-
-	column 'Nome do Dia da Semana'
-		lineageTag: fde3d21a-76a1-4954-8c9b-47a0f2fc25cb
+	column ÉFinalDeSemana
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4ea8daab-7884-47ec-92a7-90a1eef5c7bc
 		summarizeBy: none
 		isNameInferred
-		sourceColumn: [Nome do Dia da Semana]
+		sourceColumn: [ÉFinalDeSemana]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'É Final de Semana?'
-		lineageTag: 4fb9af7b-d792-41b5-a537-a9d1bdb85978
+	column MesAtual = ```
+			
+			IF(
+			    MONTH(dCalendario[Date]) = MONTH(TODAY()) &&
+			    YEAR(dCalendario[Date]) = YEAR(TODAY()),
+			    "Mês Atual",
+			    "Outro Mês"
+			)
+			
+			```
+		lineageTag: f5746596-a319-42bd-ae1d-2ae6b9a38c41
 		summarizeBy: none
-		isNameInferred
-		sourceColumn: [É Final de Semana?]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Ano Fiscal'
+	column SemanaAno = WEEKNUM(dCalendario[Date])
 		formatString: 0
-		lineageTag: bc8b2e57-4380-410f-89e0-a0f5f2179ed8
+		lineageTag: 67865fd5-bb96-41d8-adb0-198c5dd49ffc
 		summarizeBy: sum
-		isNameInferred
-		sourceColumn: [Ano Fiscal]
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Mês Fiscal'
+	column NomeDiaSemanaAbreviado = FORMAT(dCalendario[Date], "ddd")
+		lineageTag: 10704d2e-d13d-4444-a1ae-6bba679fa015
+		summarizeBy: none
+		sortByColumn: 'Semana Dia'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana Dia' = WEEKDAY(dCalendario[Date], 1)
 		formatString: 0
-		lineageTag: aeac5e4c-c1b6-4a9a-95e4-e7c42cd8c002
+		lineageTag: 290c4d13-e738-4a96-ab68-62f50009182d
 		summarizeBy: sum
-		isNameInferred
-		sourceColumn: [Mês Fiscal]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Período =
+			
+			VAR MesAnoAtual = FORMAT(TODAY(), "MM/yyyy")
+			RETURN
+			IF(
+			    [PERIODO] = MesAnoAtual,
+			    "MÊS ATUAL",
+			    [PERIODO]
+			)
+		lineageTag: 8851e199-01c4-4518-80c4-cd0ead44349c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Periodo = FORMAT(dCalendario[Date],"mm/yyyy")
+		lineageTag: 1d2b2cb2-34f3-4d19-8f68-45d3a7148b5a
+		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic
 
@@ -132,27 +162,36 @@ table dCalendario
 		mode: import
 		source = ```
 				
-				VAR MinData = DATE(2015, 1, 1)  -- Data mínima
-				VAR MaxData = DATE(2030, 12, 31) -- Data máxima
-				RETURN
 				ADDCOLUMNS(
-				    CALENDAR(MinData, MaxData),
+				    CALENDAR(DATE(2018, 1, 1), DATE(2030, 12, 31)),
 				    "Ano", YEAR([Date]),
-				    "Mês", MONTH([Date]),
-				    "Dia", DAY([Date]),
-				    "Nome do Mês", FORMAT([Date], "mmmm"),
-				    "Nome do Mês Abrev", FORMAT([Date], "mmm"),
+				    "Mes", MONTH([Date]),
+				    "NomeMes", 
+				        SWITCH(
+				            MONTH([Date]),
+				            1, "Jan",
+				            2, "Fev",
+				            3, "Mar",
+				            4, "Abr",
+				            5, "Mai",
+				            6, "Jun",
+				            7, "Jul",
+				            8, "Ago",
+				            9, "Set",
+				            10, "Out",
+				            11, "Nov",
+				            12, "Dez"
+				        ),
+				    "NomeMesAno", FORMAT([Date], "mmm/yyyy"),
 				    "Trimestre", "T" & FORMAT([Date], "Q"),
-				    "Ano-Mês", FORMAT([Date], "YYYY-MM"),
-				    "Semana do Ano", WEEKNUM([Date], 2),
-				    "Dia da Semana", WEEKDAY([Date], 2), -- 1 = Segunda, 7 = Domingo
-				    "Nome do Dia da Semana", FORMAT([Date], "dddd"),
-				    "É Final de Semana?", IF(WEEKDAY([Date], 2) >= 6, "Sim", "Não"),
-				    "Ano Fiscal", IF(MONTH([Date]) >= 7, YEAR([Date]) + 1, YEAR([Date])), -- Ajuste conforme o seu calendário fiscal
-				    "Mês Fiscal", IF(MONTH([Date]) >= 7, MONTH([Date]) - 6, MONTH([Date]) + 6)
+				    "AnoMes", YEAR([Date]) * 100 + MONTH([Date]),
+				    "Dia", DAY([Date]),
+				    "DiaDaSemana", WEEKDAY([Date], 2),
+				    "NomeDiaSemana", FORMAT([Date], "dddd"),
+				    "ÉFinalDeSemana", IF(WEEKDAY([Date], 2) > 5, TRUE, FALSE)
 				)
 				
 				```
 
-	annotation PBI_Id = 2888dff59f834fc9b0eeeaf4bd91076b
+	annotation PBI_Id = 24471f4dbcdf4e6e864c7e9062e6d9c5
 

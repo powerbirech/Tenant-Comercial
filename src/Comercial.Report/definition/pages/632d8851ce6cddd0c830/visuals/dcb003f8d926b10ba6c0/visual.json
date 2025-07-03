@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "dcb003f8d926b10ba6c0",
+  "position": {
+    "x": 7.7586768694808015,
+    "y": 22.773722627737229,
+    "z": 6000,
+    "height": 41.167883211678827,
+    "width": 1121.2413231305195,
+    "tabOrder": 0
+  },
+  "visualGroup": {
+    "displayName": "Textos e Barra Filtro",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "7df54b86d69f9003114b"
+}

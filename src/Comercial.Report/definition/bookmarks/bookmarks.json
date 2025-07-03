@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "9a43f485269e3c88deba",
+      "displayName": "Grupo 1",
+      "children": [
+        "0f6d56245c41cd44811e",
+        "e7caf4907ada1adee3e0"
+      ]
+    },
+    {
+      "name": "24bafb10120303dca125",
+      "displayName": "Grupo 2",
+      "children": [
+        "0ac61b2be14574649f33",
+        "910873b8b7aea82faaf9"
+      ]
+    },
+    {
+      "name": "f632fb017ad18bb9bf2b",
+      "displayName": "GERAL",
+      "children": [
+        "f84a8711013725a4ebe0",
+        "cf403d81aceb4709990b"
+      ]
+    },
+    {
+      "name": "23a50d5b7bdefdb81989",
+      "displayName": "ANALITICO",
+      "children": [
+        "9f8373e3335db50885a3",
+        "1e5c7cc2784be1f4d4ac"
+      ]
+    },
+    {
+      "name": "e308e066090f903a54c2",
+      "displayName": "REPRESENTANTE",
+      "children": [
+        "417ccfe3003ad08139c7",
+        "e7f05d6abc98f46f9c85"
+      ]
+    },
+    {
+      "name": "1c497e58118cce0cea4f",
+      "displayName": "CLIENTE",
+      "children": [
+        "6672375b4eb25c7e6cfe",
+        "b4303f4388b0fe86cf34"
+      ]
+    },
+    {
+      "name": "1eaef046b0a065435439",
+      "displayName": "PRODUTOS",
+      "children": [
+        "b6e19f3d0805ead06475",
+        "98a004891921bcf7d0e6"
+      ]
+    },
+    {
+      "name": "ba1cbaac828adb0d0ac8",
+      "displayName": "COMPARATIVO",
+      "children": [
+        "3c888db84d30de157d52",
+        "851a43369596082c299c"
+      ]
+    },
+    {
+      "name": "9d0406103cbb046ab318",
+      "displayName": "SEM VENDA",
+      "children": [
+        "01887c1b24d32afe4de3",
+        "48c68a6d1bf550335540"
+      ]
+    }
+  ]
+}

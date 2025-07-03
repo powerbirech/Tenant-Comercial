@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "dc1c228ec7cf059f9ddb",
+  "position": {
+    "x": 367.43119266055055,
+    "y": 685.016043747458,
+    "z": 1000,
+    "height": 30.550458715596331,
+    "width": 411.19266055045875,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Irá exibir os registros caso NÃO tenham em algum dos 2 períodos  Faturamento",
+                    "textStyle": {
+                      "fontFamily": "DIN",
+                      "fontStyle": "italic",
+                      "fontSize": "9pt",
+                      "color": "#000000"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "d2dce4e1a2d7f05a0736"
+}

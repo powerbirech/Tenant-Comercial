@@ -1,0 +1,13 @@
+DEFINE
+    MEASURE 'Medidas'[Faturamento Liquido] = CALCULATE(
+    SUM(bi_view_comercial[faturamento_valor]),
+    FILTER(
+        bi_view_comercial,
+        bi_view_comercial[entidade] IN {"D", "F"}
+    )
+)
+
+EVALUATE
+    SUMMARIZECOLUMNS(
+        "Faturamento Liquido", [Faturamento Liquido]
+    )

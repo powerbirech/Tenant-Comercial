@@ -1,0 +1,23 @@
+{
+    "TENANT_1": {
+        "spnSecret": "ISV_TENANT_1",
+        "capacity": "none",
+        "workspace": "Empresa_1",
+        "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
+        "semanticModelsParameters": {
+            "SqlServerInstance": "192.168.255.133:3306",
+            "SqlServerDatabase": "datamart_01876"
+        }
+    },
+
+    "TENANT_2": {
+        "spnSecret": "ISV_TENANT_1",
+        "capacity": "none",
+        "workspace": "Empresa_2",
+        "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
+        "semanticModelsParameters": {
+            "SqlServerInstance": "192.168.255.133:3306",
+            "SqlServerDatabase": "datamart_01876"
+        }
+    }
+}

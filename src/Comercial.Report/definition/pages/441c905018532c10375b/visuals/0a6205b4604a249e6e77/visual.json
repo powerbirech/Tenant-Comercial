@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "0a6205b4604a249e6e77",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 1000,
+    "height": 114.14479042666497,
+    "width": 430.50899271959912,
+    "tabOrder": 0
+  },
+  "visualGroup": {
+    "displayName": "Linhas",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "be662f80b33201012000"
+}
