@@ -10,7 +10,7 @@
         }
     },
     "TENANT_2": {
-        "spnSecret": "ISV_TENANT_1",
+        "spnSecret": "ISV_TENANT_2",
         "capacity": "none",
         "workspace": "Empresa_2",
         "adminUPNs": "e619e600-ef89-47a7-95f2-528e34c1c268",
