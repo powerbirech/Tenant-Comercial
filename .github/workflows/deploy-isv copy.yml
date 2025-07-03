@@ -1,0 +1,194 @@
+name: deploy-isv
+
+on:
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/src/**'
+
+  workflow_dispatch:
+
+
+jobs:
+
+  tenantDeploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        tenant:
+          - TENANT_1
+          - TENANT_2
+          - TENANT_3
+          - TENANT_4
+          - TENANT_5
+          - TENANT_6
+          - TENANT_7
+          - TENANT_8
+          - TENANT_9
+          - TENANT_10
+          - TENANT_11
+          - TENANT_12
+          - TENANT_13
+          - TENANT_14
+          - TENANT_15
+          - TENANT_16
+          - TENANT_17
+          - TENANT_18
+          - TENANT_19
+          - TENANT_20
+          - TENANT_21
+          - TENANT_22
+          - TENANT_23
+          - TENANT_24
+          - TENANT_25
+          - TENANT_26
+          - TENANT_27
+          - TENANT_28
+          - TENANT_29
+          - TENANT_30
+          - TENANT_31
+          - TENANT_32
+          - TENANT_33
+          - TENANT_34
+          - TENANT_35
+          - TENANT_36
+          - TENANT_37
+          - TENANT_38
+          - TENANT_39
+          - TENANT_40
+          - TENANT_41
+          - TENANT_42
+          - TENANT_43
+          - TENANT_44
+          - TENANT_45
+          - TENANT_46
+          - TENANT_47
+          - TENANT_48
+          - TENANT_49
+          - TENANT_50
+          - TENANT_51
+          - TENANT_52
+          - TENANT_53
+          - TENANT_54
+          - TENANT_55
+          - TENANT_56
+          - TENANT_57
+          - TENANT_58
+          - TENANT_59
+          - TENANT_60
+          - TENANT_61
+          - TENANT_62
+          - TENANT_63
+          - TENANT_64
+          - TENANT_65
+          - TENANT_66
+          - TENANT_67
+          - TENANT_68
+          - TENANT_69
+          - TENANT_70
+          - TENANT_71
+          - TENANT_72
+          - TENANT_73
+          - TENANT_74
+          - TENANT_75
+          - TENANT_76
+          - TENANT_77
+          - TENANT_78
+          - TENANT_79
+          - TENANT_80
+          - TENANT_81
+          - TENANT_82
+          - TENANT_83
+          - TENANT_84
+          - TENANT_85
+          - TENANT_86
+          - TENANT_87
+          - TENANT_88
+          - TENANT_89
+          - TENANT_90
+          - TENANT_91
+          - TENANT_92
+          - TENANT_93
+          - TENANT_94
+          - TENANT_95
+          - TENANT_96
+          - TENANT_97
+          - TENANT_98
+          - TENANT_99
+          - TENANT_100
+          - TENANT_101
+          - TENANT_102
+          - TENANT_103
+          - TENANT_104
+          - TENANT_105
+          - TENANT_106
+          - TENANT_107
+          - TENANT_108
+          - TENANT_109
+          - TENANT_110
+          - TENANT_111
+          - TENANT_112
+          - TENANT_113
+          - TENANT_114
+          - TENANT_115
+          - TENANT_116
+          - TENANT_117
+          - TENANT_118
+          - TENANT_119
+          - TENANT_120
+          - TENANT_121
+          - TENANT_122
+          - TENANT_123
+          - TENANT_124
+          - TENANT_125
+          - TENANT_126
+          - TENANT_127
+          - TENANT_128
+          - TENANT_129
+          - TENANT_130
+          - TENANT_131
+          - TENANT_132
+          - TENANT_133
+          - TENANT_134
+          - TENANT_135
+          - TENANT_136
+          - TENANT_137
+          - TENANT_138
+          - TENANT_139
+          - TENANT_140
+          - TENANT_141
+          - TENANT_142
+          - TENANT_143
+          - TENANT_144
+          - TENANT_145
+          - TENANT_146
+          - TENANT_147
+          - TENANT_148
+          - TENANT_149
+          - TENANT_150
+
+
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.12"
+
+      - name: Install Fabric CLI
+        run: |
+          python -m pip install ms-fabric-cli
+
+      - name: Run Deployment Script
+        env:
+          # Maps the GitHub secret 'ISV_<TenantName>' to the 'ISV_<TenantName>' environment variable
+          ${{ format('ISV_{0}', matrix.tenant) }}: ${{ secrets[format('ISV_{0}', matrix.tenant)] }}
+        # Same python code for each tenant, but with different values for the 'tenant' argument
+        run: |
+          python scripts/deploy-isv.py --config-file "./config-isv.json" --tenant ${{ matrix.tenant }}
+
