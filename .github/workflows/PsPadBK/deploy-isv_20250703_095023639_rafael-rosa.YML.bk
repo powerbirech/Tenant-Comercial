@@ -17,10 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        tenant:
-          - TENANT_1
-          
-
+        tenant: [TENANT_A, TENANT_B, TENANT_C, TENANT_D]
 
     steps:
       - name: Check out the code
