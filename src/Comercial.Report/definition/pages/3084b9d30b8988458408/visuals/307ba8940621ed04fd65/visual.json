@@ -839,7 +839,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "17ab3f13a56d2ea6605b",
+        "name": "211805d7c70a75c08b6e",
         "field": {
           "Column": {
             "Expression": {
@@ -962,6 +962,34 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "d4674de2881d0e54d338",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Ticker Médio por Parâmetro"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "796a0279e087ca0c545a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento Liquido"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

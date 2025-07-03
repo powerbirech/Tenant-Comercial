@@ -1118,6 +1118,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "66f64ee03005328c8d22",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento Liquido"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

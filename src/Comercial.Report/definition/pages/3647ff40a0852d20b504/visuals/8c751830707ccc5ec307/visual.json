@@ -718,6 +718,62 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "1a4f0cdc3b74917c50de",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Receita A Gerais"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "eacfbc90098c58ec443e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Receita B Gerais"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5e94f45c259735a81974",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Variacao A vs B"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1e2d8a152c85abdbad46",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "bi_view_comercial"
+              }
+            },
+            "Property": "cliente_codigo_nome"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

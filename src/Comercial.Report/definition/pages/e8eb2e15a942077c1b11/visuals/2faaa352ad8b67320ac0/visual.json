@@ -1171,5 +1171,51 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "2dd67e98fbdadb55f885"
+  "parentGroupName": "2dd67e98fbdadb55f885",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7e39d32ec2a00801e13e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dCalendario"
+              }
+            },
+            "Property": "SemanaAno"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5a6cff330413858e7967",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dCalendario"
+              }
+            },
+            "Property": "NomeDiaSemanaAbreviado"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5097f6361008b257801d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Calendario Parametro"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

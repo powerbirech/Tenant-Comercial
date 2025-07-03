@@ -354,11 +354,10 @@ table bi_view_comercial
 		mode: import
 		source =
 				let
-				    Fonte = MariaDB.Contents("172.20.8.3:3306", null, null),
-				    datamart_01876_Database = Fonte{[Name="datamart_01876",Kind="Database"]}[Data],
-				    bi_view_comercial_View = datamart_01876_Database{[Name="bi_view_comercial",Kind="View"]}[Data]
+				    Fonte = MySQL.Database("172.20.8.3:3306", "datamart_01876", [ReturnSingleDatabase=true]),
+				    datamart_01876_bi_view_comercial = Fonte{[Schema="datamart_01876",Item="bi_view_comercial"]}[Data]
 				in
-				    bi_view_comercial_View
+				    datamart_01876_bi_view_comercial
 
 	annotation PBI_ResultType = Table
 

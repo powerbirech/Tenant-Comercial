@@ -698,6 +698,59 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "64617569bb900ee28a0c",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dCalendario"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "Date"
+                  }
+                },
+                "Hierarchy": "Hierarquia de datas"
+              }
+            },
+            "Level": "Dia"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5d396887ca5b10570b66",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Positivação por Parâmetro"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bda91c380c16d4d7752e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento Liquido"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -643,7 +643,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "4c239b637d45a64070cc",
+        "name": "1cc23dff638499d8c697",
         "field": {
           "Column": {
             "Expression": {
@@ -693,6 +693,48 @@
             }
           ]
         }
+      },
+      {
+        "name": "4ece3a10943b0c1e22a9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento Acumulado Mês"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "794e1a4bd16c435b1c0a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento Real + Previsão Acumulada"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "211acbeaa930a22a1653",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dCalendario"
+              }
+            },
+            "Property": "Dia"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

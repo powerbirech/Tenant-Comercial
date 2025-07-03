@@ -671,5 +671,87 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "e200cb356b98a2b63ca1"
+  "parentGroupName": "e200cb356b98a2b63ca1",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "86626ecbc2340c68d556",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dCalendario"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "Date"
+                  }
+                },
+                "Hierarchy": "Hierarquia de datas"
+              }
+            },
+            "Level": "Mês"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2096fd9ae2b8079c6430",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dCalendario"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "Date"
+                  }
+                },
+                "Hierarchy": "Hierarquia de datas"
+              }
+            },
+            "Level": "Dia"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4eec16a25e6b20a8b4a0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Meta Faturamento TESTE"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "25afc816ee8ab1aae759",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento Liquido"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

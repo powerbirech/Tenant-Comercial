@@ -1035,6 +1035,48 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "1c3ced189473e0a72dd4",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Valor Ano Anterior Selecao"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6fc802549a1474e602a0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Rotulo Meta % 2"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "51e6b9a482994bb8acd3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento Liquido"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

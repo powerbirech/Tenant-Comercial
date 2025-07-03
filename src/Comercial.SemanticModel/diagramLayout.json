@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 284.41820673937912,
+        "x": 0,
         "y": 0
       },
       "nodes": [
@@ -128,58 +128,6 @@
           "nodeIndex": "Status Cadastro Produtos",
           "size": {
             "height": 200,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 4026.3830500146937,
-            "y": 291.26669043373556
-          },
-          "nodeIndex": "Filtro Generico 1",
-          "nodeLineageTag": "b588531b-ac7b-4cb6-8279-efdfdc194968",
-          "size": {
-            "height": 104,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 3458,
-            "y": 321.25180121333642
-          },
-          "nodeIndex": "Filtro Generico 2",
-          "nodeLineageTag": "46545a61-6503-4965-b57a-aba7039dce3f",
-          "size": {
-            "height": 104,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 3742.2015611931852,
-            "y": 300.11138839358148
-          },
-          "nodeIndex": "tabAuxiliar",
-          "nodeLineageTag": "b74e553f-0878-4a82-9b54-1688874a2efc",
-          "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 0
-        },
-        {
-          "location": {
-            "x": 4260.3830500146942,
-            "y": 357.68903941365852
-          },
-          "nodeIndex": "tabConfiguracao",
-          "nodeLineageTag": "a464b768-9672-42db-ab77-3315d1236453",
-          "size": {
-            "height": 128,
             "width": 234
           },
           "zIndex": 0

@@ -862,6 +862,62 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "2cd06f70d01eb590ee95",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "bi_view_comercial"
+              }
+            },
+            "Property": "cliente_codigo_nome"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fe51b10a027b8948cdee",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "bi_view_comercial"
+              }
+            },
+            "Property": "cliente_zona_venda"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b371fee254270595168b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "bi_view_comercial"
+              }
+            },
+            "Property": "cliente_estado"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "713e84d10e06078e20bd",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento Liquido"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

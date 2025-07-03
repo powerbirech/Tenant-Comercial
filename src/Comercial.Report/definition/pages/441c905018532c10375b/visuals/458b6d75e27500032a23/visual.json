@@ -151,5 +151,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "f357afd8a7ebd38076b5"
+  "parentGroupName": "f357afd8a7ebd38076b5",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1824776013050703637e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Devolucões"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }
