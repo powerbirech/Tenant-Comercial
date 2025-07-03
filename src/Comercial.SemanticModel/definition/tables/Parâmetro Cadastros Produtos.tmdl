@@ -1,0 +1,64 @@
+table 'Parâmetro Cadastros Produtos'
+	lineageTag: bf2c27f9-4c71-46b9-acd8-33f266fbde61
+
+	column 'Parâmetro Cadastros'
+		lineageTag: 1e9e7e37-82b9-4673-89aa-8ea147ca8b33
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Cadastros Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Cadastros Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Cadastros Campos'
+		isHidden
+		lineageTag: 100a7130-ca04-4000-8946-cda9e7acaadc
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Cadastros Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Cadastros Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 3739bcce-3f33-4318-b8f3-f357226a23fa
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status = ```
+			
+			LOOKUPVALUE(
+			    'Status Cadastro Produtos'[Status], 
+			    'Status Cadastro Produtos'[ParamID], 
+			    'Parâmetro Cadastros Produtos'[Parâmetro Cadastros Pedido],
+			    "Ativo"  // Valor padrão caso não ache correspondência
+			)
+			```
+		lineageTag: 9ec01022-4a37-41c0-a83d-ca4275cbb344
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Cadastros Produtos' = calculated
+		mode: import
+		source =
+				{
+				    ("Marca", NAMEOF('bi_view_comercial'[produto_marca]), 0),
+				    ("Grupo", NAMEOF('bi_view_comercial'[produto_grupo]), 1),
+				    ("Linha", NAMEOF('bi_view_comercial'[produto_linha]), 2),
+				    ("Produto", NAMEOF('bi_view_comercial'[produto_codigo_nome]), 3)
+				}
+
+	annotation PBI_Id = 99610b597bd64cebaf888dfb3d1f7843
+

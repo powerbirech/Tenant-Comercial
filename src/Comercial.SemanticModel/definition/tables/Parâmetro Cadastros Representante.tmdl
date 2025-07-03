@@ -1,0 +1,49 @@
+table 'Parâmetro Cadastros Representante'
+	lineageTag: 6bbc03df-20f0-4e4c-8584-812c8f272b6c
+
+	column Parâmetro
+		lineageTag: 6cd870cd-41f1-4d12-b253-582c63625b24
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Campos'
+		isHidden
+		lineageTag: bc574574-3739-40b0-9a08-706c223f197e
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 9dd9675d-4a26-41f0-8d96-5672e5e10e39
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Cadastros Representante' = calculated
+		mode: import
+		source =
+				{
+				    ("Gerente", NAMEOF('bi_view_comercial'[gerente_representante]), 0),
+				    ("Supervisor", NAMEOF('bi_view_comercial'[supervisor_representante]), 1),
+				    ("Representante", NAMEOF('bi_view_comercial'[representante_codigo_nome]), 2)
+				}
+
+	annotation PBI_Id = 9f3f100aa4484d0db53c15885d88caea
+

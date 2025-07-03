@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "8d00e424b66881042c40",
+  "position": {
+    "x": 419.85889092059318,
+    "y": 70,
+    "z": 4000,
+    "height": 421.31386861313871,
+    "width": 300.56311908001368,
+    "tabOrder": 2000
+  },
+  "visualGroup": {
+    "displayName": "Filtros Produtos",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "1a25594b47357059b439"
+}

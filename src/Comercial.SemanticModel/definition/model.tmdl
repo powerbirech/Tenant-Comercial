@@ -6,20 +6,38 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["Medidas","bi_view_venda"]
+annotation PBI_QueryOrder = ["bi_view_comercial","Medidas","tabAuxiliar","Filtro Generico 1","Filtro Generico 2","tabConfiguracao"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBIDesktopVersion = 2.144.1155.0 (25.06)+46435b07013d2a234d7fd007083a9e70b8e79f1c
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode"]
 
-ref table DateTableTemplate_cdc99bcd-491f-4f10-8b82-3fcc13e15886
-ref table dCalendario
-ref table LocalDateTable_ffb9adea-9e50-446f-afac-b66c832dc0ea
+ref table bi_view_comercial
 ref table Medidas
-ref table bi_view_venda
-ref table LocalDateTable_132cf685-8602-4d4a-aa0e-966cf2677bd7
+ref table dCalendario
+ref table DateTableTemplate_36daef69-1bfb-464c-8464-b5667c2e74ef
+ref table LocalDateTable_6fbf447d-363c-467b-9128-acb03f75fe60
+ref table LocalDateTable_faee4d68-521d-4649-a037-ffc2338c7837
+ref table LocalDateTable_30bf0cab-78b7-48a4-b00d-213ee1bda865
+ref table 'Periodo A'
+ref table 'Periodo B'
+ref table LocalDateTable_36c53bb3-7506-4e6f-b7e6-cc5df6df0cb0
+ref table Parâmetro
+ref table 'Parâmetro Cadastros Produtos'
+ref table 'Parâmetro Cadastros Clientes'
+ref table 'Parâmetro Cadastro Geral'
+ref table LocalDateTable_8d4c4b56-5ae5-4090-9e5f-1aa635382cfa
+ref table 'Parâmetro Simplificado'
+ref table 'Status Cadastro Produtos'
+ref table tabAuxiliar
+ref table 'Filtro Generico 1'
+ref table 'Filtro Generico 2'
+ref table tabConfiguracao
+ref table DiasReativacao
+ref table 'Parâmetro Cadastros Representante'
+ref table 'Parâmetro Sem Venda'
 
 ref cultureInfo pt-BR
 

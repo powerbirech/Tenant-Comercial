@@ -1,10 +1,51 @@
-relationship 73be133d-fd7b-41d8-a144-f9812bb8fc94
+relationship c5e0d37f-8a64-4631-936d-d0e2e77697dd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: bi_view_comercial.cliente_data_primeira_compra
+	toColumn: LocalDateTable_6fbf447d-363c-467b-9128-acb03f75fe60.Date
+
+relationship cda8172d-9db4-4f93-ae3a-f51481755e07
 	joinOnDateBehavior: datePartOnly
 	fromColumn: dCalendario.Date
-	toColumn: LocalDateTable_ffb9adea-9e50-446f-afac-b66c832dc0ea.Date
+	toColumn: LocalDateTable_faee4d68-521d-4649-a037-ffc2338c7837.Date
 
-relationship 645157fd-180c-4e2c-b075-2d5f00583ef6
+relationship 7d1297e6-887f-2115-5af3-d0c3cf36a157
+	fromColumn: bi_view_comercial.faturamento_data
+	toColumn: dCalendario.Date
+
+relationship 43c50f43-ab9d-4ede-81b6-3b7b537c5568
 	joinOnDateBehavior: datePartOnly
-	fromColumn: bi_view_venda.Data_Registro
-	toColumn: LocalDateTable_132cf685-8602-4d4a-aa0e-966cf2677bd7.Date
+	fromColumn: bi_view_comercial.devolvida_data_nota_devolvida
+	toColumn: LocalDateTable_30bf0cab-78b7-48a4-b00d-213ee1bda865.Date
+
+relationship ba0fa565-d5be-4f67-9643-97c6edfc341e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Periodo B'.Date
+	toColumn: LocalDateTable_36c53bb3-7506-4e6f-b7e6-cc5df6df0cb0.Date
+
+relationship a5154579-c7dc-f8d0-7613-c5906fcad07e
+	isActive: false
+	fromColumn: bi_view_comercial.faturamento_data
+	toColumn: 'Periodo B'.Date
+
+relationship ff1ce73e-ce67-4271-b28f-1c2a25ebd476
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Periodo A'.Date
+	toColumn: LocalDateTable_8d4c4b56-5ae5-4090-9e5f-1aa635382cfa.Date
+
+relationship 57e63cd6-2cb9-5c2b-8b85-b1daef77ef91
+	isActive: false
+	fromColumn: bi_view_comercial.faturamento_data
+	toColumn: 'Periodo A'.Date
+
+relationship AutoDetected_45b64db3-1837-4c5f-85e4-1f4108e107c5
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Filtro Generico 1'.'GENERICA 1'
+	toColumn: tabAuxiliar.'GENERICA 1'
+
+relationship AutoDetected_33481f97-7229-4ddb-9742-13e57fc2602f
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Filtro Generico 2'.'GENERICA 2'
+	toColumn: tabAuxiliar.'GENERICA 2'
 

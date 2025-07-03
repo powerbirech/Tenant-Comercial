@@ -1,11 +1,3047 @@
 table Medidas
-	lineageTag: ddaa06e9-5d3e-46a3-b368-bb61d2b74519
+	lineageTag: 0a5431e8-2606-4e00-94ba-b42baa85ea1d
 
-	measure 'Valor Faturado' = SUM(bi_view_venda[Valor]) +0
+	measure 'Faturamento Liquido' =
+			
+			CALCULATE(
+			    SUM(bi_view_comercial[faturamento_valor]),
+			    bi_view_comercial[entidade] IN {"D", "F"}
+			) + 0
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
-		lineageTag: 5d0bd0bb-2229-4979-bc9a-6689f99517a0
+		lineageTag: 6a545257-4e4c-4dc4-b27d-5906ed286aa6
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Faturamento Ano Atual' =
+			
+			CALCULATE(
+			    [Faturamento Liquido],
+			    FILTER(
+			        ALL(dCalendario),
+			        dCalendario[Ano] = YEAR(TODAY())
+			    )
+			)
+		lineageTag: 4838637e-1681-4d63-aec6-904c8c2e81d5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Faturamento Mes Atual' = ```
+			
+			 
+			CALCULATE(
+			    [Faturamento Liquido],
+			    FILTER(
+			        ALL(dCalendario),
+			        dCalendario[Date] >= DATE(YEAR(TODAY()), MONTH(TODAY()), 1) &&
+			        dCalendario[Date] <= TODAY()
+			    )
+			)
+			 
+			```
+		lineageTag: c41febff-94aa-4886-b3e7-163c513978b0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Faturamento Dia Atual' = ```
+			
+			CALCULATE(
+			    [Faturamento Liquido],
+			    FILTER(
+			        ALL(dCalendario),
+			        dCalendario[Date] = TODAY()
+			    )
+			)
+			 
+			```
+		lineageTag: 886807a3-06b9-4db1-8311-d26be8521219
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Eixo Y Dinamico' = ```
+			
+			
+			VAR tabela =
+			        ALLSELECTED(dCalendario[NomeMes], dCalendario[Mes])
+			
+			
+			VAR maiorvalor =
+			        MAXX(tabela, [Valor Selecionado])
+			
+			var deslocamento = 1.50
+			
+			RETURN 
+			    maiorvalor * deslocamento
+			```
+		lineageTag: f8379c95-b770-4e5a-a448-b0ebb8ff4dc8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Rotulo Meta %' = ```
+			
+			VAR AnoSelecionado = SELECTEDVALUE('dCalendario'[Ano])
+			VAR vValor = 
+			    CALCULATE(
+			        [Valor Selecionado],
+			        'dCalendario'[Ano] = AnoSelecionado
+			    )
+			
+			VAR vDeslocamento = [Eixo Y Dinamico] * 0.20
+			
+			RETURN
+			    vValor + vDeslocamento
+			
+			```
+		lineageTag: ff3fbbd5-9ba2-49fc-a22b-81aac11fffac
+
+		formatStringDefinition = ```
+				VAR porcentagem = [Crescimento % Mês Anterior]
+				
+				VAR porcentagem_formatada = 
+				SWITCH(
+				    TRUE(),
+				    ISBLANK(porcentagem), "",
+				    porcentagem >= 0.000001, "⮝ " & FORMAT(porcentagem, "0%"),
+				    porcentagem <= 0.000001, "⮟ " & FORMAT(porcentagem, "0%"),
+				    "0%"
+				)
+				
+				RETURN 
+				"""" & porcentagem_formatada & """"
+				
+				```
+
+	measure 'Crescimento % Mês Anterior' = ```
+			
+			VAR MesAtual = MAX('dCalendario'[Mes])
+			VAR AnoAtual = SELECTEDVALUE('dCalendario'[Ano])
+			
+			-- Se janeiro, pegar dezembro do ano anterior
+			VAR MesAnterior = IF(MesAtual = 1, 12, MesAtual - 1)
+			VAR AnoAnterior = IF(MesAtual = 1, AnoAtual - 1, AnoAtual)
+			
+			-- Faturamento do mês atual
+			VAR FatAtual = 
+			    CALCULATE(
+			        [Valor Selecionado],
+			        FILTER(
+			            ALL('dCalendario'),
+			            'dCalendario'[Mes] = MesAtual &&
+			            'dCalendario'[Ano] = AnoAtual
+			        )
+			    )
+			
+			-- Faturamento do mês anterior (ou dez/ano anterior)
+			VAR FatAnterior = 
+			    CALCULATE(
+			        [Valor Selecionado],
+			        FILTER(
+			            ALL('dCalendario'),
+			            'dCalendario'[Mes] = MesAnterior &&
+			            'dCalendario'[Ano] = AnoAnterior
+			        )
+			    )
+			
+			-- Cálculo da variação
+			VAR Crescimento = DIVIDE(FatAtual - FatAnterior, FatAnterior)
+			
+			RETURN
+			    Crescimento
+			
+			```
+		lineageTag: 50ff2760-d75d-4dcc-8eb6-ed0f8b79d134
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Formatacao Cond.Meta' = ```
+			
+			    IF([Crescimento % Mês Anterior] >= 0.000001,
+			    "GREEN",
+			    "#d05050"
+			    )
+			```
+		lineageTag: ddc76203-6fa6-4cfc-8ff8-aead1b090ffd
+
+	measure '% Crescimento Ano' = ```
+			
+			VAR Atual = [Valor Ano Atual Selecao]
+			VAR Anterior = [Valor Ano Anterior Selecao]
+			
+			RETURN
+			DIVIDE(Atual - Anterior, Anterior)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ed21d0be-77d6-4665-a7cc-1792b9b91ab1
+
+	measure '% Crescimento Ano Formatado' = ```
+			
+			VAR Crescimento = [% Crescimento Ano]
+			
+			RETURN
+			IF(
+			    ISBLANK(Crescimento),
+			    BLANK(),
+			    IF(
+			        Crescimento >= 0,
+			        FORMAT(Crescimento, "⮝ 0.0%"),
+			        FORMAT(Crescimento, "⮟ 0.0%")
+			    )
+			)
+			
+			```
+		lineageTag: 315b4822-0d8d-41bc-af7a-c91ba866ec1e
+
+	measure 'Faturamento MTD Até Hoje' = ```
+			
+			CALCULATE(
+			    [Faturamento Liquido],
+			    DATESMTD('dCalendario'[Date])
+			)
+			
+			```
+		lineageTag: 66b2ae4c-5b0b-438b-9ba0-e84ae7984062
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Faturamento Acumulado Mês' = ```
+			
+			VAR DataAtual = MAX('dCalendario'[Date])
+			VAR AnoAtual = YEAR(DataAtual)
+			
+			VAR UltimaDataComValor =
+			    CALCULATE(
+			        MAX('dCalendario'[Date]),
+			        FILTER(
+			            ALL('dCalendario'),
+			            [Valor Selecionado] > 0 &&
+			            YEAR('dCalendario'[Date]) = AnoAtual
+			        )
+			    )
+			
+			RETURN
+			IF(
+			    DataAtual <= UltimaDataComValor,
+			    CALCULATE(
+			        [Valor Selecionado],
+			        FILTER(
+			            ALL('dCalendario'),
+			            'dCalendario'[Date] <= DataAtual &&
+			            YEAR('dCalendario'[Date]) = AnoAtual
+			        )
+			    ),
+			    BLANK()
+			)
+			
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: d9e1b9e5-6a7a-4ade-90eb-738fee2719a4
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Faturamento Real + Previsão Acumulada' = ```
+			
+			VAR Hoje = TODAY()
+			VAR PrimeiroDiaAno = DATE(YEAR(Hoje), 1, 1)
+			VAR DataAtual = MAX('dCalendario'[Date])
+			
+			-- Última data com valor (dinâmico conforme seleção)
+			VAR UltimaDataComValor =
+			    CALCULATE(
+			        MAX('dCalendario'[Date]),
+			        FILTER(
+			            ALL('dCalendario'),
+			            [Valor Selecionado] > 0
+			        )
+			    )
+			
+			-- Acumulado até a data atual do gráfico (real)
+			VAR ValorAteData =
+			    CALCULATE(
+			        [Valor Selecionado],
+			        FILTER(
+			            ALL('dCalendario'),
+			            'dCalendario'[Date] >= PrimeiroDiaAno &&
+			            'dCalendario'[Date] <= DataAtual
+			        )
+			    )
+			
+			-- Acumulado até a última data com valor (real)
+			VAR ValorAteUltimoDia =
+			    CALCULATE(
+			        [Valor Selecionado],
+			        FILTER(
+			            ALL('dCalendario'),
+			            'dCalendario'[Date] >= PrimeiroDiaAno &&
+			            'dCalendario'[Date] <= UltimaDataComValor
+			        )
+			    )
+			
+			-- Dias com valor até a última data com valor
+			VAR DiasComValor =
+			    CALCULATE(
+			        DISTINCTCOUNT('dCalendario'[Date]),
+			        FILTER(
+			            ALL('dCalendario'),
+			            'dCalendario'[Date] >= PrimeiroDiaAno &&
+			            'dCalendario'[Date] <= UltimaDataComValor &&
+			            [Valor Selecionado] > 0
+			        )
+			    )
+			
+			-- Média diária com base no valor real
+			VAR MediaDiaria = DIVIDE(ValorAteUltimoDia, DiasComValor)
+			
+			-- Dias previstos depois da última data com valor até a data atual
+			VAR DiasPrevistos =
+			    CALCULATE(
+			        COUNTROWS('dCalendario'),
+			        FILTER(
+			            ALL('dCalendario'),
+			            'dCalendario'[Date] > UltimaDataComValor &&
+			            'dCalendario'[Date] <= DataAtual
+			        )
+			    )
+			
+			-- Valor previsto com base na média diária
+			VAR ValorPrevisto = MediaDiaria * DiasPrevistos
+			
+			-- Se estamos em período real, mostra acumulado real
+			-- Se passamos do período real, soma o previsto
+			RETURN
+			IF(
+			    DataAtual <= UltimaDataComValor,
+			    ValorAteData,
+			    ValorAteUltimoDia + ValorPrevisto
+			)
+			
+			```
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		lineageTag: 68cf7e1a-c942-4270-90bc-87f29e19c808
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Positivação por Parâmetro' = ```
+			
+			VAR ParamSelecionado = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			
+			        // 0: Faturamento – clientes com D/F e valor > 0
+			        ParamSelecionado = 0,
+			            CALCULATE(
+			                DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			                bi_view_comercial[entidade] IN {"D", "F"},
+			                bi_view_comercial[faturamento_valor] > 0
+			            ),
+			
+			        // 1: Pedidos – clientes com P e valor > 0
+			        ParamSelecionado = 1,
+			            CALCULATE(
+			                DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			                bi_view_comercial[entidade] = "P",
+			                bi_view_comercial[faturamento_valor] > 0
+			            ),
+			
+			        // 2: Pedidos em aberto – P, posição = 1, valor > 0
+			        ParamSelecionado = 2,
+			            CALCULATE(
+			                DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			                bi_view_comercial[entidade] = "P",
+			                bi_view_comercial[pedido_posicao_faturamento] = 1,
+			                bi_view_comercial[faturamento_valor] > 0
+			            ),
+			
+			        // 3: Faturamento + Pedidos em Aberto – união lógica sem perder o contexto
+			        ParamSelecionado = 3,
+			            CALCULATE(
+			                DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			                FILTER(
+			                    VALUES(bi_view_comercial[cliente_codigo_nome]),
+			                    CALCULATE(
+			                        COUNTROWS(bi_view_comercial),
+			                        bi_view_comercial[faturamento_valor] > 0,
+			                        (
+			                            bi_view_comercial[entidade] IN {"D", "F"}
+			                            ||
+			                            (
+			                                bi_view_comercial[entidade] = "P"
+			                                && bi_view_comercial[pedido_posicao_faturamento] = 1
+			                            )
+			                        )
+			                    ) > 0
+			                )
+			            ),
+			
+			        BLANK()
+			    ) + 0
+			
+			```
+		formatString: #,0
+		lineageTag: 6810d2eb-d59c-4370-9667-83ef2e8b6b5f
+
+	measure '% Crescimento Mês' = ```
+			
+			VAR DataHoje = TODAY()
+			
+			-- Mês Atual
+			VAR DataInicioAtual = DATE(YEAR(DataHoje), MONTH(DataHoje), 1)
+			VAR DataFimAtual = DataHoje
+			
+			-- Mês Anterior
+			VAR DataInicioAnterior = EOMONTH(DataInicioAtual, -1) + 1
+			VAR DataFimAnterior = EOMONTH(DataInicioAtual, -1)
+			
+			-- Faturamento Atual
+			VAR FatAtual = 
+			    CALCULATE(
+			        [Valor Selecionado],
+			        FILTER(
+			            ALLSELECTED(dCalendario),
+			            dCalendario[Date] >= DataInicioAtual &&
+			            dCalendario[Date] <= DataFimAtual
+			        )
+			    )
+			
+			-- Faturamento Mês Anterior
+			VAR FatAnterior = 
+			    CALCULATE(
+			        [Valor Selecionado],
+			        FILTER(
+			            ALLSELECTED(dCalendario),
+			            dCalendario[Date] >= DataInicioAnterior &&
+			            dCalendario[Date] <= DataFimAnterior
+			        )
+			    )
+			
+			RETURN
+			DIVIDE(FatAtual - FatAnterior, FatAnterior)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: deb29fcc-2a2d-4992-9b64-da55e14228b2
+
+	measure '% Crescimento Mês Formatado' = ```
+			
+			VAR Crescimento = [% Crescimento Mês]
+			
+			RETURN
+			IF(
+			    ISBLANK(Crescimento),
+			    BLANK(),
+			    IF(
+			        Crescimento >= 0,
+			        FORMAT(Crescimento, "⮝ 0.0%"),
+			        FORMAT(Crescimento, "⮟ 0.0%")
+			    )
+			)
+			
+			```
+		lineageTag: f3862809-dc02-4f52-8428-be4e739383b9
+
+	measure 'Ticker Médio por Parâmetro' = ```
+			
+			
+			VAR ParamSelecionado =
+			    SELECTEDVALUE( 'Parâmetro Simplificado'[Parâmetro Pedido] )
+			
+			// 1. Total de valor conforme o parâmetro
+			VAR TotalValor =
+			    SWITCH(
+			        TRUE(),
+			        ParamSelecionado = 0,
+			            CALCULATE(
+			                SUM( bi_view_comercial[faturamento_valor] ),
+			                bi_view_comercial[entidade] IN { "D", "F" }
+			            ),
+			        ParamSelecionado = 1,
+			            CALCULATE(
+			                SUM( bi_view_comercial[faturamento_valor] ),
+			                bi_view_comercial[entidade] = "P"
+			            ),
+			        ParamSelecionado = 2,
+			            CALCULATE(
+			                SUM( bi_view_comercial[faturamento_valor] ),
+			                bi_view_comercial[entidade] = "P"
+			                    && bi_view_comercial[pedido_posicao_faturamento] = 1
+			            ),
+			        ParamSelecionado = 3,
+			            CALCULATE(
+			                SUM( bi_view_comercial[faturamento_valor] ),
+			                bi_view_comercial[entidade] IN { "D", "F" }
+			            )
+			            + CALCULATE(
+			                SUM( bi_view_comercial[faturamento_valor] ),
+			                bi_view_comercial[entidade] = "P"
+			                    && bi_view_comercial[pedido_posicao_faturamento] = 1
+			            ),
+			        BLANK()
+			    )
+			
+			// 2. Quantidade de notas
+			VAR TotalNotas =
+			    SWITCH(
+			        TRUE(),
+			        ParamSelecionado = 0,
+			            CALCULATE(
+			                DISTINCTCOUNT( bi_view_comercial[faturamento_nota] ),
+			                bi_view_comercial[entidade] IN { "D", "F" }
+			            ),
+			        ParamSelecionado = 1,
+			            CALCULATE(
+			                DISTINCTCOUNT( bi_view_comercial[faturamento_nota] ),
+			                bi_view_comercial[entidade] = "P"
+			            ),
+			        ParamSelecionado = 2,
+			            CALCULATE(
+			                DISTINCTCOUNT( bi_view_comercial[faturamento_nota] ),
+			                bi_view_comercial[entidade] = "P"
+			                    && bi_view_comercial[pedido_posicao_faturamento] = 1
+			            ),
+			        ParamSelecionado = 3,
+			            CALCULATE(
+			                DISTINCTCOUNT( bi_view_comercial[faturamento_nota] ),
+			                bi_view_comercial[entidade] IN { "D", "F" }
+			            )
+			            + CALCULATE(
+			                DISTINCTCOUNT( bi_view_comercial[faturamento_nota] ),
+			                bi_view_comercial[entidade] = "P"
+			                    && bi_view_comercial[pedido_posicao_faturamento] = 1
+			            ),
+			        BLANK()
+			    )
+			
+			// 3. Ticket médio = TotalValor ÷ TotalNotas
+			RETURN
+			DIVIDE( TotalValor, TotalNotas )
+			
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 42841e35-4aee-460a-871e-c75dbe1cb706
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure Devolucões =
+			
+			CALCULATE(
+			    SUM( bi_view_comercial[faturamento_valor] ),
+			    bi_view_comercial[entidade] = "D"
+			) +0
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 0cf76d6a-d56c-4697-868e-2263b8dbd2b7
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Faturamento Bruto' =
+			
+			CALCULATE(
+			    [Faturamento Liquido],
+			    bi_view_comercial[entidade] = "F"
+			) + 0
+		lineageTag: 3a3d939b-bf8e-4c7c-80e3-9bfb7d36cc80
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Qtd Documentos por Parâmetro' = ```
+			
+			VAR ParamSelecionado = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			
+			        -- Faturamento: contar notas fiscais (entidade D ou F)
+			        ParamSelecionado = 0,
+			            CALCULATE(
+			                DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			                bi_view_comercial[entidade] IN {"D", "F"},
+			                NOT ISBLANK(bi_view_comercial[faturamento_nota])
+			            ),
+			
+			        -- Pedidos: contar pedidos distintos (entidade P)
+			        ParamSelecionado = 1,
+			            CALCULATE(
+			                DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			                bi_view_comercial[entidade] = "P"
+			            ),
+			
+			        -- Pedidos em Aberto: pedidos com posicao = 1
+			        ParamSelecionado = 2,
+			            CALCULATE(
+			                DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			                bi_view_comercial[entidade] = "P" &&
+			                bi_view_comercial[pedido_posicao_faturamento] = 1
+			            ),
+			
+			        -- Faturamento + Pedidos em Aberto: notas + pedidos em aberto
+			        ParamSelecionado = 3,
+			            CALCULATE(
+			                DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			                bi_view_comercial[entidade] IN {"D", "F"},
+			                NOT ISBLANK(bi_view_comercial[faturamento_nota])
+			            ) +
+			            CALCULATE(
+			                DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			                bi_view_comercial[entidade] = "P" &&
+			                bi_view_comercial[pedido_posicao_faturamento] = 1
+			            ),
+			
+			        BLANK()
+			    )
+			
+			```
+		formatString: #,0
+		lineageTag: 42ed9acf-d254-4336-8ff6-b2cff36c6e7a
+
+	measure 'Quantidade Itens Parametro' = ```
+			
+			VAR Param = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    
+			    -- 0: Faturamento Liquido (Entidade D ou F)
+			    Param = 0, 
+			        CALCULATE(
+			            SUM(bi_view_comercial[faturamento_quantidade]),
+			            FILTER(
+			                bi_view_comercial,
+			                bi_view_comercial[entidade] IN {"D", "F"}
+			            )
+			        ),
+			
+			    -- 1: Pedidos (Entidade P)
+			    Param = 1,
+			        CALCULATE(
+			            SUM(bi_view_comercial[faturamento_quantidade]),
+			            FILTER(
+			                bi_view_comercial,
+			                bi_view_comercial[entidade] = "P"
+			            )
+			        ),
+			
+			    -- 2: Pedidos em Aberto (Entidade P + posição de faturamento = 1)
+			    Param = 2,
+			        CALCULATE(
+			            SUM(bi_view_comercial[faturamento_quantidade]),
+			            FILTER(
+			                bi_view_comercial,
+			                bi_view_comercial[entidade] = "P" &&
+			                bi_view_comercial[pedido_posicao_faturamento] = 1
+			            )
+			        ),
+			
+			    -- 3: Faturamento Liquido + Pedidos em Aberto
+			    Param = 3,
+			        VAR QuantFat = 
+			            CALCULATE(
+			                SUM(bi_view_comercial[faturamento_quantidade]),
+			                FILTER(
+			                    bi_view_comercial,
+			                    bi_view_comercial[entidade] IN {"D", "F"}
+			                )
+			            )
+			        VAR QuantAberto = 
+			            CALCULATE(
+			                SUM(bi_view_comercial[faturamento_quantidade]),
+			                FILTER(
+			                    bi_view_comercial,
+			                    bi_view_comercial[entidade] = "P" &&
+			                    bi_view_comercial[pedido_posicao_faturamento] = 1
+			                )
+			            )
+			        RETURN QuantFat + QuantAberto,
+			
+			    -- Caso nenhum parâmetro válido seja selecionado
+			    BLANK()
+			)
+			
+			```
+		lineageTag: 4c815a36-002b-4c1a-8f00-c18270d72c34
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Média Diária Ideal' = ```
+			
+			VAR DataMin = MIN(dCalendario[Date])
+			VAR DataMax = MAX(dCalendario[Date])
+			
+			VAR DiasNoMes =
+			    CALCULATE(
+			        COUNTROWS(dCalendario),
+			        FILTER(
+			            ALL(dCalendario),
+			            dCalendario[Ano] = YEAR(DataMin) &&
+			            dCalendario[Mes] = MONTH(DataMin)
+			        )
+			    )
+			
+			VAR FaturamentoMes =
+			    CALCULATE(
+			        SUM(bi_view_comercial[faturamento_valor]),
+			        FILTER(
+			            ALL(dCalendario),
+			            dCalendario[Ano] = YEAR(DataMin) &&
+			            dCalendario[Mes] = MONTH(DataMin)
+			        )
+			    )
+			
+			RETURN
+			DIVIDE(FaturamentoMes, DiasNoMes)
+			
+			```
+		lineageTag: 9df41e81-74a2-4b78-9412-9f76d834d9d1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Média Diária Projetada' = ```
+			
+			VAR AnoAtualSelecionado = SELECTEDVALUE(dCalendario[Ano])
+			VAR MesAtualSelecionado = SELECTEDVALUE(dCalendario[Mes])
+			VAR AnoAnterior = AnoAtualSelecionado - 1
+			
+			// Faturamento do mesmo mês do ano anterior (ex: jan/2024)
+			VAR FaturamentoAnoAnterior = 
+			    CALCULATE(
+			        SUM(bi_view_comercial[faturamento_valor]),
+			        FILTER(
+			            ALL(dCalendario),
+			            dCalendario[Ano] = AnoAnterior &&
+			            dCalendario[Mes] = MesAtualSelecionado
+			        )
+			    )
+			
+			// Fator de crescimento
+			VAR FatorCrescimento = 1.20
+			VAR FaturamentoProjetado = FaturamentoAnoAnterior * FatorCrescimento
+			
+			// Dias úteis do mês atual selecionado
+			VAR DiasUteisMesAtual = 
+			    CALCULATE(
+			        COUNTROWS(dCalendario),
+			        FILTER(
+			            dCalendario,
+			            dCalendario[Ano] = AnoAtualSelecionado &&
+			            dCalendario[Mes] = MesAtualSelecionado &&
+			            WEEKDAY(dCalendario[Date], 2) <= 5
+			        )
+			    )
+			
+			RETURN
+			DIVIDE(FaturamentoProjetado, DiasUteisMesAtual)
+			
+			```
+		lineageTag: dae85118-f2c4-4002-a575-bf762f6b4f31
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Calendario Parametro' = ```
+			
+			VAR vDia = SELECTEDVALUE(dCalendario[Dia])
+			
+			VAR Totalvendas = [Valor Selecionado]
+			
+			
+			VAR Totalvendas_Formatado = 
+			    SWITCH(
+			        TRUE(),
+			        Totalvendas >= 1000000000, FORMAT(Totalvendas, "#,0,,,.00 bi"),
+			        Totalvendas >= 1000000, FORMAT(Totalvendas, "#,0,,.00 mi"),
+			        Totalvendas >= 1000, FORMAT(Totalvendas, "#,0,.00 K"),
+			        FORMAT(Totalvendas, "#")
+			    )
+			
+			
+			
+			
+			RETURN
+			    vDia & UNICHAR(10) & Totalvendas_Formatado
+			
+			```
+		lineageTag: 7708d625-f5f8-4d47-ab75-2c994cd32d62
+
+	measure 'Form. Cond. Background' = ```
+			
+			VAR vDia_semana = SELECTEDVALUE(dCalendario[Semana Dia])
+			VAR vFDS_check =
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK([Faturamento Liquido]), "#0000",
+			        vDia_semana IN {1, 7}, "#a8a8a8",    // Domingo ou Sábado
+			        "#d8d8d8"                         // Dias úteis
+			    )
+			RETURN
+			    vFDS_check
+			
+			```
+		lineageTag: 5979c487-fd20-4b2a-8cb2-eda55405adee
+
+	measure 'Form. Cond. Valores' = ```
+			
+			IF(
+			    ISBLANK([Faturamento Liquido]),
+			    "#A8A8A8", "#333333"  // Cor cinza se não houver faturamento
+			)
+			
+			```
+		lineageTag: ec066d46-f7f4-4659-aa6c-bf0c5d05cfc2
+
+	measure 'Subtitulo calendario' = ```
+			
+			VAR vPeriodo = FORMAT(MAX(dCalendario[Date]), "mmm/yyyy")
+			VAR vTotal_vendas = [Faturamento Liquido]
+			
+			VAR vTotal_vendas_formatado =
+			    SWITCH(
+			        TRUE(),
+			        vTotal_vendas >= 1000000000, FORMAT(vTotal_vendas, "#,0,,,.00 bi"),
+			        vTotal_vendas >= 1000000,    FORMAT(vTotal_vendas, "#,0,,.00 mi"),
+			        vTotal_vendas >= 1000,       FORMAT(vTotal_vendas, "#,0.00 k"),
+			        FORMAT(vTotal_vendas, "#")
+			    )
+			
+			RETURN
+			    "Total de vendas de " & vPeriodo & " foi R$ " & vTotal_vendas_formatado
+			
+			```
+		lineageTag: 4fdbe87b-01dc-401d-b5e7-bcab932dbdca
+
+	measure 'Calendario Ticket Médio' = ```
+			
+			VAR vDia = SELECTEDVALUE(dCalendario[Dia])
+			
+			VAR Totalvendas = [Ticker Médio por Parâmetro]
+			
+			VAR Totalvendas_Formatado = 
+			    SWITCH(
+			        TRUE(),
+			        Totalvendas >= 1000000000, FORMAT(Totalvendas, "#,0,,,.00 bi"),
+			        Totalvendas >= 1000000, FORMAT(Totalvendas, "#,0,,.00 mi"),
+			        Totalvendas >= 1000, FORMAT(Totalvendas, "#,0,.00 K"),
+			        FORMAT(Totalvendas, "#")
+			    )
+			
+			
+			
+			
+			RETURN
+			    vDia & UNICHAR(10) & Totalvendas_Formatado
+			
+			```
+		lineageTag: 1273ef7a-0558-4ae8-a654-5779b6d43b79
+
+	measure 'Atualização Completa' = ```
+			
+			VAR DataHoraAjustada = NOW() - TIME(3,0,0)
+			VAR DataFormatada = "Atualizado em " & FORMAT(DataHoraAjustada, "dd/MM/yyyy HH:mm:ss")
+			 
+			RETURN
+			DataFormatada
+			```
+		lineageTag: fc62b593-b988-462f-b959-971322085108
+
+	measure 'Meta Faturamento TESTE' = ```
+			
+			[Faturamento Liquido] * 1.2
+			
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 9e2c6f10-5f7d-42d5-b748-3751229ec213
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Rank Vendedor' = RANKX(ALL(bi_view_comercial[representante_codigo_nome]), [Faturamento Liquido])
+		formatString: 0
+		lineageTag: a930c8ee-6b1a-4ffb-b918-4e0109a6d8fc
+
+	measure 'Faturamento vs Meta' = [Valor Selecionado] - [Meta Faturamento TESTE]
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 9f884759-66ce-4217-876e-94a529474267
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Preço Médio Parametro' = DIVIDE([Valor Selecionado], [Quantidade Itens Parametro])
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 1d11406c-a2e0-4b51-9f7b-168f5d4be0be
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Receita A Gerais' = ```
+			
+			VAR Selecionado = VALUE(SELECTEDVALUE('Parâmetro'[Parâmetro Pedido]))
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        Selecionado = 0, -- Faturamento Líquido
+			            FORMAT(
+			                CALCULATE(
+			                    [Faturamento Liquido],
+			                    USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			                ),
+			                "R$ #,##0.00"
+			            ),
+			        Selecionado = 1, -- Faturamento Bruto
+			            FORMAT(
+			                CALCULATE(
+			                    [Faturamento Bruto],
+			                    USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			                ),
+			                "R$ #,##0.00"
+			            ),
+			        Selecionado = 2, -- Devoluções
+			            FORMAT(
+			                CALCULATE(
+			                    [Devolucões],
+			                    USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			                ),
+			                "R$ #,##0.00"
+			            ),
+			        Selecionado = 3, -- Pedidos
+			            FORMAT(
+			                CALCULATE(
+			                    [Pedidos],
+			                    USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			                ),
+			                "R$ #,##0.00"
+			            ),
+			        Selecionado = 4, -- Pedidos em Aberto
+			            FORMAT(
+			                CALCULATE(
+			                    [Pedidos Em Aberto],
+			                    USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			                ),
+			                "R$ #,##0.00"
+			            ),
+			        BLANK()
+			    )
+			
+			```
+		lineageTag: 14b03760-6317-4830-bf42-45bfa34f2f0c
+
+	measure 'Receita B Gerais' = ```
+			
+			VAR Selecionado = VALUE(SELECTEDVALUE('Parâmetro'[Parâmetro Pedido]))
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        Selecionado = 0, -- Faturamento Líquido
+			            FORMAT(
+			                CALCULATE(
+			                    [Faturamento Liquido],
+			                    USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			                ),
+			                "R$ #,##0.00"
+			            ),
+			        Selecionado = 1, -- Faturamento Bruto
+			            FORMAT(
+			                CALCULATE(
+			                    [Faturamento Bruto],
+			                    USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			                ),
+			                "R$ #,##0.00"
+			            ),
+			        Selecionado = 2, -- Devoluções
+			            FORMAT(
+			                CALCULATE(
+			                    [Devolucões],
+			                    USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			                ),
+			                "R$ #,##0.00"
+			            ),
+			        Selecionado = 3, -- Pedidos
+			            FORMAT(
+			                CALCULATE(
+			                    [Pedidos],
+			                    USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			                ),
+			                "R$ #,##0.00"
+			            ),
+			        Selecionado = 4, -- Pedidos em Aberto
+			            FORMAT(
+			                CALCULATE(
+			                    [Pedidos Em Aberto],
+			                    USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			                ),
+			                "R$ #,##0.00"
+			            ),
+			        BLANK()
+			    )
+			
+			```
+		lineageTag: 74b6f2d8-1c44-479f-bd85-b6a8490612b6
+
+	measure 'Receita A Gerais Sem Formatacao' = ```
+			
+			VAR Selecionado = VALUE(SELECTEDVALUE('Parâmetro'[Parâmetro Pedido]))
+			
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        Selecionado = 0, -- Faturamento Líquido
+			            CALCULATE(
+			                [Faturamento Liquido],
+			                USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        Selecionado = 1, -- Faturamento Bruto
+			            CALCULATE(
+			                [Faturamento Bruto],
+			                USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        Selecionado = 2, -- Devoluções
+			            CALCULATE(
+			                [Devolucões],
+			                USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        Selecionado = 3, -- Pedidos
+			            CALCULATE(
+			                [Pedidos],
+			                USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        Selecionado = 4, -- Pedidos em Aberto
+			            CALCULATE(
+			                [Pedidos Em Aberto],
+			                USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        BLANK()
+			    )
+			
+			```
+		lineageTag: 8b7faf41-f94f-44c7-abd7-189d2a3f8f71
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Receita B Gerais Sem Formatacao' = ```
+			
+			VAR Selecionado = VALUE(SELECTEDVALUE('Parâmetro'[Parâmetro Pedido]))
+			
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        Selecionado = 0, -- Faturamento Líquido
+			            CALCULATE(
+			                [Faturamento Liquido],
+			                USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        Selecionado = 1, -- Faturamento Bruto
+			            CALCULATE(
+			                [Faturamento Bruto],
+			                USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        Selecionado = 2, -- Devoluções
+			            CALCULATE(
+			                [Devolucões],
+			                USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        Selecionado = 3, -- Pedidos
+			            CALCULATE(
+			                [Pedidos],
+			                USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        Selecionado = 4, -- Pedidos em Aberto
+			            CALCULATE(
+			                [Pedidos Em Aberto],
+			                USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        BLANK()
+			    )
+			
+			```
+		lineageTag: b2d61286-ca92-486b-b481-547489d8a986
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Devoluções Ano Anterior' = ```
+			
+			CALCULATE(
+			    SUM(bi_view_comercial[faturamento_valor]),
+			    FILTER(
+			        ALL(dCalendario),
+			        dCalendario[Ano] = YEAR(TODAY()) - 1
+			    ),
+			    bi_view_comercial[entidade] = "D"
+			) + 0
+			
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: cd6978db-6823-49ef-8c93-c702ca116c30
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Devoluções Ano Atual' = ```
+			
+			CALCULATE(
+			    SUM(bi_view_comercial[faturamento_valor]),
+			    FILTER(
+			        ALL(dCalendario),
+			        dCalendario[Ano] = YEAR(TODAY())
+			    ),
+			    bi_view_comercial[entidade] = "D"
+			) + 0
+			
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 10740be2-a7a7-448e-be81-b21bddef3b70
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Qtd Documentos Ano Anterior' = ```
+			
+			VAR Param = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			VAR AnoAnterior = YEAR(TODAY()) - 1
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    Param = 0,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAnterior),
+			            bi_view_comercial[entidade] IN {"D", "F"}
+			        ),
+			
+			    Param = 1,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAnterior),
+			            bi_view_comercial[entidade] = "P"
+			        ),
+			
+			    Param = 2,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAnterior),
+			            bi_view_comercial[entidade] = "P",
+			            bi_view_comercial[pedido_posicao_faturamento] = 1
+			        ),
+			
+			    Param = 3,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(
+			                bi_view_comercial,
+			                bi_view_comercial[entidade] IN {"D", "F"} ||
+			                (bi_view_comercial[entidade] = "P" && bi_view_comercial[pedido_posicao_faturamento] = 1)
+			            ),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAnterior)
+			        ),
+			
+			    BLANK()
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 907fc49b-2226-4196-8a87-fc62738e6f14
+
+	measure 'Qtd Documentos Ano Atual' = ```
+			
+			VAR Param = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			VAR AnoAtual = YEAR(TODAY())
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    Param = 0,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAtual),
+			            bi_view_comercial[entidade] IN {"D", "F"}
+			        ),
+			
+			    Param = 1,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAtual),
+			            bi_view_comercial[entidade] = "P"
+			        ),
+			
+			    Param = 2,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAtual),
+			            bi_view_comercial[entidade] = "P",
+			            bi_view_comercial[pedido_posicao_faturamento] = 1
+			        ),
+			
+			    Param = 3,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(
+			                bi_view_comercial,
+			                bi_view_comercial[entidade] IN {"D", "F"} ||
+			                (bi_view_comercial[entidade] = "P" && bi_view_comercial[pedido_posicao_faturamento] = 1)
+			            ),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAtual)
+			        ),
+			
+			    BLANK()
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 74e2e2ea-a027-4a27-a41c-0d8bfc92a44c
+
+	measure 'Positivação Ano Anterior' = ```
+			
+			VAR Param = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			VAR AnoAnterior = YEAR(TODAY()) - 1
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    Param = 0,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAnterior),
+			            bi_view_comercial[entidade] IN {"D", "F"}
+			        ),
+			
+			    Param = 1,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAnterior),
+			            bi_view_comercial[entidade] = "P"
+			        ),
+			
+			    Param = 2,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAnterior),
+			            bi_view_comercial[entidade] = "P",
+			            bi_view_comercial[pedido_posicao_faturamento] = 1
+			        ),
+			
+			    Param = 3,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(
+			                bi_view_comercial,
+			                (bi_view_comercial[entidade] IN {"D", "F"}) ||
+			                (bi_view_comercial[entidade] = "P" && bi_view_comercial[pedido_posicao_faturamento] = 1)
+			            ),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAnterior)
+			        ),
+			
+			    BLANK()
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 1831b600-598e-4d46-b751-0e1c30f5399f
+
+	measure 'Positivação Ano Atual' = ```
+			
+			VAR Param = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			VAR AnoAtual = YEAR(TODAY())
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    Param = 0,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAtual),
+			            bi_view_comercial[entidade] IN {"D", "F"}
+			        ),
+			
+			    Param = 1,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAtual),
+			            bi_view_comercial[entidade] = "P"
+			        ),
+			
+			    Param = 2,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAtual),
+			            bi_view_comercial[entidade] = "P",
+			            bi_view_comercial[pedido_posicao_faturamento] = 1
+			        ),
+			
+			    Param = 3,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(
+			                bi_view_comercial,
+			                (bi_view_comercial[entidade] IN {"D", "F"}) ||
+			                (bi_view_comercial[entidade] = "P" && bi_view_comercial[pedido_posicao_faturamento] = 1)
+			            ),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = AnoAtual)
+			        ),
+			
+			    BLANK()
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 2f0bdb6c-7938-417f-a1f5-f1cc1e823f0b
+
+	measure 'Ticket Médio Ano Anterior' = ```
+			
+			VAR AnoAnterior = YEAR(TODAY()) - 1
+			
+			VAR FaturamentoValido =
+			    CALCULATE(
+			        [Valor Selecionado],
+			        FILTER(
+			            ALL(dCalendario),
+			            dCalendario[Ano] = AnoAnterior
+			        )
+			    )
+			
+			VAR PedidosValidos =
+			    [Qtd Documentos Ano Anterior]
+			
+			RETURN
+			    DIVIDE(FaturamentoValido, PedidosValidos, 0)
+			
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: a1720ead-a8ac-4f51-a833-30db2ea0da0a
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Ticket Médio Ano Atual' = ```
+			
+			VAR AnoAtual = YEAR(TODAY())
+			
+			VAR FaturamentoValido =
+			    CALCULATE(
+			        [Valor Selecionado],
+			        FILTER(
+			            bi_view_comercial,
+			            NOT ISBLANK(bi_view_comercial[faturamento_nota])
+			        ),
+			        FILTER(
+			            ALL(dCalendario),
+			            dCalendario[Ano] = AnoAtual
+			        )
+			    )
+			
+			VAR PedidosValidos =
+			    [Qtd Documentos Ano Atual]
+			
+			RETURN
+			    DIVIDE(FaturamentoValido, PedidosValidos, 0)
+			
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 09cce4a7-d216-4ed5-a337-058e7cc41331
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Devoluções Mês Anterior' = ```
+			
+			VAR AnoMesAnterior = 
+			    IF(
+			        MONTH(TODAY()) = 1,
+			        (YEAR(TODAY()) - 1) * 100 + 12,
+			        YEAR(TODAY()) * 100 + MONTH(TODAY()) - 1
+			    )
+			
+			RETURN
+			CALCULATE(
+			    SUM(bi_view_comercial[faturamento_valor]),
+			    bi_view_comercial[entidade] = "D",
+			    FILTER(
+			        ALL(dCalendario),
+			        dCalendario[AnoMes] = AnoMesAnterior
+			    )
+			) + 0
+			
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: e0a849d4-2eb6-423e-ba7a-03957d0dc861
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Devoluções Mês Atual' =
+			
+			CALCULATE(
+			    SUM(bi_view_comercial[faturamento_valor]),
+			    bi_view_comercial[entidade] = "D",
+			    FILTER(
+			        ALL(dCalendario),
+			        dCalendario[Ano] = YEAR(TODAY()) &&
+			        dCalendario[Mes] = MONTH(TODAY())
+			    )
+			) + 0
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 9ca4e373-0940-4955-8755-4a50800a93a2
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Qtd Documentos Selecionado Mês Anterior' = ```
+			
+			VAR Param = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			VAR AnoMesAnterior = 
+			    IF(
+			        MONTH(TODAY()) = 1,
+			        (YEAR(TODAY()) - 1) * 100 + 12,
+			        YEAR(TODAY()) * 100 + MONTH(TODAY()) - 1
+			    )
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    Param = 0,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(ALL(dCalendario), dCalendario[AnoMes] = AnoMesAnterior),
+			            bi_view_comercial[entidade] IN {"D", "F"}
+			        ),
+			
+			    Param = 1,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(ALL(dCalendario), dCalendario[AnoMes] = AnoMesAnterior),
+			            bi_view_comercial[entidade] = "P"
+			        ),
+			
+			    Param = 2,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(ALL(dCalendario), dCalendario[AnoMes] = AnoMesAnterior),
+			            bi_view_comercial[entidade] = "P",
+			            bi_view_comercial[pedido_posicao_faturamento] = 1
+			        ),
+			
+			    Param = 3,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(
+			                bi_view_comercial,
+			                (bi_view_comercial[entidade] IN {"D", "F"}) ||
+			                (bi_view_comercial[entidade] = "P" && bi_view_comercial[pedido_posicao_faturamento] = 1)
+			            ),
+			            FILTER(ALL(dCalendario), dCalendario[AnoMes] = AnoMesAnterior)
+			        ),
+			
+			    BLANK()
+			) +0
+			
+			```
+		formatString: #,0
+		lineageTag: a097e5bc-8cf8-457a-9bb9-933fc2e84a2e
+
+	measure 'Qtd Documentos Selecionado Mês Atual' =
+			
+			VAR Param = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    Param = 0,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = YEAR(TODAY()) && dCalendario[Mes] = MONTH(TODAY())),
+			            bi_view_comercial[entidade] IN {"D", "F"}
+			        ),
+			
+			    Param = 1,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = YEAR(TODAY()) && dCalendario[Mes] = MONTH(TODAY())),
+			            bi_view_comercial[entidade] = "P"
+			        ),
+			
+			    Param = 2,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = YEAR(TODAY()) && dCalendario[Mes] = MONTH(TODAY())),
+			            bi_view_comercial[entidade] = "P",
+			            bi_view_comercial[pedido_posicao_faturamento] = 1
+			        ),
+			
+			    Param = 3,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[faturamento_nota]),
+			            FILTER(
+			                bi_view_comercial,
+			                (bi_view_comercial[entidade] IN {"D", "F"}) ||
+			                (bi_view_comercial[entidade] = "P" && bi_view_comercial[pedido_posicao_faturamento] = 1)
+			            ),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = YEAR(TODAY()) && dCalendario[Mes] = MONTH(TODAY()))
+			        ),
+			
+			    BLANK()
+			) +0
+		formatString: #,0
+		lineageTag: 0253a411-8365-472e-975c-3f26f0d2089f
+
+	measure 'Positivação Mês Anterior' = ```
+			
+			VAR Param = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			VAR AnoMesAnterior = 
+			    IF(
+			        MONTH(TODAY()) = 1,
+			        (YEAR(TODAY()) - 1) * 100 + 12,
+			        YEAR(TODAY()) * 100 + MONTH(TODAY()) - 1
+			    )
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    Param = 0,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(ALL(dCalendario), dCalendario[AnoMes] = AnoMesAnterior),
+			            bi_view_comercial[entidade] IN {"D", "F"}
+			        ),
+			
+			    Param = 1,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(ALL(dCalendario), dCalendario[AnoMes] = AnoMesAnterior),
+			            bi_view_comercial[entidade] = "P"
+			        ),
+			
+			    Param = 2,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(ALL(dCalendario), dCalendario[AnoMes] = AnoMesAnterior),
+			            bi_view_comercial[entidade] = "P",
+			            bi_view_comercial[pedido_posicao_faturamento] = 1
+			        ),
+			
+			    Param = 3,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(
+			                bi_view_comercial,
+			                (bi_view_comercial[entidade] IN {"D", "F"}) ||
+			                (bi_view_comercial[entidade] = "P" && bi_view_comercial[pedido_posicao_faturamento] = 1)
+			            ),
+			            FILTER(ALL(dCalendario), dCalendario[AnoMes] = AnoMesAnterior)
+			        ),
+			
+			    BLANK()
+			) +0
+			
+			```
+		formatString: #,0
+		lineageTag: 3240d3da-e64a-4e88-a00c-ca7aa76b49a2
+
+	measure 'Positivação Mês Atual' = ```
+			
+			VAR Param = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			RETURN
+			SWITCH(
+			    TRUE(),
+			
+			    Param = 0,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = YEAR(TODAY()) && dCalendario[Mes] = MONTH(TODAY())),
+			            bi_view_comercial[entidade] IN {"D", "F"}
+			        ),
+			
+			    Param = 1,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = YEAR(TODAY()) && dCalendario[Mes] = MONTH(TODAY())),
+			            bi_view_comercial[entidade] = "P"
+			        ),
+			
+			    Param = 2,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = YEAR(TODAY()) && dCalendario[Mes] = MONTH(TODAY())),
+			            bi_view_comercial[entidade] = "P",
+			            bi_view_comercial[pedido_posicao_faturamento] = 1
+			        ),
+			
+			    Param = 3,
+			        CALCULATE(
+			            DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			            FILTER(
+			                bi_view_comercial,
+			                (bi_view_comercial[entidade] IN {"D", "F"}) ||
+			                (bi_view_comercial[entidade] = "P" && bi_view_comercial[pedido_posicao_faturamento] = 1)
+			            ),
+			            FILTER(ALL(dCalendario), dCalendario[Ano] = YEAR(TODAY()) && dCalendario[Mes] = MONTH(TODAY()))
+			        ),
+			
+			    BLANK()
+			) +0
+			
+			```
+		formatString: #,0
+		lineageTag: abd38d11-9a79-4910-9cf9-ce8111b06c55
+
+	measure 'Ticket Médio Mês Anterior' = ```
+			
+			VAR AnoMesAnterior = 
+			    IF(
+			        MONTH(TODAY()) = 1,
+			        (YEAR(TODAY()) - 1) * 100 + 12,
+			        YEAR(TODAY()) * 100 + MONTH(TODAY()) - 1
+			    )
+			
+			VAR FaturamentoValido =
+			    CALCULATE(
+			        [Valor Selecionado],
+			        FILTER(
+			            bi_view_comercial,
+			            NOT ISBLANK(bi_view_comercial[faturamento_nota])
+			        ),
+			        FILTER(
+			            ALL(dCalendario),
+			            dCalendario[AnoMes] = AnoMesAnterior
+			        )
+			    )
+			
+			VAR PedidosValidos =
+			    [Qtd Documentos Selecionado Mês Anterior]
+			
+			RETURN
+			    DIVIDE(FaturamentoValido, PedidosValidos, 0)
+			
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 23042f3a-e8c3-4f36-a179-e885cef68bcd
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Ticket Médio Mês Atual' = ```
+			
+			VAR FaturamentoValido =
+			    CALCULATE(
+			        [Valor Selecionado],
+			        FILTER(
+			            bi_view_comercial,
+			            NOT ISBLANK(bi_view_comercial[faturamento_nota])
+			        ),
+			        FILTER(
+			            ALL(dCalendario),
+			            dCalendario[Ano] = YEAR(TODAY()) &&
+			            dCalendario[Mes] = MONTH(TODAY())
+			        )
+			    )
+			
+			VAR PedidosValidos =
+			    [Qtd Documentos Selecionado Mês Atual]
+			
+			RETURN
+			    DIVIDE(FaturamentoValido, PedidosValidos, 0)
+			
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 537063e6-482a-402a-81df-931cdecc20ee
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Faturamento Mês Anterior' = ```
+			
+			VAR DataHoje = TODAY()
+			VAR InicioMesAnterior = DATE(YEAR(DataHoje), MONTH(DataHoje), 1) - 1
+			VAR DataInicio = DATE(YEAR(InicioMesAnterior), MONTH(InicioMesAnterior), 1)
+			VAR DataFim = EOMONTH(DataInicio, 0)
+			
+			RETURN
+			CALCULATE(
+			    [Valor Selecionado],
+			    FILTER(
+			        ALL(bi_view_comercial),
+			        bi_view_comercial[faturamento_data] >= DataInicio &&
+			        bi_view_comercial[faturamento_data] <= DataFim
+			    )
+			)
+			
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: e946ea40-30c0-4f0b-a52c-92ffc6afbe98
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Variacao A vs B' = ```
+			
+			DIVIDE(
+			    [Receita B Gerais Sem Formatacao] - [Receita A Gerais Sem Formatacao], 
+			    [Receita A Gerais Sem Formatacao], 
+			    0
+			)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3bcf7d55-a89f-49cd-b41c-61a5c0aa7d4f
+
+	measure 'Total Geral' = [Receita A Gerais Sem Formatacao] + [Receita B Gerais Sem Formatacao]
+		lineageTag: 706f91ef-068c-49c0-bfdd-5a6cece5083c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Valor Ano Anterior Selecao' =
+			
+			CALCULATE(
+			    [Valor Selecionado],
+			    SAMEPERIODLASTYEAR('dCalendario'[Date])
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: ab4a4919-2d9c-4236-8499-491b8ddad69d
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Sem Venda A' = ```
+			
+			VAR Selecionado =
+			    VALUE(SELECTEDVALUE('Parâmetro Sem Venda'[Parâmetro Sem Venda Pedido], 0))
+			
+			RETURN
+			    IF (
+			        [Mostrar_Dados_Flag] = 1,
+			        SWITCH(
+			            TRUE(),
+			            
+			            -- 0 ▸ Faturamento Líquido
+			            Selecionado = 0,
+			                FORMAT(
+			                    CALCULATE(
+			                        [Faturamento Liquido],
+			                        USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			                    ),
+			                    "R$ #,##0.00"
+			                ),
+			            
+			            -- 1 ▸ Faturamento Bruto
+			            Selecionado = 1,
+			                FORMAT(
+			                    CALCULATE(
+			                        [Faturamento Bruto],
+			                        USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			                    ),
+			                    "R$ #,##0.00"
+			                ),
+			            
+			            -- 2 ▸ Pedidos
+			            Selecionado = 2,
+			                FORMAT(
+			                    CALCULATE(
+			                        [Pedidos],
+			                        USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			                    ),
+			                    "R$ #,##0.00"
+			                ),
+			
+			            BLANK()
+			        ),
+			        BLANK()
+			    )
+			
+			```
+		lineageTag: d6c9ca8b-7066-4eaa-a602-3470c4538028
+
+	measure 'Sem Venda B' = ```
+			
+			VAR Selecionado =
+			    VALUE(SELECTEDVALUE('Parâmetro Sem Venda'[Parâmetro Sem Venda Pedido], 0))
+			
+			RETURN
+			    IF (
+			        [Mostrar_Dados_Flag] = 1,
+			        SWITCH(
+			            TRUE(),
+			            
+			            -- 0 ▸ Faturamento Líquido
+			            Selecionado = 0,
+			                FORMAT(
+			                    CALCULATE(
+			                        [Faturamento Liquido],
+			                        USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			                    ),
+			                    "R$ #,##0.00"
+			                ),
+			            
+			            -- 1 ▸ Faturamento Bruto
+			            Selecionado = 1,
+			                FORMAT(
+			                    CALCULATE(
+			                        [Faturamento Bruto],
+			                        USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			                    ),
+			                    "R$ #,##0.00"
+			                ),
+			            
+			            -- 2 ▸ Pedidos
+			            Selecionado = 2,
+			                FORMAT(
+			                    CALCULATE(
+			                        [Pedidos],
+			                        USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			                    ),
+			                    "R$ #,##0.00"
+			                ),
+			
+			            BLANK()
+			        ),
+			        BLANK()
+			    )
+			
+			```
+		lineageTag: e7082f75-f3ca-4019-8461-017e7b804036
+
+	measure Mostrar_Dados_Flag = ```
+			
+			VAR Selecionado = 
+			    VALUE(SELECTEDVALUE('Parâmetro Sem Venda'[Parâmetro Sem Venda Pedido], 0))
+			
+			/* ─────── Período A ─────── */
+			VAR ValorPeriodoA =
+			    SWITCH(
+			        TRUE(),
+			        Selecionado = 0, -- Faturamento Líquido
+			            CALCULATE(
+			                [Faturamento Liquido],
+			                USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        Selecionado = 1, -- Faturamento Bruto
+			            CALCULATE(
+			                [Faturamento Bruto],
+			                USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        Selecionado = 2, -- Pedidos
+			            CALCULATE(
+			                [Pedidos],
+			                USERELATIONSHIP('Periodo A'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        BLANK()
+			    )
+			
+			VAR ValorAjustadoA = ROUND(COALESCE(ValorPeriodoA, 0), 2)
+			
+			/* ─────── Período B ─────── */
+			VAR ValorPeriodoB =
+			    SWITCH(
+			        TRUE(),
+			        Selecionado = 0, -- Faturamento Líquido
+			            CALCULATE(
+			                [Faturamento Liquido],
+			                USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        Selecionado = 1, -- Faturamento Bruto
+			            CALCULATE(
+			                [Faturamento Bruto],
+			                USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        Selecionado = 2, -- Pedidos
+			            CALCULATE(
+			                [Pedidos],
+			                USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        BLANK()
+			    )
+			
+			VAR ValorAjustadoB = ROUND(COALESCE(ValorPeriodoB, 0), 2)
+			
+			RETURN
+			    IF(
+			        OR(ValorAjustadoA = 0, ValorAjustadoB = 0),
+			        1,
+			        0
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: e990d58b-cfeb-4270-bcc5-2e17ae74b678
+
+	measure 'Classificação Cliente' =
+			
+			VAR Fat = [Faturamento Liquido]
+			VAR AnoInicio = YEAR(SELECTEDVALUE(bi_view_comercial[cliente_data_primeira_compra]))
+			
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        Fat = 0, "Inativa",
+			        Fat <= 50000, "Quase inativa",
+			        Fat <= 100000, "Recuperada",
+			        AnoInicio = YEAR(TODAY()), "Nova",
+			        Fat > 100000, "Ativa",
+			        "Outro"
+			    )
+		lineageTag: b15ddf3d-e3f6-4dfe-a652-9a0125b0d7d4
+
+	measure '% Periodo A e B' = ```
+			
+			VAR ReceitaA  = [Receita A Gerais Sem Formatacao]      
+			VAR ReceitaB  = [Receita B Gerais Sem Formatacao]      
+			VAR Variacao  = DIVIDE(ReceitaB - ReceitaA, ReceitaA)
+			
+			RETURN Variacao
+			```
+		lineageTag: f1aad793-90bb-4bca-b487-f8696275fbd8
+
+		formatStringDefinition = ```
+				VAR porcentagem = [% Periodo A e B]
+				
+				VAR porcentagem_formatada = 
+				SWITCH(
+				    TRUE(),
+				    ISBLANK(porcentagem), "",
+				    porcentagem >= 0.000001, "⮝ " & FORMAT(porcentagem, "0%"),
+				    porcentagem <= 0.000001, "⮟ " & FORMAT(porcentagem, "0%"),
+				    "0%"
+				)
+				
+				RETURN 
+				"""" & porcentagem_formatada & """"
+				```
+
+	measure 'Rotulo Meta % 2' = ```
+			
+			VAR AnoSelecionado = SELECTEDVALUE('dCalendario'[Ano])
+			VAR vValor = 
+			    CALCULATE(
+			        [Valor Selecionado],
+			        'dCalendario'[Ano] = AnoSelecionado
+			    )
+			
+			VAR vDeslocamento = [Eixo Y Dinamico] * 0.20
+			
+			RETURN
+			    vValor + vDeslocamento
+			
+			```
+		lineageTag: 6a5d38f8-86f7-444e-b03e-0d9d5a0ecb1e
+
+		formatStringDefinition = ```
+				VAR porcentagem = [Crescimento % Mês Ano Anterior]
+				
+				VAR porcentagem_formatada = 
+				SWITCH(
+				    TRUE(),
+				    ISBLANK(porcentagem), "",
+				    porcentagem >= 0.000001, "⮝ " & FORMAT(porcentagem, "0%"),
+				    porcentagem <= 0.000001, "⮟ " & FORMAT(porcentagem, "0%"),
+				    "0%"
+				)
+				
+				RETURN 
+				"""" & porcentagem_formatada & """"
+				
+				```
+
+	measure 'Crescimento % Mês Ano Anterior' = ```
+			
+			VAR DataAtual = MAX('dCalendario'[Date])
+			VAR DataAnoAnterior = EDATE(DataAtual, -12)
+			
+			VAR FatAtual = 
+			    CALCULATE(
+			        [Valor Selecionado],
+			        DATESINPERIOD('dCalendario'[Date], DataAtual, 1, MONTH)
+			    )
+			
+			VAR FatAnoAnterior = 
+			    CALCULATE(
+			        [Valor Selecionado],
+			        DATESINPERIOD('dCalendario'[Date], DataAnoAnterior, 1, MONTH)
+			    )
+			
+			RETURN
+			DIVIDE(FatAtual - FatAnoAnterior, FatAnoAnterior)
+			
+			```
+		lineageTag: a6962971-93fd-4e0a-b0f5-689d72bb2c99
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Formatacao Cond.Meta 2' = ```
+			
+			    IF([Crescimento % Mês Ano Anterior] >= 0.000001,
+			    "GREEN",
+			    "#d05050"
+			    )
+			```
+		lineageTag: 4860f3a5-ef3c-46c7-8423-e821abdc6e53
+
+	measure 'Rotulo Meta % 3' = ```
+			
+			VAR ParamSelecionado = VALUE(SELECTEDVALUE('Parâmetro'[Parâmetro Pedido]))
+			
+			VAR ValorBase =
+			    SWITCH(
+			        TRUE(),
+			        ParamSelecionado = 0,
+			            CALCULATE(
+			                [Faturamento Liquido],
+			                USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        ParamSelecionado = 1,
+			            CALCULATE(
+			                [Faturamento Bruto],
+			                USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        ParamSelecionado = 2,
+			            CALCULATE(
+			                [Devolucões],
+			                USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        ParamSelecionado = 3,
+			            CALCULATE(
+			                [Pedidos],
+			                USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        ParamSelecionado = 4,
+			            CALCULATE(
+			                [Pedidos Em Aberto],
+			                USERELATIONSHIP('Periodo B'[Date], bi_view_comercial[faturamento_data])
+			            ),
+			        BLANK()
+			    )
+			
+			VAR Deslocamento = [Eixo Y Dinamico 3] * 0.10
+			
+			RETURN
+			    ValorBase + Deslocamento
+			
+			```
+		lineageTag: 4c1c5ac3-9055-42c5-93d5-f5b91c587fae
+
+		formatStringDefinition = ```
+				VAR porcentagem = [% Periodo A e B]
+				
+				VAR porcentagem_formatada = 
+				SWITCH(
+				    TRUE(),
+				    ISBLANK(porcentagem), "",
+				    porcentagem >= 0.000001, "⮝ " & FORMAT(porcentagem, "0%"),
+				    porcentagem <= 0.000001, "⮟ " & FORMAT(porcentagem, "0%"),
+				    "0%"
+				)
+				
+				RETURN 
+				"""" & porcentagem_formatada & """"
+				```
+
+	measure 'Eixo Y Dinamico 3' = ```
+			
+			VAR ParamSelecionado = VALUE(SELECTEDVALUE('Parâmetro'[Parâmetro Pedido]))
+			
+			VAR tabela =
+			    ALLSELECTED(dCalendario[NomeMes], dCalendario[Mes])
+			
+			VAR maiorvalor =
+			    MAXX(
+			        tabela,
+			        SWITCH(
+			            TRUE(),
+			            ParamSelecionado = 0, [Faturamento Liquido],
+			            ParamSelecionado = 1, [Faturamento Bruto],
+			            ParamSelecionado = 2, [Devolucões],
+			            ParamSelecionado = 3, [Positivação por Parâmetro],
+			            ParamSelecionado = 4, [Ticker Médio por Parâmetro],
+			            BLANK()
+			        )
+			    )
+			
+			VAR deslocamento = 1.50
+			
+			RETURN 
+			    maiorvalor * deslocamento
+			
+			```
+		lineageTag: 518510ba-7b74-4f21-ab3e-845ec0e06364
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Formatacao Cond.Meta 3' = ```
+			
+			    IF([% Periodo A e B] >= 0.000001,
+			    "GREEN",
+			    "#d05050"
+			    )
+			```
+		lineageTag: 4de835a5-c1a9-4e98-ad39-88ed5d9150bc
+
+	measure Pedidos =
+			
+			CALCULATE(
+			    SUM(bi_view_comercial[faturamento_valor]),
+			    FILTER(
+			        bi_view_comercial,
+			        bi_view_comercial[entidade] = "P"
+			    )
+			) + 0
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 8193f7f6-4e77-45c4-9caf-5adb58bd2c4a
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Pedidos Em Aberto' =
+			
+			CALCULATE(
+			    SUM(bi_view_comercial[faturamento_valor]),
+			    FILTER(
+			        bi_view_comercial,
+			        bi_view_comercial[entidade] = "P" && bi_view_comercial[pedido_posicao_faturamento] = 1
+			    )
+			) + 0
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: abbb7237-8164-4f79-bb32-16331fb130e2
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Faturamento + Pedidos Em Aberto' = [Faturamento Liquido] + [Pedidos Em Aberto]
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 7af0079e-f6be-404a-922a-62a57175dbb2
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Positivação Faturamento Líquido' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			    FILTER(
+			        bi_view_comercial,
+			        bi_view_comercial[entidade] IN {"D", "F"} &&
+			        bi_view_comercial[faturamento_valor] > 0
+			    )
+			)
+		formatString: 0
+		lineageTag: 01593a86-2d6f-45d2-8b0e-60c63ff7ee92
+
+	measure 'Positivação Pedidos' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			    FILTER(
+			        bi_view_comercial,
+			        bi_view_comercial[entidade] = "P" &&
+			        bi_view_comercial[faturamento_valor] > 0
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 72f2102b-0cd9-4a3b-99ab-dfe2cacfd32a
+
+	measure 'Positivação Pedidos Em Aberto' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			    FILTER(
+			        bi_view_comercial,
+			        bi_view_comercial[entidade] = "P" &&
+			        bi_view_comercial[pedido_posicao_faturamento] = 1 &&
+			        bi_view_comercial[faturamento_valor] > 0
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 194a4df2-eb26-49e1-a6e0-64f8e6348bf8
+
+	measure 'Positivação Faturamento + Pedidos Em Aberto' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(bi_view_comercial[cliente_codigo_nome]),
+			    FILTER(
+			        bi_view_comercial,
+			        (
+			            bi_view_comercial[entidade] IN {"D", "F"} ||
+			            (bi_view_comercial[entidade] = "P" && bi_view_comercial[pedido_posicao_faturamento] = 1)
+			        ) &&
+			        bi_view_comercial[faturamento_valor] > 0
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 0c8e2d85-cd6e-4ea3-b600-72327b9d5018
+
+	measure 'Positivação Selecionada' = ```
+			
+			VAR Selecionado = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			RETURN
+			SWITCH(
+			    Selecionado,
+			    0, [Positivação Faturamento Líquido],
+			    1, [Positivação Pedidos],
+			    2, [Positivação Pedidos Em Aberto],
+			    3, [Positivação Faturamento + Pedidos Em Aberto],
+			    BLANK()
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 9124f25f-2622-48f5-ad89-b2eb0fe9ba18
+
+	measure 'Valor Selecionado' = ```
+			
+			VAR Selecionado = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    Selecionado = 0, [Faturamento Liquido],
+			    Selecionado = 1, [Pedidos],
+			    Selecionado = 2, [Pedidos Em Aberto],
+			    Selecionado = 3, [Faturamento + Pedidos Em Aberto],
+			    BLANK()
+			)
+			
+			```
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 03354b63-c2f0-446c-8e78-be62f7db69d8
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Titulo Dinamico Valores Dia_Mes_Ano' = ```
+			
+			VAR ParametroSelecionado = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			
+			VAR NomeParametro =
+			    SWITCH(
+			        ParametroSelecionado,
+			        0, "Faturamento",
+			        1, "Pedidos",
+			        2, "Pedidos em aberto",
+			        3, "Faturamento + Pedidos em aberto",
+			        "Métrica"
+			    )
+			
+			VAR DataMin = MIN(dCalendario[Date])
+			VAR DataMax = MAX(dCalendario[Date])
+			VAR Hoje = TODAY()
+			
+			VAR TipoPeriodo =
+			    SWITCH(
+			        TRUE(),
+			        -- Mesmo dia
+			        DataMin = DataMax && DataMin = Hoje, "do Dia",
+			        -- Mês atual (ex: 01/06/2025 a 30/06/2025)
+			        YEAR(DataMin) = YEAR(Hoje) && MONTH(DataMin) = MONTH(Hoje)
+			            && YEAR(DataMax) = YEAR(Hoje) && MONTH(DataMax) = MONTH(Hoje), "do Mês",
+			        -- Ano atual (ex: 01/01/2025 a 31/12/2025)
+			        YEAR(DataMin) = YEAR(Hoje) && MONTH(DataMin) = 1 && DAY(DataMin) = 1 &&
+			        YEAR(DataMax) = YEAR(Hoje) && MONTH(DataMax) = 12 && DAY(DataMax) >= 28, "do Ano",
+			        -- Outro intervalo qualquer
+			        "do Período"
+			    )
+			
+			RETURN
+			NomeParametro & " " & TipoPeriodo
+			
+			```
+		lineageTag: 42b2b9f4-4482-476e-9ef1-b21d1a0d5045
+
+	measure 'Valor Ano Atual Selecao' = ```
+			
+			VAR AnoSelecionado = SELECTEDVALUE(dCalendario[Ano])
+			RETURN
+			    CALCULATE(
+			        [Valor Selecionado],
+			        FILTER(
+			            ALL(dCalendario),
+			            dCalendario[Ano] = AnoSelecionado
+			        )
+			    )
+			
+			```
+		lineageTag: d77d75de-11a4-4760-a6e3-72339d96f3b2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Dinamico Generica 1' =
+			
+			VAR TipoColuna =
+			    CALCULATE(
+			        MAX(tabConfiguracao[Descricao]),
+			        tabConfiguracao[nomeColuna] = "GENERICA 1"
+			    )
+			
+			RETURN
+			SWITCH(
+			    TipoColuna,
+			    "CLIENTE",
+			        CALCULATE(
+			            COUNTROWS('bi_view_comercial'),
+			            'bi_view_comercial'[cliente_codigo_nome] IN VALUES('FILTRO GENERICO 1'[GENERICA 1])
+			        ),
+			    "PRODUTO",
+			        CALCULATE(
+			            COUNTROWS('bi_view_comercial'),
+			            'bi_view_comercial'[produto_codigo_nome] IN VALUES('FILTRO GENERICO 1'[GENERICA 1])
+			        ),
+			    BLANK()
+			)
+		formatString: 0
+		lineageTag: b9865af8-2a0d-4123-bdca-9b4e41bad591
+
+	measure 'Verificar Existencia Cliente' =
+			
+			IF(
+			    MAX('FILTRO GENERICO 1'[GENERICA 1]) IN VALUES('bi_view_comercial'[cliente_codigo_nome]),
+			    "Existe",
+			    "Não existe"
+			)
+		lineageTag: 0020699e-c295-4e21-9c7e-b2650171e459
+
+	measure 'Faturamento Liquido Dinamico Generica 1' =
+			
+			VAR TipoColuna =
+			    CALCULATE(
+			        MAX(tabConfiguracao[Descricao]),
+			        tabConfiguracao[nomeColuna] = "GENERICA 1"
+			    )
+			
+			RETURN
+			SWITCH(
+			    TipoColuna,
+			    "CLIENTE",
+			        CALCULATE(
+			            SUM(bi_view_comercial[faturamento_valor]),
+			            bi_view_comercial[entidade] IN {"D", "F"},
+			            TREATAS(
+			                VALUES('FILTRO GENERICO 1'[GENERICA 1]),
+			                bi_view_comercial[cliente_codigo_nome]
+			            )
+			        ),
+			    "PRODUTO",
+			        CALCULATE(
+			            SUM(bi_view_comercial[faturamento_valor]),
+			            bi_view_comercial[entidade] IN {"D", "F"},
+			            TREATAS(
+			                VALUES('FILTRO GENERICO 1'[GENERICA 1]),
+			                bi_view_comercial[produto_codigo_nome]
+			            )
+			        ),
+			    "GRUPO",
+			        CALCULATE(
+			            SUM(bi_view_comercial[faturamento_valor]),
+			            bi_view_comercial[entidade] IN {"D", "F"},
+			            TREATAS(
+			                VALUES('FILTRO GENERICO 1'[GENERICA 1]),
+			                bi_view_comercial[produto_grupo]
+			            )
+			        ),
+			    BLANK()
+			)
+		lineageTag: dccf0ed0-992a-41ed-aaf1-591ff4c425c1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Filtro Visual Produto' = ```
+			
+			VAR TipoColuna =
+			    CALCULATE(
+			        MAX(tabConfiguracao[Descricao]),
+			        tabConfiguracao[nomeColuna] = "GENERICA 1"
+			    )
+			
+			VAR ProdutosFiltrados =
+			    SWITCH(
+			        TipoColuna,
+			        "PRODUTO", VALUES('FILTRO GENERICO 1'[GENERICA 1]),
+			        "CLIENTE", BLANK(),
+			        "GRUPO", BLANK()
+			    )
+			
+			RETURN
+			IF(
+			    TipoColuna = "PRODUTO" &&
+			    NOT ISBLANK(SELECTEDVALUE('bi_view_comercial'[produto_codigo_nome])) &&
+			    NOT SELECTEDVALUE('bi_view_comercial'[produto_codigo_nome]) IN ProdutosFiltrados,
+			    BLANK(),
+			    1
+			)
+			
+			```
+		lineageTag: ab7ce197-4fa8-4556-8b72-2381070268c2
+
+	measure 'Clientes Novos - CC' = ```
+			
+			VAR ParamSelecionado = SELECTEDVALUE( 'Parâmetro Simplificado'[Parâmetro Pedido] )
+			VAR SelecaoInicio = MIN( dCalendario[Date] )
+			VAR SelecaoFim    = MAX( dCalendario[Date] )
+			
+			// 1) Lista de clientes no contexto atual
+			VAR ListaClientes =
+			    VALUES( bi_view_comercial[cliente_codigo_nome] )
+			
+			// 2) Para cada cliente, busca a primeira data de faturamento segundo o parâmetro
+			VAR ClientesComDataPrimeira =
+			    ADDCOLUMNS(
+			        ListaClientes,
+			        "DataPrimeira",
+			            MINX(
+			                FILTER(
+			                    ALL( bi_view_comercial ),
+			                    bi_view_comercial[cliente_codigo_nome] = EARLIER( bi_view_comercial[cliente_codigo_nome] )
+			                    && SWITCH(
+			                        TRUE(),
+			                        ParamSelecionado = 0, bi_view_comercial[entidade] IN { "D","F" },
+			                        ParamSelecionado = 1, bi_view_comercial[entidade] = "P",
+			                        ParamSelecionado = 2,
+			                            bi_view_comercial[entidade] = "P"
+			                            && bi_view_comercial[pedido_posicao_faturamento] = 1,
+			                        ParamSelecionado = 3,
+			                            bi_view_comercial[entidade] IN { "D","F" }
+			                            || (
+			                                bi_view_comercial[entidade] = "P"
+			                                && bi_view_comercial[pedido_posicao_faturamento] = 1
+			                            ),
+			                        FALSE()
+			                    )
+			                ),
+			                bi_view_comercial[faturamento_data]
+			            )
+			    )
+			
+			// 3) Filtra só os clientes cuja DataPrimeira caiu dentro do período selecionado
+			VAR NovosNoPeriodo =
+			    FILTER(
+			        ClientesComDataPrimeira,
+			        [DataPrimeira] >= SelecaoInicio
+			         && [DataPrimeira] <= SelecaoFim
+			         && NOT( ISBLANK( [DataPrimeira] ) )
+			    )
+			
+			// 4) Conta quantos são
+			RETURN
+			    COUNTROWS( NovosNoPeriodo ) + 0
+			
+			```
+		formatString: 0
+		lineageTag: f3d5717a-fabe-4f06-8ed3-eda1ffc62533
+
+	measure 'Clientes Reativados por Parametro' = ```
+			
+			
+			VAR Param = SELECTEDVALUE( 'Parâmetro Simplificado'[Parâmetro Pedido] )
+			
+			// 1) Só quem teve ao menos 1 transação DO TIPO selecionado dentro do período atual
+			VAR ClientesAtivosNoPeriodo =
+			    FILTER(
+			        VALUES( bi_view_comercial[cliente_codigo_nome] ),
+			        CALCULATE(
+			            COUNTROWS( bi_view_comercial ),
+			            // aplicando o filtro conforme o parâmetro; a data está sendo respeitada
+			            SWITCH(
+			                TRUE(),
+			                Param = 0, bi_view_comercial[entidade] IN { "D", "F" },
+			                Param = 1, bi_view_comercial[entidade] = "P",
+			                Param = 2,
+			                    bi_view_comercial[entidade] = "P"
+			                    && bi_view_comercial[pedido_posicao_faturamento] = 1,
+			                Param = 3,
+			                    bi_view_comercial[entidade] IN { "D", "F" }
+			                    || (
+			                        bi_view_comercial[entidade] = "P"
+			                        && bi_view_comercial[pedido_posicao_faturamento] = 1
+			                       ),
+			                FALSE()
+			            )
+			        ) > 0
+			    )
+			
+			// 2) Desses, filtra só quem está inativo há >180 dias (pela última data do mesmo tipo)
+			VAR ClientesInativos180 =
+			    FILTER(
+			        ClientesAtivosNoPeriodo,
+			        VAR UltimaData =
+			            CALCULATE(
+			                MAX( bi_view_comercial[faturamento_data] ),
+			                ALLEXCEPT(
+			                    bi_view_comercial,
+			                    bi_view_comercial[cliente_codigo_nome]
+			                ),
+			                // reaplica filtro de tipo para achar a “última” desse tipo
+			                SWITCH(
+			                    TRUE(),
+			                    Param = 0, bi_view_comercial[entidade] IN { "D", "F" },
+			                    Param = 1, bi_view_comercial[entidade] = "P",
+			                    Param = 2,
+			                        bi_view_comercial[entidade] = "P"
+			                        && bi_view_comercial[pedido_posicao_faturamento] = 1,
+			                    Param = 3,
+			                        bi_view_comercial[entidade] IN { "D", "F" }
+			                        || (
+			                            bi_view_comercial[entidade] = "P"
+			                            && bi_view_comercial[pedido_posicao_faturamento] = 1
+			                           ),
+			                    FALSE()
+			                )
+			            )
+			        VAR DiasSemCompra = DATEDIFF( UltimaData, TODAY(), DAY )
+			        RETURN
+			            DiasSemCompra > 180
+			    )
+			
+			// 3) Conte quantos restaram
+			RETURN
+			    COUNTROWS( ClientesInativos180 ) + 0
+			
+			```
+		formatString: 0
+		lineageTag: 2870a6aa-271f-4022-bf2a-ce420665170b
+
+	measure 'Clientes Recorrentes' =
+			
+			VAR TotalAtendidos = [Positivação por Parâmetro]
+			VAR TotalNovos     = [Clientes Novos - CC]
+			VAR TotalReativados = [Clientes Reativados - CC]
+			RETURN
+			    TotalAtendidos - TotalNovos - TotalReativados + 0
+		formatString: 0
+		lineageTag: ec8f3d3e-7ec3-41f2-a620-887d8464c2d0
+
+	measure 'Última Data Compra por Parametro' = ```
+			
+			VAR ParamSelecionado =
+			    SELECTEDVALUE( 'Parâmetro Simplificado'[Parâmetro Pedido] )
+			RETURN
+			CALCULATE(
+			    MAX( bi_view_comercial[faturamento_data] ),
+			    // mantém só o filtro de cliente, removendo tudo o mais
+			    ALLEXCEPT(
+			        bi_view_comercial,
+			        bi_view_comercial[cliente_codigo_nome]
+			    ),
+			    // reapplica o filtro de tipo conforme o parâmetro
+			    SWITCH(
+			        TRUE(),
+			        ParamSelecionado = 0,
+			            bi_view_comercial[entidade] IN { "D", "F" },         // só faturamento
+			        ParamSelecionado = 1,
+			            bi_view_comercial[entidade] = "P",                    // só pedidos
+			        ParamSelecionado = 2,
+			            bi_view_comercial[entidade] = "P"
+			            && bi_view_comercial[pedido_posicao_faturamento] = 1, // pedidos em aberto
+			        ParamSelecionado = 3,
+			            bi_view_comercial[entidade] IN { "D", "F" }
+			            || (
+			                bi_view_comercial[entidade] = "P"
+			                && bi_view_comercial[pedido_posicao_faturamento] = 1
+			               ),                                                  // faturamento + em aberto
+			        FALSE()
+			    )
+			)
+			
+			```
+		formatString: Short Date
+		lineageTag: 4f1c5c51-a427-4fc0-a85d-8f0fe9231f63
+
+	measure 'Dias desde Última Compra' = ```
+			
+			VAR UltimaData = [Última Data Compra por Parametro]  // sua medida existente
+			RETURN
+			IF(
+			    NOT( ISBLANK( UltimaData ) ),
+			    DATEDIFF( UltimaData, TODAY(), DAY ),
+			    BLANK()
+			)
+			
+			```
+		formatString: 0
+		lineageTag: ec4b4773-1d18-4356-952f-0ffff74bd92d
+
+	measure 'Ultima venda data por parâmetro' = ```
+			
+			VAR ParamSelecionado = SELECTEDVALUE( 'Parâmetro Simplificado'[Parâmetro Pedido] )
+			
+			// 1. Última data para vendas “D” ou “F”
+			VAR DataDF =
+			    CALCULATE(
+			        LASTDATE( bi_view_comercial[faturamento_data] ),
+			        bi_view_comercial[entidade] IN { "D", "F" }
+			    )
+			
+			// 2. Última data para pedidos (“P”)
+			VAR DataP =
+			    CALCULATE(
+			        LASTDATE( bi_view_comercial[faturamento_data] ),
+			        bi_view_comercial[entidade] = "P"
+			    )
+			
+			// 3. Última data para pedidos faturamento posição 1
+			VAR DataP1 =
+			    CALCULATE(
+			        LASTDATE( bi_view_comercial[faturamento_data] ),
+			        bi_view_comercial[entidade] = "P",
+			        bi_view_comercial[pedido_posicao_faturamento] = 1
+			    )
+			
+			// 4. Para o parâmetro 3, usamos a máxima entre DataDF e DataP1
+			VAR DataMix =
+			    IF( DataDF > DataP1, DataDF, DataP1 )
+			
+			RETURN
+			SWITCH(
+			    ParamSelecionado,
+			    0, DataDF,
+			    1, DataP,
+			    2, DataP1,
+			    3, DataMix,
+			    BLANK()
+			)
+			
+			```
+		formatString: Short Date
+		lineageTag: 01e82197-9cd2-4a22-ad1d-579588c1b52f
+
+	measure 'Ultima venda cliente por parâmetro' = ```
+			
+			CALCULATE(
+			    [Ultima venda data por parâmetro],
+			    ALL( bi_view_comercial ),
+			    VALUES( bi_view_comercial[cliente_codigo_nome] )
+			)
+			
+			```
+		formatString: Short Date
+		lineageTag: f5d825c5-61e6-4794-93a8-acc1c0eec2c2
+
+	measure 'PENULTIMA VENDA CC' =
+			
+			CALCULATE(
+			    [Ultima venda cliente por parâmetro],
+			    FILTER(
+			        ALL( bi_view_comercial ),
+			        bi_view_comercial[faturamento_data] < [Ultima venda data por parâmetro]
+			    ),
+			    VALUES( bi_view_comercial[cliente_codigo_nome] )
+			)
+		formatString: General Date
+		lineageTag: 218f7bf0-ce93-4505-8d09-68fcff4bee62
+
+	measure 'Dias Ult. vs Pen. Comp. CC' = DATEDIFF([PENULTIMA VENDA CC],[Ultima venda cliente por parâmetro],DAY)
+		formatString: 0
+		lineageTag: 4fb7225c-f56f-417e-955e-35a57364c317
+
+	measure 'Clientes Reativados CC' = IF([Dias Ult. vs Pen. Comp. CC]<180,"Nao","Sim")
+		lineageTag: b08e04bc-8865-45fb-beec-bf4dd05d987c
+
+	measure 'Clientes Reativados - CC' = ```
+			
+			VAR ParamSelecionado =
+			    SELECTEDVALUE( 'Parâmetro Simplificado'[Parâmetro Pedido] )
+			VAR DiasThreshold =
+			    SELECTEDVALUE( DiasReativacao[DiasReativacao], 180 )  // default 180
+			RETURN
+			CALCULATE(
+			    DISTINCTCOUNT( bi_view_comercial[cliente_codigo_nome] ),
+			    FILTER(
+			        VALUES( bi_view_comercial[cliente_codigo_nome] ),
+			        VAR Cliente = bi_view_comercial[cliente_codigo_nome]
+			        // 1) aplica filtro de entidade/posição conforme o parâmetro
+			        VAR TblCliente =
+			            FILTER(
+			                ALL( bi_view_comercial ),
+			                bi_view_comercial[cliente_codigo_nome] = Cliente
+			                    && SWITCH(
+			                        TRUE(),
+			                        ParamSelecionado = 0, bi_view_comercial[entidade] IN { "D","F" },
+			                        ParamSelecionado = 1, bi_view_comercial[entidade] = "P",
+			                        ParamSelecionado = 2,
+			                          bi_view_comercial[entidade] = "P"
+			                          && bi_view_comercial[pedido_posicao_faturamento] = 1,
+			                        ParamSelecionado = 3,
+			                          bi_view_comercial[entidade] IN { "D","F" }
+			                          || (
+			                            bi_view_comercial[entidade] = "P"
+			                            && bi_view_comercial[pedido_posicao_faturamento] = 1
+			                          ),
+			                        FALSE()
+			                    )
+			            )
+			        // 2) Última e penúltima data dentro de TblCliente
+			        VAR UltimaData =
+			            MAXX( TblCliente, bi_view_comercial[faturamento_data] )
+			        VAR PenultimaData =
+			            MAXX(
+			                FILTER( TblCliente, bi_view_comercial[faturamento_data] < UltimaData ),
+			                bi_view_comercial[faturamento_data]
+			            )
+			        // 3) Só “reativado” se gap > DiasThreshold
+			        RETURN
+			            NOT( ISBLANK( PenultimaData ) )
+			            && DATEDIFF( PenultimaData, UltimaData, DAY ) > DiasThreshold
+			    )
+			)
+			+ 0
+			
+			```
+		formatString: 0
+		lineageTag: 577b6272-76fa-4d23-b173-c02159938dc7
+
+	measure 'Total de Clientes Ativos' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT( bi_view_comercial[cliente_codigo_nome] ),
+			    REMOVEFILTERS( dCalendario ),  // ignora filtros de data da página
+			    bi_view_comercial[cliente_situacao] = "Ativo"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: e7e45147-eb85-40c0-a61c-87130095c1f4
+
+	measure '% Carteira Atendida' = ```
+			
+			DIVIDE(
+			    [Positivação por Parâmetro],
+			    [Total de Clientes Ativos],
+			    0
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1a9d09a7-a6e8-48e2-8cb1-7818515b3cbc
+
+	measure 'Título Gráfico Tela de clientes' = ```
+			
+			 
+			VAR Selecao = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    Selecao = 0, "Faturamento e Ticket Médio por Mês",
+			    Selecao = 1, "Pedidos e Ticket Médio por Mês",
+			    Selecao = 2, "Pedidos em Aberto e Ticket Médio por Mês",
+			    Selecao = 3, "Faturamento + Pedidos em Aberto e Ticket Médio por Mês",
+			    "Faturamento e Ticket Médio por Mês"  // fallback padrão
+			)
+			
+			```
+		lineageTag: 10caed13-f1cd-486a-898c-6d759e422157
+
+	measure 'Total Status Clientes' = [Clientes Novos - CC] + [Clientes Reativados - CC] + [Clientes Recorrentes]
+		formatString: 0
+		lineageTag: 245081ef-38d6-432b-a944-056d86748214
+
+	measure 'Quantidade Produtos Distintos' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(bi_view_comercial[produto_codigo_nome]),
+			    REMOVEFILTERS(dCalendario) 
+			) +0
+			```
+		formatString: 0
+		lineageTag: b36a26db-fca4-467c-b585-1ae1a701e1ac
+
+	measure 'Quantidade Produtos Movimentados' = ```
+			
+			VAR ParamSelecionado = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			
+			        -- Faturamento (entidade D/F com valor > 0)
+			        ParamSelecionado = 0,
+			            CALCULATE(
+			                DISTINCTCOUNT(bi_view_comercial[produto_codigo_nome]),
+			                bi_view_comercial[entidade] IN { "D", "F" },
+			                bi_view_comercial[faturamento_valor] > 0
+			            ),
+			
+			        -- Pedidos (entidade P com valor > 0)
+			        ParamSelecionado = 1,
+			            CALCULATE(
+			                DISTINCTCOUNT(bi_view_comercial[produto_codigo_nome]),
+			                bi_view_comercial[entidade] = "P",
+			                bi_view_comercial[faturamento_valor] > 0
+			            ),
+			
+			        -- Pedidos em aberto (entidade P com posicao = 1)
+			        ParamSelecionado = 2,
+			            CALCULATE(
+			                DISTINCTCOUNT(bi_view_comercial[produto_codigo_nome]),
+			                bi_view_comercial[entidade] = "P",
+			                bi_view_comercial[pedido_posicao_faturamento] = 1,
+			                bi_view_comercial[faturamento_valor] > 0
+			            ),
+			
+			        -- Faturamento + Pedidos em aberto
+			        ParamSelecionado = 3,
+			            CALCULATE(
+			                DISTINCTCOUNT(bi_view_comercial[produto_codigo_nome]),
+			                (
+			                    (bi_view_comercial[entidade] IN { "D", "F" } && bi_view_comercial[faturamento_valor] > 0)
+			                    ||
+			                    (bi_view_comercial[entidade] = "P" && bi_view_comercial[pedido_posicao_faturamento] = 1)
+			                )
+			            ),
+			
+			        BLANK()
+			    )
+			
+			```
+		formatString: 0
+		lineageTag: 3da60adb-9653-46f0-8b6c-617701839d4f
+
+	measure 'Quantidade Produtos Sem Movimento' = ```
+			[Quantidade Produtos Distintos] - [Quantidade Produtos Movimentados] 
+			```
+		formatString: 0
+		lineageTag: 50288b7f-72f4-4d97-ae02-1716926e19fb
+
+	measure 'Produto Sem Movimentação (Filtro)' = ```
+			
+			VAR ParametroSelecionado =
+			    SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido], 0)
+			
+			VAR TemMovimentacao =
+			    SWITCH(
+			        ParametroSelecionado,
+			
+			        0, -- Faturamento
+			        CALCULATE(
+			            COUNTROWS(bi_view_comercial),
+			            bi_view_comercial[entidade] IN {"D", "F"},
+			            bi_view_comercial[faturamento_valor] > 0
+			        ),
+			
+			        1, -- Pedidos
+			        CALCULATE(
+			            COUNTROWS(bi_view_comercial),
+			            bi_view_comercial[entidade] = "P",
+			            bi_view_comercial[faturamento_valor] > 0
+			        ),
+			
+			        2, -- Pedidos em aberto
+			        CALCULATE(
+			            COUNTROWS(bi_view_comercial),
+			            bi_view_comercial[entidade] = "P",
+			            bi_view_comercial[pedido_posicao_faturamento] = 1,
+			            bi_view_comercial[faturamento_valor] > 0
+			        ),
+			
+			        3, -- Faturamento + Pedidos em aberto
+			        CALCULATE(
+			            COUNTROWS(
+			                FILTER(
+			                    bi_view_comercial,
+			                    (
+			                        (bi_view_comercial[entidade] IN {"D", "F"} && bi_view_comercial[faturamento_valor] > 0) ||
+			                        (bi_view_comercial[entidade] = "P" && bi_view_comercial[pedido_posicao_faturamento] = 1 && bi_view_comercial[faturamento_valor] > 0)
+			                    )
+			                )
+			            )
+			        )
+			    )
+			
+			RETURN
+			    IF(TemMovimentacao = 0 || ISBLANK(TemMovimentacao), 1, 0)
+			
+			```
+		formatString: 0
+		lineageTag: e3a6b07d-a74e-4825-925a-0e2724aa9d6f
+
+	measure 'Total Parametro Simplificado' = [Faturamento Liquido] + [Pedidos] + [Pedidos Em Aberto] + [Faturamento + Pedidos Em Aberto]
+		lineageTag: efdf590e-3156-4ef0-b1aa-adfe968c7013
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Produtos Movimentados' =
+			
+			DIVIDE(
+			    [Quantidade Produtos Movimentados],
+			    [Quantidade Produtos Distintos],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 263be750-3a78-4237-8b9a-8ab98876052d
+
+	measure ValorSelecionadoPorParametro = ```
+			
+			VAR Param = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			RETURN
+			    SWITCH(
+			        Param,
+			        0, [Faturamento Liquido],
+			        1, [Pedidos],
+			        2, [Pedidos Em Aberto],
+			        3, [Faturamento + Pedidos Em Aberto],
+			        BLANK()
+			    )
+			
+			```
+		lineageTag: 6c17cf50-536a-43e2-9cca-1a05c3436ef1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Título Produtos' = ```
+			
+			VAR Param = SELECTEDVALUE('Parâmetro Simplificado'[Parâmetro Pedido])
+			RETURN
+			    SWITCH(
+			        Param,
+			        0, "Produtos Faturados",
+			        1, "Produtos Vendidos",
+			        2, "Produtos Vendidos em Aberto",
+			        3, "Produtos Faturamento + Pedidos em Aberto",
+			        "Selecione um parâmetro"
+			    )
+			
+			```
+		lineageTag: 344d1e38-89fa-4933-98ff-fa8c793fd0cb
+
+	measure 'Produto Sem Movimentação TESTE' = ```
+			
+			VAR ProdutoAtual = MAX(bi_view_comercial[produto_codigo_nome])
+			
+			VAR Movimentou =
+			    CALCULATE(
+			        COUNTROWS(bi_view_comercial),
+			        bi_view_comercial[produto_codigo_nome] = ProdutoAtual,
+			        bi_view_comercial[faturamento_valor] > 0
+			    )
+			
+			RETURN
+			    IF(ISBLANK(Movimentou) || Movimentou = 0, 1, 0)
+			
+			```
+		formatString: 0
+		lineageTag: 760e173a-9eab-4fe9-97d3-c61f4ab67c81
+
+	measure '% Crescimento Devoluções' = ```
+			
+			VAR AnoSelecionado =
+			    SELECTEDVALUE(dCalendario[Ano])
+			
+			VAR DevolucaoAtual =
+			    CALCULATE(
+			        SUM(bi_view_comercial[faturamento_valor]),
+			        FILTER(
+			            ALL(dCalendario),
+			            dCalendario[Ano] = AnoSelecionado
+			        ),
+			        bi_view_comercial[entidade] = "D"
+			    )
+			
+			VAR DevolucaoAnterior =
+			    CALCULATE(
+			        SUM(bi_view_comercial[faturamento_valor]),
+			        FILTER(
+			            ALL(dCalendario),
+			            dCalendario[Ano] = AnoSelecionado - 1
+			        ),
+			        bi_view_comercial[entidade] = "D"
+			    )
+			
+			RETURN
+			    DIVIDE(DevolucaoAtual - DevolucaoAnterior, DevolucaoAnterior, 0) + 0
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3780edd7-4d79-42fa-8ea0-ae9885e3311d
+
+	measure '% Crescimento Documentos' = ```
+			
+			VAR Atual = [Qtd Documentos Ano Atual]
+			VAR Anterior = [Qtd Documentos Ano Anterior]
+			
+			RETURN
+			    IF(
+			        Anterior = 0,
+			        BLANK(),  // ou "Zerado", ou 0 se preferir
+			        DIVIDE(Atual - Anterior, Anterior, 0)
+			    )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9d13f4dc-abb7-4f7d-a765-651549e21f87
+
+	measure '% Crescimento Ticket Médio' = ```
+			
+			VAR TicketAtual = [Ticket Médio Ano Atual]
+			VAR TicketAnterior = [Ticket Médio Ano Anterior]
+			
+			RETURN
+			    IF(
+			        TicketAnterior = 0,
+			        BLANK(),  // ou "Zerado", ou 0 se quiser tratar diferente
+			        DIVIDE(TicketAtual - TicketAnterior, TicketAnterior, 0)
+			    )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 97debd82-d028-41b3-8a88-710ecd98ce51
+
+	measure '% Crescimento Positivação' = ```
+			
+			VAR Atual = [Positivação Ano Atual]
+			VAR Anterior = [Positivação Ano Anterior]
+			
+			RETURN
+			    IF(
+			        Anterior = 0,
+			        BLANK(),  // ou 0, ou "Zerado" conforme preferir
+			        DIVIDE(Atual - Anterior, Anterior, 0)
+			    )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e9b77f2b-00ef-4f05-8830-e15639ff526b
+
+	measure '% Crescimento Devoluções Mês' = ```
+			
+			VAR Atual = [Devoluções Mês Atual]
+			VAR Anterior = [Devoluções Mês Anterior]
+			
+			RETURN
+			    IF(
+			        Anterior = 0,
+			        BLANK(),  // ou "Zerado", ou 0 se preferir
+			        DIVIDE(Atual - Anterior, Anterior, 0)
+			    ) + 0
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b9d0375c-d502-4d16-91cd-821a04904e3d
+
+	measure '% Crescimento Documentos Mês' = ```
+			
+			VAR Atual = [Qtd Documentos Selecionado Mês Atual]
+			VAR Anterior = [Qtd Documentos Selecionado Mês Anterior]
+			
+			RETURN
+			    IF(
+			        Anterior = 0,
+			        BLANK(),  // Ou "Zerado", ou 0, se quiser tratar de outra forma
+			        DIVIDE(Atual - Anterior, Anterior, 0)
+			    ) + 0
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 63593172-bf5d-46c3-9781-848ff84d09d4
+
+	measure '% Crescimento Positivação Mês' = ```
+			
+			VAR Atual = [Positivação Mês Atual]
+			VAR Anterior = [Positivação Mês Anterior]
+			
+			RETURN
+			    IF(
+			        Anterior = 0,
+			        BLANK(),  // ou "Zerado", ou 0 se quiser
+			        DIVIDE(Atual - Anterior, Anterior, 0)
+			    ) + 0
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1e5c929f-f2ca-440d-9791-5bc625364016
+
+	measure '% Crescimento Ticket Médio Mês' = ```
+			
+			VAR TicketAtual = [Ticket Médio Mês Atual]
+			VAR TicketAnterior = [Ticket Médio Mês Anterior]
+			
+			RETURN
+			    IF(
+			        TicketAnterior = 0,
+			        BLANK(),  // ou "Zerado" ou 0 se preferir
+			        DIVIDE(TicketAtual - TicketAnterior, TicketAnterior, 0)
+			    ) + 0
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: aab78533-124c-49c0-8146-0f26304f311b
 
 	partition Medidas = m
 		mode: import
@@ -18,6 +3054,4 @@ table Medidas
 				    #"Colunas Removidas"
 
 	annotation PBI_ResultType = Table
-
-	annotation PBI_NavigationStepName = Navegação
 

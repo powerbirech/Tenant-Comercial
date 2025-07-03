@@ -1,0 +1,25 @@
+table 'Filtro Generico 1'
+	lineageTag: b588531b-ac7b-4cb6-8279-efdfdc194968
+
+	column 'GENERICA 1'
+		dataType: string
+		lineageTag: 404e1400-519c-45ee-a37a-c33c26060c97
+		summarizeBy: none
+		sourceColumn: GENERICA 1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Filtro Generico 1' = m
+		mode: import
+		source = ```
+				let
+				    Fonte = tabAuxiliar,
+				    ColunaUnica = Table.Distinct(Table.SelectColumns(Fonte, {"GENERICA 1"})) 
+				in
+				    ColunaUnica
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

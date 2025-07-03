@@ -1,0 +1,366 @@
+table bi_view_comercial
+	lineageTag: 395e0920-56b0-45db-8e36-87a6d3a9e4b2
+
+	column faturamento_sigla
+		dataType: string
+		lineageTag: a4291443-bfd6-4038-a8e0-2807816b18f6
+		summarizeBy: none
+		sourceColumn: faturamento_sigla
+
+		annotation SummarizationSetBy = Automatic
+
+	column faturamento_data
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: c35ad6a3-58ca-400c-a407-cc420316afcb
+		summarizeBy: none
+		sourceColumn: faturamento_data
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column faturamento_data_dia
+		dataType: int64
+		formatString: 0
+		lineageTag: a60a1da3-3265-4cd1-a12f-fae59cd9bc3c
+		summarizeBy: sum
+		sourceColumn: faturamento_data_dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column faturamento_data_mes
+		dataType: int64
+		formatString: 0
+		lineageTag: 58c52cd5-2810-460d-aea8-0130a5590590
+		summarizeBy: sum
+		sourceColumn: faturamento_data_mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column faturamento_data_ano
+		dataType: int64
+		formatString: 0
+		lineageTag: ee48044a-38dc-4020-b9d3-892c9f293701
+		summarizeBy: sum
+		sourceColumn: faturamento_data_ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column faturamento_valor
+		dataType: double
+		lineageTag: 4d2a6549-3a00-4b7a-aff8-7a44639c29e9
+		summarizeBy: sum
+		sourceColumn: faturamento_valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column faturamento_nota
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e41f18d-a578-462f-916a-41295c4325e0
+		summarizeBy: sum
+		sourceColumn: faturamento_nota
+
+		annotation SummarizationSetBy = Automatic
+
+	column faturamento_serie
+		dataType: string
+		lineageTag: 6bfdf2ca-8971-4cca-8b92-148a3c410642
+		summarizeBy: none
+		sourceColumn: faturamento_serie
+
+		annotation SummarizationSetBy = Automatic
+
+	column faturamento_item_nota
+		dataType: int64
+		formatString: 0
+		lineageTag: 48b9826e-da5b-4c43-86de-fa62d6d71ef6
+		summarizeBy: sum
+		sourceColumn: faturamento_item_nota
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_estado
+		dataType: string
+		lineageTag: aa7b274a-07f5-4056-a540-cb9feb230407
+		summarizeBy: none
+		sourceColumn: cliente_estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_cidade
+		dataType: string
+		lineageTag: 333fe78a-8a7e-4d98-8057-9fd9071bc046
+		summarizeBy: none
+		sourceColumn: cliente_cidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_zona_venda
+		dataType: string
+		lineageTag: 1d923d6b-ca6d-4021-b8c3-fbddcb8bdbab
+		summarizeBy: none
+		sourceColumn: cliente_zona_venda
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_latitude_municipio
+		dataType: double
+		lineageTag: 7ec5e5ef-d417-40b3-b861-10557934560e
+		summarizeBy: sum
+		sourceColumn: cliente_latitude_municipio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cliente_longitude_municipio
+		dataType: double
+		lineageTag: 8213c982-2b18-4a90-988d-0433ad6c058c
+		summarizeBy: sum
+		sourceColumn: cliente_longitude_municipio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cliente_data_primeira_compra
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 68c3e9d4-9f2b-43e9-9b5a-965362033ff3
+		summarizeBy: none
+		sourceColumn: cliente_data_primeira_compra
+
+		variation Variation
+			isDefault
+			relationship: c5e0d37f-8a64-4631-936d-d0e2e77697dd
+			defaultHierarchy: LocalDateTable_6fbf447d-363c-467b-9128-acb03f75fe60.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column produto_marca
+		dataType: string
+		lineageTag: fea27b0e-801c-4bdc-b584-85cdbdd29aaf
+		summarizeBy: none
+		sourceColumn: produto_marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column produto_grupo
+		dataType: string
+		lineageTag: 5aeaa7de-b55d-4bc4-8330-67d15b97329b
+		summarizeBy: none
+		sourceColumn: produto_grupo
+
+		annotation SummarizationSetBy = Automatic
+
+	column produto_subgrupo
+		dataType: string
+		lineageTag: cf6786b9-6763-434d-9181-c9d49a7860dd
+		summarizeBy: none
+		sourceColumn: produto_subgrupo
+
+		annotation SummarizationSetBy = Automatic
+
+	column faturamento_quantidade
+		dataType: double
+		lineageTag: 1bff326e-2781-4632-9d04-4909a465ce14
+		summarizeBy: sum
+		sourceColumn: faturamento_quantidade
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column faturamento_motivo_perda_venda
+		dataType: string
+		lineageTag: c83513a0-e12e-42d8-84cc-6bb974b58446
+		summarizeBy: none
+		sourceColumn: faturamento_motivo_perda_venda
+
+		annotation SummarizationSetBy = Automatic
+
+	column devolucao_nota_devolvida
+		dataType: int64
+		formatString: 0
+		lineageTag: ed13e57d-2cd0-42cc-af0d-afa38dd3c515
+		summarizeBy: sum
+		sourceColumn: devolucao_nota_devolvida
+
+		annotation SummarizationSetBy = Automatic
+
+	column devolucao_serie_devolvida
+		dataType: string
+		lineageTag: e379a0d9-abb5-48f5-9d75-3a0fb8e5e439
+		summarizeBy: none
+		sourceColumn: devolucao_serie_devolvida
+
+		annotation SummarizationSetBy = Automatic
+
+	column devolvida_data_nota_devolvida
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5ae1ed85-ec37-4ca0-9bc1-ab35b46424d0
+		summarizeBy: none
+		sourceColumn: devolvida_data_nota_devolvida
+
+		variation Variation
+			isDefault
+			relationship: 43c50f43-ab9d-4ede-81b6-3b7b537c5568
+			defaultHierarchy: LocalDateTable_30bf0cab-78b7-48a4-b00d-213ee1bda865.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column devolvida_item_devolvido
+		dataType: int64
+		formatString: 0
+		lineageTag: f47e058d-73ff-4cc1-98d4-01eb918b45d0
+		summarizeBy: sum
+		sourceColumn: devolvida_item_devolvido
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_codigo_nome
+		dataType: string
+		lineageTag: 6f71637b-b38f-4ddd-b157-77b363ec8bb3
+		summarizeBy: none
+		sourceColumn: cliente_codigo_nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_situacao
+		dataType: string
+		lineageTag: 43166b00-bf20-40c6-8494-fc92c6861c17
+		summarizeBy: none
+		sourceColumn: cliente_situacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column representante_codigo_nome
+		dataType: string
+		lineageTag: 13b9f9de-fa49-4eb6-8e42-829b443f2ff3
+		summarizeBy: none
+		sourceColumn: representante_codigo_nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column produto_codigo_nome
+		dataType: string
+		lineageTag: ac14b056-51d1-433b-97b2-48b0061004fc
+		summarizeBy: none
+		sourceColumn: produto_codigo_nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column pedido_posicao_faturamento
+		dataType: int64
+		formatString: 0
+		lineageTag: ac2e57dd-d0e9-4e57-904c-053642609547
+		summarizeBy: sum
+		sourceColumn: pedido_posicao_faturamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column meta_empresa_mensal
+		dataType: double
+		lineageTag: 63b46b0c-30ac-4008-abe4-49396892e852
+		summarizeBy: sum
+		sourceColumn: meta_empresa_mensal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column meta_empresa_diaria
+		dataType: double
+		lineageTag: d77b63a5-a39b-40e6-a5d1-628078fc6feb
+		summarizeBy: sum
+		sourceColumn: meta_empresa_diaria
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column meta_representante_mensal
+		dataType: double
+		lineageTag: 5c052c70-e403-40ea-8185-3597f25acf5c
+		summarizeBy: sum
+		sourceColumn: meta_representante_mensal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column meta_representante_diaria
+		dataType: double
+		lineageTag: 5faf0243-770c-422f-8dbd-b890c875be4d
+		summarizeBy: sum
+		sourceColumn: meta_representante_diaria
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column entidade
+		dataType: string
+		lineageTag: 5d3b2324-c06c-479e-a2d3-da566585da6b
+		summarizeBy: none
+		sourceColumn: entidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column produto_peso
+		dataType: double
+		lineageTag: 039958cd-ce2b-4f39-8b87-01f4a0ffb2f7
+		summarizeBy: sum
+		sourceColumn: produto_peso
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column produto_linha
+		dataType: string
+		lineageTag: b7db8f91-4f5a-4e1c-ac88-34398f1aef54
+		summarizeBy: none
+		sourceColumn: produto_linha
+
+		annotation SummarizationSetBy = Automatic
+
+	column supervisor_representante
+		dataType: string
+		lineageTag: 0a261785-5192-4da3-bb10-92d967680ff2
+		summarizeBy: none
+		sourceColumn: supervisor_representante
+
+		annotation SummarizationSetBy = Automatic
+
+	column gerente_representante
+		dataType: string
+		lineageTag: 07ce9f8b-5936-4001-8742-a6bec5656812
+		summarizeBy: none
+		sourceColumn: gerente_representante
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bi_view_comercial = m
+		mode: import
+		source =
+				let
+				    Fonte = Odbc.DataSource("dsn=homologacao", [HierarchicalNavigation=true]),
+				    datamart_03228_Database = Fonte{[Name="datamart_03405",Kind="Database"]}[Data],
+				    bi_view_comercial_View = datamart_03228_Database{[Name="bi_view_comercial",Kind="View"]}[Data]
+				in
+				    bi_view_comercial_View
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

@@ -1,0 +1,43 @@
+table tabAuxiliar
+	lineageTag: b74e553f-0878-4a82-9b54-1688874a2efc
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 72f6fa3e-ae40-4f1f-b8ad-39e9e51c0f70
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GENERICA 1'
+		dataType: string
+		lineageTag: 50de157e-4ce2-4506-be4f-a43d6c1902e5
+		summarizeBy: none
+		sourceColumn: GENERICA 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GENERICA 2'
+		dataType: string
+		lineageTag: 8c6e5b90-ffc1-47c3-9a6b-4cda477b1c2e
+		summarizeBy: none
+		sourceColumn: GENERICA 2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tabAuxiliar = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\samuel\Desktop\COLUNAS.xlsx"), null, true),
+				    Planilha1_Sheet = Fonte{[Item="Planilha1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Planilha1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ID", Int64.Type}, {"GENERICA 1", type text}, {"GENERICA 2", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

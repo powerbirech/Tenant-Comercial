@@ -1,0 +1,8 @@
+// Escreva sua fórmula abaixo, selecione 'Executar' para experimentar. Quando estiver pronto, selecione 'Atualizar modelo' para adicionar a medida ao seu modelo.
+DEFINE
+	MEASURE 'Medidas'[Nova Medida] = COUNTROWS('Medidas')
+
+EVALUATE
+	SUMMARIZECOLUMNS(
+		"Nova Medida", [Nova Medida]
+	)

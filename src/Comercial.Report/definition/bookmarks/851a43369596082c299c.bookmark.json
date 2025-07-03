@@ -1,0 +1,3682 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "FILTRO COMPARATIVO ON",
+  "name": "851a43369596082c299c",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "ee06bfdde52c7da8bd44",
+      "2d92c454d170d2a2020e",
+      "5cae1adf250b9c6f8595",
+      "aee262c86fc1d66e0259",
+      "aa35ed7b5c82c4369e83",
+      "fe763e14b38592474099",
+      "51e0ea1b1ccb7f7df427",
+      "0203723b0bcc6f2d6cdc",
+      "51156a381a37b429ee77",
+      "67c44a37887ef9a10b4f",
+      "8fe304ab127a16150993",
+      "17bd34f0ee8a593cce61",
+      "8d4da7d7075f4ad228b8",
+      "f3d2bdfda363864d6075",
+      "794a91f9135dc90897bc",
+      "a8e951824b7c49548176",
+      "601bb960bb31d61d4bb1",
+      "27efad44bab930bbcac3",
+      "db18a03266968869bda7",
+      "a1d8d57d9d693a81e8ae",
+      "a9586cf29cb39a2aab50",
+      "5c7c9f6e55e5c56abaae",
+      "bcb209fbd008917dedc4",
+      "6a8d9bbe219e891bf4b1",
+      "8c751830707ccc5ec307",
+      "396897b08208b9040804",
+      "4de4ca43c800000c4829",
+      "5ee1facbbad16c9c7a57",
+      "01f47eaf06aa1662fd59",
+      "ebce8d0ba4b9da96d7f8",
+      "6b9ee37d7e9f21a60059",
+      "e4148cf97e5972438bd8",
+      "72c9c064fbc8d4ee6051",
+      "76a3bd6a8f733d699d13",
+      "74d1b867061366a1aaca",
+      "718d2deed13021e7b495",
+      "5ae1babcad43ed846eb0",
+      "bb9b198f95d44d1a5ae5",
+      "de37be2035fa504e1c0a",
+      "ee75a649944705a4d902",
+      "3f9dc10517e69669ab97",
+      "967157f3b71a9d748ca1",
+      "92d4737da3b0e40f2e86",
+      "e562b491380748b86000",
+      "f7716ee4f7edae79c8a6",
+      "e7ed2326e41f70fa9363",
+      "baf06c54a97d1e9c9153",
+      "f1aa99c08fe3737bb9bd",
+      "d352488dfe4e61032874"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.11",
+    "activeSection": "3647ff40a0852d20b504",
+    "sections": {
+      "3647ff40a0852d20b504": {
+        "visualContainers": {
+          "396897b08208b9040804": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a5c834a7c616ab765b01",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "d",
+                        "Entity": "dCalendario",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "d"
+                                        }
+                                      },
+                                      "Property": "NomeMes"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dCalendario"
+                        }
+                      },
+                      "Property": "NomeMes"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e3e317d6030c0790ee48",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Receita A Gerais Sem Formatacao"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "16e7632cd0871a24b1d5",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Receita B Gerais Sem Formatacao"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "195789be83cb53209509",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Rotulo Meta % 3"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineClusteredColumnComboChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dCalendario"
+                        }
+                      },
+                      "Property": "NomeMes"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "bcb209fbd008917dedc4": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d1ab1ab0a6d297254582",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dCalendario"
+                        }
+                      },
+                      "Property": "Mes"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "e9cb34000a2cb6002d65",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Total Geral"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Total Geral"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Total Geral"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "4b0d6321304148d4d80d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Receita A Gerais"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2e6b7db5b2cd684e75d9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Receita B Gerais"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4ebe5e550054a1ee93e0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Variacao A vs B"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "fd584be88b5cbe129a00",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "representante_codigo_nome"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Variacao A vs B"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "representante_codigo_nome"
+                    }
+                  }
+                ]
+              },
+              "projections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "representante_codigo_nome"
+                    }
+                  }
+                ],
+                "Values": [
+                  {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Receita A Gerais"
+                    }
+                  },
+                  {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Variacao A vs B"
+                    }
+                  },
+                  {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Receita B Gerais"
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "Rows": [
+                  {
+                    "expr": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Parâmetro Cadastro Geral"
+                          }
+                        },
+                        "Property": "Parâmetro Geral"
+                      }
+                    },
+                    "index": 0,
+                    "length": 1
+                  }
+                ]
+              }
+            }
+          },
+          "a1d8d57d9d693a81e8ae": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "b14a2525c81c21069e14",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "l",
+                        "Entity": "LocalDateTable_36c53bb3-7506-4e6f-b7e6-cc5df6df0cb0",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "l"
+                                        }
+                                      },
+                                      "Property": "Ano"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Periodo B"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Hierarquia de datas"
+                        }
+                      },
+                      "Level": "Ano"
+                    }
+                  },
+                  "howCreated": 0,
+                  "cachedDisplayNames": [
+                    {
+                      "id": {
+                        "scopeId": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "LocalDateTable_36c53bb3-7506-4e6f-b7e6-cc5df6df0cb0"
+                                  }
+                                },
+                                "Property": "Ano"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "null"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "displayName": "(Em branco)"
+                    }
+                  ]
+                },
+                {
+                  "name": "c33c6b05195eca0bd7d0",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Periodo B"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Hierarquia de datas"
+                        }
+                      },
+                      "Level": "Mês"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "l",
+                                "Entity": "LocalDateTable_36c53bb3-7506-4e6f-b7e6-cc5df6df0cb0",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "l"
+                                            }
+                                          },
+                                          "Property": "Ano"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "2025L"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Periodo B"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Hierarquia de datas"
+                        }
+                      },
+                      "Level": "Ano"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Periodo B"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Hierarquia de datas"
+                        }
+                      },
+                      "Level": "Ano"
+                    }
+                  }
+                ]
+              },
+              "cachedFilterDisplayItems": [
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "LocalDateTable_36c53bb3-7506-4e6f-b7e6-cc5df6df0cb0"
+                              }
+                            },
+                            "Property": "Ano"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "2025L"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "2025"
+                }
+              ]
+            }
+          },
+          "601bb960bb31d61d4bb1": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "cf34ba0e339dc7082ec6",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "l",
+                        "Entity": "LocalDateTable_8d4c4b56-5ae5-4090-9e5f-1aa635382cfa",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "l"
+                                        }
+                                      },
+                                      "Property": "Ano"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "null"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Periodo A"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "howCreated": 1,
+                  "cachedDisplayNames": [
+                    {
+                      "id": {
+                        "scopeId": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Entity": "LocalDateTable_8d4c4b56-5ae5-4090-9e5f-1aa635382cfa"
+                                  }
+                                },
+                                "Property": "Ano"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "null"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "displayName": "(Em branco)"
+                    }
+                  ]
+                },
+                {
+                  "name": "b8063ef0ed9354093784",
+                  "type": "Advanced",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Periodo A"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Hierarquia de datas"
+                        }
+                      },
+                      "Level": "Ano"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1ce519e354133e75a403",
+                  "type": "Categorical",
+                  "expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Periodo A"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Hierarquia de datas"
+                        }
+                      },
+                      "Level": "Mês"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "l",
+                                "Entity": "LocalDateTable_8d4c4b56-5ae5-4090-9e5f-1aa635382cfa",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "l"
+                                            }
+                                          },
+                                          "Property": "Ano"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "2024L"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Periodo A"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Hierarquia de datas"
+                        }
+                      },
+                      "Level": "Ano"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "HierarchyLevel": {
+                      "Expression": {
+                        "Hierarchy": {
+                          "Expression": {
+                            "PropertyVariationSource": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "Periodo A"
+                                }
+                              },
+                              "Name": "Variation",
+                              "Property": "Date"
+                            }
+                          },
+                          "Hierarchy": "Hierarquia de datas"
+                        }
+                      },
+                      "Level": "Ano"
+                    }
+                  }
+                ]
+              },
+              "cachedFilterDisplayItems": [
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "LocalDateTable_8d4c4b56-5ae5-4090-9e5f-1aa635382cfa"
+                              }
+                            },
+                            "Property": "Ano"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "2024L"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "2024"
+                }
+              ]
+            }
+          },
+          "27efad44bab930bbcac3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "dbe897ea745004e6cca3",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Parâmetro"
+                        }
+                      },
+                      "Property": "Parâmetro"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "p",
+                                "Entity": "Parâmetro",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "p"
+                                            }
+                                          },
+                                          "Property": "Parâmetro Campos"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'''Medidas''[Faturamento Liquido]'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Parâmetro"
+                        }
+                      },
+                      "Property": "Parâmetro"
+                    }
+                  }
+                ]
+              },
+              "cachedFilterDisplayItems": [
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Parâmetro"
+                              }
+                            },
+                            "Property": "Parâmetro Campos"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'''Medidas''[Faturamento Liquido]'"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "Faturamento Liquido"
+                }
+              ]
+            }
+          },
+          "8c751830707ccc5ec307": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d1ab1ab0a6d297254582",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dCalendario"
+                        }
+                      },
+                      "Property": "Mes"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "50f23c3627d030921081",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Total Geral"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Total Geral"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Total Geral"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "4c3c52a72069920a77d9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Receita A Gerais"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e89a9eb63bb587095154",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Receita B Gerais"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a9f6626cc0b370d7ceee",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Variacao A vs B"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0c7f70fbb7c424072777",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "cliente_codigo_nome"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Variacao A vs B"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "cliente_codigo_nome"
+                    }
+                  }
+                ]
+              },
+              "projections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "cliente_codigo_nome"
+                    }
+                  }
+                ],
+                "Values": [
+                  {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Receita A Gerais"
+                    }
+                  },
+                  {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Variacao A vs B"
+                    }
+                  },
+                  {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Receita B Gerais"
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "Rows": [
+                  {
+                    "expr": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Parâmetro Cadastro Geral"
+                          }
+                        },
+                        "Property": "Parâmetro Geral"
+                      }
+                    },
+                    "index": 0,
+                    "length": 1
+                  }
+                ]
+              }
+            }
+          },
+          "4de4ca43c800000c4829": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "a9586cf29cb39a2aab50": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "fe763e14b38592474099": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "51e0ea1b1ccb7f7df427": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "0203723b0bcc6f2d6cdc": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "51156a381a37b429ee77": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "67c44a37887ef9a10b4f": {
+            "singleVisual": {
+              "visualType": "pageNavigator",
+              "objects": {}
+            }
+          },
+          "8fe304ab127a16150993": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "17bd34f0ee8a593cce61": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "8d4da7d7075f4ad228b8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2bab5a850e0be040db6e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Faturamento Liquido"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "d7ec0f10910e7d26b62d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "faturamento_sigla"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "faturamento_sigla"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "794a91f9135dc90897bc": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "a8e951824b7c49548176": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7a1ddd7200962a029022",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Atualização Completa"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "card",
+              "objects": {}
+            }
+          },
+          "db18a03266968869bda7": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "6a8d9bbe219e891bf4b1": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "cc113fc4db26659e0697",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Parâmetro Cadastro Geral"
+                        }
+                      },
+                      "Property": "Parâmetro Geral"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "p",
+                                "Entity": "Parâmetro Cadastro Geral",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "p"
+                                            }
+                                          },
+                                          "Property": "Parâmetro Geral Campos"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'''bi_view_comercial''[cliente_codigo_nome]'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Parâmetro Cadastro Geral"
+                        }
+                      },
+                      "Property": "Parâmetro Geral"
+                    }
+                  }
+                ]
+              },
+              "cachedFilterDisplayItems": [
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Parâmetro Cadastro Geral"
+                              }
+                            },
+                            "Property": "Parâmetro Geral Campos"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'''bi_view_comercial''[cliente_codigo_nome]'"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "Cliente"
+                }
+              ]
+            }
+          },
+          "5c7c9f6e55e5c56abaae": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a4dccec3bc79c9a786e2",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Parâmetro Cadastro Geral"
+                        }
+                      },
+                      "Property": "Parâmetro Geral"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "p",
+                                "Entity": "Parâmetro Cadastro Geral",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "p"
+                                            }
+                                          },
+                                          "Property": "Parâmetro Geral Campos"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "'''bi_view_comercial''[representante_codigo_nome]'"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "true"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Parâmetro Cadastro Geral"
+                        }
+                      },
+                      "Property": "Parâmetro Geral"
+                    }
+                  }
+                ]
+              },
+              "cachedFilterDisplayItems": [
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Parâmetro Cadastro Geral"
+                              }
+                            },
+                            "Property": "Parâmetro Geral Campos"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "'''bi_view_comercial''[representante_codigo_nome]'"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "Representante"
+                }
+              ]
+            }
+          },
+          "ee06bfdde52c7da8bd44": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "01f47eaf06aa1662fd59": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "ebce8d0ba4b9da96d7f8": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "6b9ee37d7e9f21a60059": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "72c9c064fbc8d4ee6051": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2bab5a850e0be040db6e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Faturamento Liquido"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "044e40c44ed839cc5302",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "cliente_zona_venda"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "cliente_zona_venda"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "76a3bd6a8f733d699d13": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2bab5a850e0be040db6e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Faturamento Liquido"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "fe4159eb4059cc39766d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "cliente_estado"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "cliente_estado"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "74d1b867061366a1aaca": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2bab5a850e0be040db6e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Faturamento Liquido"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "08d07898e2ec433e0cda",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "cliente_cidade"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "cliente_cidade"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "718d2deed13021e7b495": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2bab5a850e0be040db6e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Faturamento Liquido"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "52858b70450c44341aa5",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "cliente_codigo_nome"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "cliente_codigo_nome"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "bb9b198f95d44d1a5ae5": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2bab5a850e0be040db6e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Faturamento Liquido"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "05c4acd6228a8a8d0c94",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "produto_linha"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "produto_linha"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "de37be2035fa504e1c0a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2bab5a850e0be040db6e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Faturamento Liquido"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "02659a6c71a6a55ada28",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "produto_subgrupo"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "produto_subgrupo"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ee75a649944705a4d902": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2bab5a850e0be040db6e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Faturamento Liquido"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "0ec6deb6687064331721",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "produto_grupo"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "produto_grupo"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "3f9dc10517e69669ab97": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2bab5a850e0be040db6e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Faturamento Liquido"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "9e9e32ffd8080e8cb4d6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "produto_marca"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "produto_marca"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "967157f3b71a9d748ca1": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2bab5a850e0be040db6e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Faturamento Liquido"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "96d64739c89ec53e0a30",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "produto_codigo_nome"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "produto_codigo_nome"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "92d4737da3b0e40f2e86": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "f7716ee4f7edae79c8a6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2bab5a850e0be040db6e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Faturamento Liquido"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "9818e1248718b65b6946",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "representante_codigo_nome"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "representante_codigo_nome"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "e7ed2326e41f70fa9363": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2bab5a850e0be040db6e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Faturamento Liquido"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "7dd1e57166d74629d847",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "representante_codigo_nome"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "representante_codigo_nome"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "baf06c54a97d1e9c9153": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2bab5a850e0be040db6e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "m",
+                        "Entity": "Medidas",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Comparison": {
+                                "ComparisonKind": 1,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Comparison": {
+                                "ComparisonKind": 3,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "m"
+                                      }
+                                    },
+                                    "Property": "Faturamento Liquido"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "0L"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Faturamento Liquido"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "406b1d3fd429413da100",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "representante_codigo_nome"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "selection": [
+                    {
+                      "properties": {
+                        "strictSingleSelect": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "false"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "bi_view_comercial"
+                        }
+                      },
+                      "Property": "representante_codigo_nome"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "f1aa99c08fe3737bb9bd": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "d352488dfe4e61032874": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "2d92c454d170d2a2020e": {
+            "isHidden": false
+          },
+          "aee262c86fc1d66e0259": {
+            "isHidden": false,
+            "children": {
+              "5ee1facbbad16c9c7a57": {
+                "isHidden": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

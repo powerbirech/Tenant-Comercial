@@ -1,0 +1,113 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "d1198c5171343fb70480",
+  "displayName": "Comparativo Sem Venda",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": -0.1
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "100D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": -0.1
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "65D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "44fac947436b92f448aa",
+      "target": "9b362425926cf65c5442",
+      "type": "NoFilter"
+    },
+    {
+      "source": "44fac947436b92f448aa",
+      "target": "3264733b9da6c83f3d5a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "9b362425926cf65c5442",
+      "target": "44fac947436b92f448aa",
+      "type": "NoFilter"
+    },
+    {
+      "source": "9b362425926cf65c5442",
+      "target": "3264733b9da6c83f3d5a",
+      "type": "NoFilter"
+    },
+    {
+      "source": "125184f4ac561504af76",
+      "target": "66b0afe55e1bcd4f32b4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "125184f4ac561504af76",
+      "target": "7f2dec97ab9e4c6cee74",
+      "type": "NoFilter"
+    },
+    {
+      "source": "125184f4ac561504af76",
+      "target": "198d0d2ce51839202828",
+      "type": "NoFilter"
+    },
+    {
+      "source": "198d0d2ce51839202828",
+      "target": "6439211849a830703b4b",
+      "type": "NoFilter"
+    },
+    {
+      "source": "198d0d2ce51839202828",
+      "target": "125184f4ac561504af76",
+      "type": "NoFilter"
+    },
+    {
+      "source": "198d0d2ce51839202828",
+      "target": "66b0afe55e1bcd4f32b4",
+      "type": "NoFilter"
+    }
+  ]
+}

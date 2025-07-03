@@ -1,0 +1,49 @@
+table 'Parâmetro Cadastro Geral'
+	lineageTag: 484d1602-d065-4db8-8d19-8d8a4b95335e
+
+	column 'Parâmetro Geral'
+		lineageTag: e7d8872b-2b97-4130-8aaa-748890f3ad31
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Geral Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Geral Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Geral Campos'
+		isHidden
+		lineageTag: 06a6e52f-4fe0-43cb-9532-01f5815fc8da
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Geral Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Geral Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 3d8fc99e-3e92-4e20-bcdf-ecdc576f10ac
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Cadastro Geral' = calculated
+		mode: import
+		source =
+				{
+				    ("Representante", NAMEOF('bi_view_comercial'[representante_codigo_nome]), 0),
+				    ("Produto", NAMEOF('bi_view_comercial'[produto_codigo_nome]), 1),
+				    ("Cliente", NAMEOF('bi_view_comercial'[cliente_codigo_nome]), 2)
+				}
+
+	annotation PBI_Id = 79c72ac6847f4750a5fad75757be94fc
+

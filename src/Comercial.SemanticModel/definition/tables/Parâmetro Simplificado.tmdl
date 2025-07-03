@@ -1,0 +1,50 @@
+table 'Parâmetro Simplificado'
+	lineageTag: 57e9ea9f-2a36-4522-bb7b-e60f1fca3e92
+
+	column Parâmetro
+		lineageTag: 5c9e14e7-7136-4522-bd62-2bce99b6e7c5
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parâmetro Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'Parâmetro Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Campos'
+		isHidden
+		lineageTag: 803ee1c9-e89f-4c9f-8395-56c72ee33fd1
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parâmetro Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parâmetro Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: a29a8938-0313-4ec5-a46a-1cde949fcceb
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Parâmetro Simplificado' = calculated
+		mode: import
+		source =
+				{
+				    ("Faturamento", NAMEOF('Medidas'[Faturamento Liquido]), 0),
+				    ("Pedidos", NAMEOF('Medidas'[Pedidos]), 1),
+				    ("Pedidos em aberto", NAMEOF('Medidas'[Pedidos Em Aberto]), 2),
+				    ("Faturamento + Pedidos em aberto", NAMEOF('Medidas'[Faturamento + Pedidos Em Aberto]), 3)
+				}
+
+	annotation PBI_Id = e5ae695ae9384457ad324077c74fb194
+

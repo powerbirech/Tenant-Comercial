@@ -1,4 +1,11 @@
 {
   "version": "1.0.0",
-  "tabOrder": []
+  "tabOrder": [
+    "Consulta 1",
+    "Consulta 2",
+    "Consulta 3",
+    "Consulta 4",
+    "Consulta 5"
+  ],
+  "defaultTab": "Consulta 5"
 }

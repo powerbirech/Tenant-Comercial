@@ -1,0 +1,97 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "e8eb2e15a942077c1b11",
+  "displayName": "Detalhamento",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": -0.1
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "100D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": -0.1
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "65D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "51c160877e285eed0072",
+      "target": "a5b32e30b8016158cbc0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a5b32e30b8016158cbc0",
+      "target": "35a76e5d99a06caf875e",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a5b32e30b8016158cbc0",
+      "target": "bbde51474a429f4b0a15",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a5b32e30b8016158cbc0",
+      "target": "5cfd1b8004a450e43e57",
+      "type": "NoFilter"
+    },
+    {
+      "source": "51c160877e285eed0072",
+      "target": "5cfd1b8004a450e43e57",
+      "type": "NoFilter"
+    },
+    {
+      "source": "51c160877e285eed0072",
+      "target": "bbde51474a429f4b0a15",
+      "type": "NoFilter"
+    },
+    {
+      "source": "51c160877e285eed0072",
+      "target": "35a76e5d99a06caf875e",
+      "type": "NoFilter"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "8b5ec379556e569cfc35",
+  "position": {
+    "x": 34.670966181395727,
+    "y": 70.072992700729927,
+    "z": 5000,
+    "height": 331.92130929357205,
+    "width": 300.65454749794361,
+    "tabOrder": 1000
+  },
+  "visualGroup": {
+    "displayName": "Filtros Clientes",
+    "groupMode": "ScaleMode"
+  },
+  "parentGroupName": "7f12de9fd43b98b14112"
+}
