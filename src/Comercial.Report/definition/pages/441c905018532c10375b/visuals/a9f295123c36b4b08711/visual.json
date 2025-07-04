@@ -151,5 +151,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "f357afd8a7ebd38076b5"
+  "parentGroupName": "f357afd8a7ebd38076b5",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ef3001d42b83b36c2794",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento Bruto"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

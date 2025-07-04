@@ -1058,6 +1058,48 @@
             }
           ]
         }
+      },
+      {
+        "name": "b78d5ff20e58a95a9c64",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Receita A Gerais Sem Formatacao"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "97de9124b62de0002d08",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Receita B Gerais Sem Formatacao"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d0ea9f957d173cc300dd",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Rotulo Meta % 3"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

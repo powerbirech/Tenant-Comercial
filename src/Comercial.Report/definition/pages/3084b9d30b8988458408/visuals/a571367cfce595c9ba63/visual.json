@@ -864,6 +864,48 @@
         },
         "howCreated": "User",
         "isLockedInViewMode": true
+      },
+      {
+        "name": "0c33fad7e83783531d85",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Clientes Reativados - CC"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5973e15082c49405cd2c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Clientes Novos - CC"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4de970e0e653988da710",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Clientes Recorrentes"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

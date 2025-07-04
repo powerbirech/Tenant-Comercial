@@ -721,7 +721,7 @@
         }
       },
       {
-        "name": "713065307a0c177bb19a",
+        "name": "c3945dcf330b92091d7b",
         "field": {
           "Measure": {
             "Expression": {
@@ -734,6 +734,68 @@
         },
         "type": "Advanced",
         "howCreated": "User"
+      },
+      {
+        "name": "bdb7def0628744059204",
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Medidas"
+                  }
+                },
+                "Property": "Valor Selecionado"
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Medidas"
+                      }
+                    },
+                    "Property": "Valor Selecionado"
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "038d7edec917e008aa49",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento Liquido"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "010fd8043374bb3b470d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "bi_view_comercial"
+              }
+            },
+            "Property": "representante_codigo_nome"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

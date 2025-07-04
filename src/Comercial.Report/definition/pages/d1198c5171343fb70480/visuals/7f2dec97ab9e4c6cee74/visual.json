@@ -515,6 +515,48 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "f5d0e551bd2b92d2c07c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Sem Venda A"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d18dbd97bbd7976ed041",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Sem Venda B"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7d441180cc9eb7a13081",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "bi_view_comercial"
+              }
+            },
+            "Property": "cliente_codigo_nome"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

@@ -885,7 +885,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "66a2a5c93500d0089b09",
+        "name": "2b53341726600c6c875d",
         "field": {
           "Column": {
             "Expression": {
@@ -1008,6 +1008,34 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "77ba84d028e6d32bcd02",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Preço Médio Parametro"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3d9a11f8953da370d2b0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento Liquido"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

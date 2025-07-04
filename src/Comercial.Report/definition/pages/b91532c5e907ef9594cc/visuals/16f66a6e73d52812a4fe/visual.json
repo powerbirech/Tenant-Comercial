@@ -1110,6 +1110,166 @@
             }
           ]
         }
+      },
+      {
+        "name": "49f075ac193de22d91c0",
+        "field": {
+          "Arithmetic": {
+            "Left": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Medidas"
+                  }
+                },
+                "Property": "Valor Selecionado"
+              }
+            },
+            "Right": {
+              "ScopedEval": {
+                "Expression": {
+                  "Measure": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Medidas"
+                      }
+                    },
+                    "Property": "Valor Selecionado"
+                  }
+                },
+                "Scope": []
+              }
+            },
+            "Operator": 3
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "01efe144841cd16930c1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Quantidade Itens Parametro"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "55582d353b3b96960b7a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Preço Médio Parametro"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4a6aa409682406ba9181",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Positivação por Parâmetro"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "06bae4ceb8747a004b75",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Devolucões"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8bce9553a24ac213700d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "bi_view_comercial"
+              }
+            },
+            "Property": "produto_grupo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1220dd3c1357c29a1553",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "bi_view_comercial"
+              }
+            },
+            "Property": "produto_codigo_nome"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f8c2c603ce7cd3b09c0b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "bi_view_comercial"
+              }
+            },
+            "Property": "produto_subgrupo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c8485d29106c31911bd8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "bi_view_comercial"
+              }
+            },
+            "Property": "produto_marca"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "552b049e8de767de07a9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Faturamento Liquido"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

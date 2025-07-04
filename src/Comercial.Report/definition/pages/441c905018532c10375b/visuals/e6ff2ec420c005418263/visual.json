@@ -133,5 +133,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "f357afd8a7ebd38076b5"
+  "parentGroupName": "f357afd8a7ebd38076b5",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "da3cde29bb22a8044cc5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Ticker Médio por Parâmetro"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }

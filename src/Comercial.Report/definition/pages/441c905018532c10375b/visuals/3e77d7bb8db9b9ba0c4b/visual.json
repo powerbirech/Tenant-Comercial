@@ -151,5 +151,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "f357afd8a7ebd38076b5"
+  "parentGroupName": "f357afd8a7ebd38076b5",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8733ff2a11340a346e48",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Qtd Documentos por Parâmetro"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
 }
