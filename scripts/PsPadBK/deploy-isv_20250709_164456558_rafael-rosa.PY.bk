@@ -55,32 +55,26 @@ for key, value in config_environments:
 
     spn_client_id, spn_client_secret, spn_tenant_id = spn_secret_raw.split('|', 2)
 
-    print(f"🔎 SPN Client ID usado: {spn_client_id}")
-
     os.environ["FABRIC_CLIENT_ID"] = spn_client_id
     os.environ["FABRIC_CLIENT_SECRET"] = spn_client_secret
     os.environ["FABRIC_TENANT_ID"] = spn_tenant_id
 
     fab_authenticate_spn()
 
-    print("📂 Criando/verificando workspace:", workspace_name)
     create_workspace(workspace_name=workspace_name, capacity_name=capacity_name, upns=admin_upns)
 
     # Deploy semantic model
-    print("📦 Fazendo deploy do modelo semântico")
     semanticmodel_id = deploy_item(
         "src/Comercial.SemanticModel",
         workspace_name=workspace_name,
         find_and_replace={
-            (r".*\\.tmdl", r'Odbc\\.DataSource\\("dsn=.*?"'): f'Odbc.DataSource("{connection_string}"',
-            (r".*\\.tmdl", r'(\[Name=")(.*?)",Kind="Database"\]'): rf'\1{database}",Kind="Database"]',
+            (r".*\.tmdl", r'Odbc\.DataSource\("dsn=.*?"'): f'Odbc.DataSource("{connection_string}"',
+            (r".*\.tmdl", r'(\[Name=")(.*?)",Kind="Database"\]'): rf'\1{database}",Kind="Database"]',
         },
     )
-    print(f"🆔 Dataset ID implantado: {semanticmodel_id}")
 
     # Deploy reports
     for report_path in glob.glob("src/*.Report"):
-        print(f"📊 Fazendo deploy do relatório: {report_path}")
         deploy_item(
             report_path,
             workspace_name=workspace_name,
@@ -102,7 +96,6 @@ for key, value in config_environments:
         )
 
     # Pós-deploy
-    print("✅ Pós-deploy: tomando controle, vinculando gateway e agendando...")
     take_ownership(workspace_name, semanticmodel_id)
     bind_to_gateway(workspace_name, semanticmodel_id, gateway_name)
     schedule_refresh(workspace_name, semanticmodel_id, dias, horarios)
