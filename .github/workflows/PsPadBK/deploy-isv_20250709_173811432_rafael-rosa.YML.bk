@@ -167,7 +167,7 @@ jobs:
           - TENANT_149
           - TENANT_150
 
-    steps:
+     steps:
       - name: Check out the code
         uses: actions/checkout@v4
 
